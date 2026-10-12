@@ -82,3 +82,12 @@ yet appeared. The console's left/bottom edges are outside the camera framing;
 the exact stop message still needs a legible physical capture. Do not infer a
 desktop boot pass from the console alone. Photographs and command logs are
 saved under ignored `private/bootstrap/`.
+
+The user repositioned the Odin and new captures include the whole console.
+Focus/exposure adjustments were tried, but the failure text remains too soft
+to transcribe reliably. There are visible Linux console messages and no USB
+ECM device. The next step is the verified RAM bootstrap (header v0, digest
+`129125049bba685380ced3c186c2f75eb8942954c7f09c9b18646f1875d1a259`),
+which starts USB diagnostics without depending on the installed system's
+mounts or desktop services. Read the installed boot logs there before choosing
+a repair. Do not report an inferred mount error as a confirmed diagnosis.
