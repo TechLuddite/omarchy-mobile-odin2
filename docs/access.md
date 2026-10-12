@@ -1,17 +1,21 @@
 # Account setup and maintenance
 
 The native desktop user is `techluddite`, with ordinary password-protected wheel
-sudo. The builder used a generated setup password held in the ignored local
-`private/native-user-password` file. No password belongs in Git or public notes.
-The user wants to choose a replacement directly on the Odin. This was deferred
-when they left to rest; do not assume a replacement has been entered.
+sudo. The builder initially used a generated setup password. On October 12,
+the user requested a specific temporary replacement until better device input
+is available. It was applied to `techluddite` through root Wi-Fi maintenance and
+verified against the resulting account hash. The ignored local
+`private/native-user-password` file now reflects that requested temporary
+password. No password or account hash belongs in Git or public notes. The user
+plans to replace it directly on the Odin later; that later change has not occurred.
 
 For the later change, open a visible terminal on the user's Wayland session and
 run `passwd techluddite` as root over the authorized maintenance connection.
 This lets the user enter the new password twice with the OSK, without needing
 the old password. Do not capture the password window, ask for the password in
 chat, or save the new password on the host. The builder's initial-password file
-ceases to describe the live account after that change.
+ceases to describe the live account after that later on-device change. SSH remains
+key-only; changing the desktop password does not enable SSH password login.
 
 The initial bring-up used `native/usb-maintenance-ssh.conf` to permit root key login only
 for source `192.168.77.1` and local endpoint `192.168.77.2`. The existing private
