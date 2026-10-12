@@ -150,7 +150,8 @@
       "url": "https://github.com/linux-msm/qbootctl",
       "ref": "39a6e6daaf029fb0a083777679a15ea2c18f72de",
       "local_path": "references/qbootctl",
-      "scope": "Qualcomm GPT A/B success handling research; not yet deployed"
+      "scope": "Unchanged ARM binary deployed; validated native slot A marked successful; both GPT copies CRC-checked and allowed changes verified on all six LUNs",
+      "artifact_sha256": "c8781410e4514d3f86c385944e28e3ee72396f85f4e688a46677ef41a3437b27"
     },
     {
       "name": "aosp-avbtool",
@@ -159,6 +160,19 @@
       "local_path": "tools/avbtool.py",
       "sha256": "e5a664a38db623da00f080219bc0ee60a640a9dc4a872803616fae4938ac749b",
       "scope": "upstream avbtool 1.3.0; empty native slot-A verification metadata recovery"
+    },
+    {
+      "name": "omarchy",
+      "url": "https://github.com/basecamp/omarchy",
+      "ref": "0534987009061cbe2dacdde4ad564092ab698d12",
+      "version": "v4.0.3",
+      "scope": "Installed desktop source, with pinned omarchy-mobile patches and Portal configuration"
+    },
+    {
+      "name": "menci-archlinuxarm-base",
+      "url": "https://github.com/Menci/docker-archlinuxarm",
+      "image": "menci/archlinuxarm@sha256:f7c6f64c0f246f41775e01793340c49f8e9abf3991141c25405361d56b100ccb",
+      "scope": "Immutable ARM64 container base used by native/Dockerfile to assemble the installed userspace"
     }
   ]
 }

@@ -8,6 +8,7 @@ Requires dosfstools and mtools on the host. This program only creates a file.
 import hashlib
 import json
 from pathlib import Path
+import struct
 import subprocess
 import tempfile
 
@@ -31,7 +32,13 @@ def main():
     image = BUILD / "portal-esp-recovery.img"
     with image.open("wb") as output:
         output.truncate(512 * 1024**2)
-    subprocess.run(["mkfs.vfat", "-F", "32", "-n", "OMARCHYBOOT", str(image)], check=True)
+    # UFS exposes 4096-byte logical sectors. A host-file mkfs default of 512
+    # creates a FAT image Linux refuses to mount on this physical device.
+    subprocess.run(["mkfs.vfat", "-S", "4096", "-F", "32", "-n", "OMARCHYBOOT", str(image)], check=True)
+    with image.open("rb") as source:
+        header = source.read(512)
+    if struct.unpack_from("<H", header, 11)[0] != 4096:
+        raise SystemExit("FAT logical sector size must match Portal UFS: 4096")
     for file, (source, expected) in FILES.items():
         subprocess.run(["mcopy", "-i", str(image), str(BUILD / source), f"::{file}"], check=True)
     with tempfile.TemporaryDirectory(dir=BUILD) as temp:
@@ -43,6 +50,7 @@ def main():
     result = {
         "file": image.name, "bytes": image.stat().st_size, "sha256": sha(image),
         "target_partition": "OMARCHY_BOOT", "target_bytes": 512 * 1024**2,
+        "logical_sector_bytes": 4096,
         "file_readbacks": {name: value[1] for name, value in FILES.items()},
         "scope": "ESP files only; root and GPT excluded",
     }

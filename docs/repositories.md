@@ -5,6 +5,12 @@ whole device port. External forks do not replace the notes here. Keep rationale,
 source revisions, installation steps, checks, failures and remaining hardware
 gaps in this project; keep raw device evidence under its ignored `private/`.
 
+The main public repository is [TechLuddite/omarchy-mobile-odin2](https://github.com/TechLuddite/omarchy-mobile-odin2),
+branch `main`. The session working directory remains `/srv/projects/odin2-omarchy`.
+Clone with `--recurse-submodules` to obtain the mapper checkout at its recorded
+revision. The main repo owns the device port, recovery tools, hardware status
+and project-wide credits; the mapper keeps its separately published fork.
+
 ## Touch-focused gamepad mapper
 
 - Public fork: [TechLuddite/omarchy-gamepad-mapping](https://github.com/TechLuddite/omarchy-gamepad-mapping).

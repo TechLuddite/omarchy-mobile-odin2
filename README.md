@@ -1,13 +1,36 @@
-# Native Omarchy on AYN Odin 2 Portal
+# Omarchy Mobile Odin2
 
-Built on David Heinemeier Hansson's Omarchy, Simon Schubert's mobile Omarchy work,
-ROCKNIX's native hardware support, and many other contributors. See the early
-[credits ledger](CREDITS.md) and [repository tracking](docs/repositories.md).
+Native Omarchy bring-up for the **AYN Odin 2 Portal**, on internal UFS storage.
 
-Current session status: the later reboot exposed a boot-chain failure. The
-microphone candidate has been removed from the ESP, and corrected slot-A AVB
-metadata lets fastboot accept the proven image again. A running desktop/USB
-connection after that recovery is still unconfirmed. See the [recovery record](docs/boot-recovery.md).
+This project builds on the work of the following people and projects:
+
+- **David Heinemeier Hansson and Omarchy contributors** — [Omarchy](https://github.com/basecamp/omarchy): the desktop, shell, themes, bindings and dictation integration.
+- **Simon Schubert and contributors** — [omarchy-mobile](https://github.com/SimonSchubert/omarchy-mobile), [moarchy](https://github.com/SimonSchubert/moarchy) and [moarchy-keyboard](https://github.com/SimonSchubert/moarchy-keyboard): ARM userspace, mobile shell, touch interaction and on-screen keyboard.
+- **ROCKNIX contributors** — [ROCKNIX](https://github.com/ROCKNIX/distribution) and [ROCKNIX ABL](https://github.com/ROCKNIX/abl): the running kernel, Portal device tree, firmware/modules and Linux bootloader.
+- **Shuuri Labs and contributors** — [Pocknix](https://github.com/shuuri-labs/pocknix-os): related handheld integration, hardware recipes, audio and power research.
+- **Teguh Sobirin, Philippe Simons, Luke Johnson and fellow handheld kernel contributors** — Portal board/peripheral work, RSInput support and WCD microphone research; **AYN contributors** — [AYN ALSA UCM](https://github.com/AYNTechnologies/alsa-ucm-conf): the codec and speaker/headphone/headset routes.
+- **Parminder Klair** — [Controller Control](https://github.com/perminder-klair/omarchy-controller-control): the evdev/uinput mapper engine and original editor/tests, adapted in [our touch-focused fork](https://github.com/TechLuddite/omarchy-gamepad-mapping).
+- **Peter Jackson and Voxtype contributors** — [Voxtype](https://github.com/peteonrails/voxtype): the native ARM64 dictation engine, model setup and service.
+- **Tyler South and Omakade contributors** — [Omakade](https://github.com/btsouth/omakade): the native game-library application and signed ARM repository.
+- **bkerler and EDL contributors** — [edl](https://github.com/bkerler/edl); **Renegade contributors** — [Renegade Project](https://renegade-project.tech/): device recovery and earlier native Odin installation work.
+- **Armbian and Armada contributors** — [Armbian](https://github.com/armbian/build), [Armada](https://github.com/armada-os/armada): related Odin boot-image, installation and hardware integration prior art.
+- **Caleb Connolly, The Linux Foundation and linux-msm contributors** — [qbootctl](https://github.com/linux-msm/qbootctl); **Linaro and Collabora contributors** — Qualcomm boot-success and loader recovery research; **Android Open Source Project contributors** — [AVB](https://android.googlesource.com/platform/external/avb/): boot verification tooling.
+- **Menci and contributors** — [docker-archlinuxarm](https://github.com/Menci/docker-archlinuxarm): the pinned ARM base image; **Docker and QEMU contributors** — host build tooling.
+- **Linux/V4L2, Arch Linux ARM, Mesa/Freedreno/Turnip, ALSA, PipeWire/WirePlumber, Hyprland, Quickshell, Qt, GTK/PyGObject, FFmpeg, BusyBox, OpenSSH, dosfstools and mtools contributors** — the kernel, distribution, graphics, audio, desktop, recovery and verification foundations.
+- **TechLuddite** — [SeeFix](https://github.com/TechLuddite/SeeFix): the evidence-driven verification workflow; this project supplies the Portal installation/recovery process and integration.
+
+The [full credits ledger](CREDITS.md), [source revisions](sources.json) and
+[repository tracking](docs/repositories.md) record contributions and provenance.
+Keep upstream copyright and license notices with reused code. Hardware research
+leads listed here are credited without claiming they all pass on this device.
+
+Current checkpoint: the installed native desktop boots again from internal UFS.
+The confirmed AVB and FAT-sector recovery issues are corrected; `/boot` mounts,
+USB SSH works, Hyprland/the mobile shell run, and systemd reports no failed
+services. The desktop was checked through both the camera and a native screenshot.
+Slot A is marked boot-successful. Microphone speech capture, cold power-cycle
+acceptance, slot-B recovery and the wider hardware checklist remain open. See
+the [recovery record](docs/boot-recovery.md).
 
 Target: Omarchy and Hyprland running directly on the Odin 2 Portal, with the operating
 system on internal UFS storage and no Android dual boot. Installation must work
@@ -30,7 +53,7 @@ Both ABL slots contain ROCKNIX 1.1.8; both boot slots contain the native image.
 The bootloader uses Linux mode, Auto source and the AYN Odin 2 Portal model.
 Keep the off-device backup as the primary recovery copy.
 
-The handheld [Gamepad Mapping adaptation](plugins/controller-control/PORTAL.md)
+The handheld [Gamepad Mapping adaptation](https://github.com/TechLuddite/omarchy-gamepad-mapping/blob/main/PORTAL.md)
 uses Controller Control's evdev/uinput engine and starts with empty assignments.
 Its 52 tests, including 44 upstream tests, pass on the ARM device. Omakade 1.16.1 is installed from
 the signed btsouth ARM64 repository and opens in the native Wayland desktop.
@@ -51,6 +74,12 @@ host's pacman sync database. `bootstrap/`, `native/` and `scripts/` contain the
 Portal RAM bootstrap, filesystem builder and internal bring-up tooling. This is
 an actively tested device port; installation scripts are specific to the captured
 Portal layout and are not a general installer for arbitrary Odin models.
+
+Clone the main repository with its linked mapper source:
+
+```bash
+git clone --recurse-submodules https://github.com/TechLuddite/omarchy-mobile-odin2.git
+```
 
 Run the inspection helper from this directory:
 

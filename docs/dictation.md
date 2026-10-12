@@ -129,7 +129,9 @@ that sole change; kernel, ramdisk and command line match the proven boot image.
 `native/odin-wcd-capture-candidate.conf` is a separate stereo WCD/SoundWire UCM
 probe. It is experimental, not an accepted default microphone configuration.
 
-The test reboot exposed a loader failure that also rejects the unchanged
-baseline. The ESP rollback and boot metadata investigation take priority over
-another microphone reboot. See [boot recovery](boot-recovery.md) for actual
-operations and the current outcome.
+The test reboot exposed a loader failure that also rejected the unchanged
+baseline. The stock slot-A AVB metadata was replaced, and a subsequent ESP
+rollback-image sector-size error was diagnosed and corrected. Normal internal
+boot now reaches the desktop again with the proven kernel and pre-WCD UCM probe.
+Actual microphone speech capture remains unverified. See
+[boot recovery](boot-recovery.md) for the operations and accepted checkpoint.

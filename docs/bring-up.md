@@ -1,11 +1,12 @@
 # Device access and next steps
 
-Current session: a later reboot exposed a boot-chain failure after Android
-retirement. The proven ESP files are restored; slot-A AVB metadata correction
-allows fastboot image acceptance again, but a running desktop/USB connection
-has not yet returned. Follow [the recovery record](boot-recovery.md) before
-resuming microphone or further boot tests. Observations below are historical
-acceptance of the earlier state, not a claim that the current reboot passed.
+Current checkpoint: the corrected 4096-byte-sector ESP and slot-A AVB metadata
+restore the installed native desktop. `/boot` mounts, USB SSH works, Hyprland
+and the mobile shell run, and systemd has no failed services. The camera and
+native screenshot confirm the desktop. Slot A is now marked successful using
+the upstream qbootctl helper after a validated boot. Follow the
+[recovery record](boot-recovery.md) for the actual operations and remaining
+cold-boot, slot-B and microphone acceptance work.
 
 Initial inspection found an AYN device with only an MTP interface (`18d1:4ee1`).
 Subsequent camera and USB checks on October 12 confirmed bootloader fastboot
@@ -90,8 +91,9 @@ on-device SHA256 checks match the host. Uploading the native boot image through
 fastboot starts systemd and the installed Omarchy desktop, with `/` on sda18 and
 `/boot` on sda17. Hyprland and Quickshell run, and systemd reports no failed
 services. Normal internal ESP boot subsequently succeeded without uploading a kernel
-from the PC. Cold power-off/on and the later redundant boot-chain changes still
-need a boot acceptance check.
+from the PC. After the redundant boot-chain changes exposed the recovery issues,
+normal internal boot was repaired and verified again as recorded above.
+Cold power-off/on and alternate-slot acceptance remain open.
 
 The first normal internal boot reached ROCKNIX's "device model not set" error.
 The installed 1.1.8 menu offers Auto, SD and USB as boot sources, rather than

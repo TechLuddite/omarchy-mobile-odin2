@@ -1,5 +1,10 @@
 # Boot recovery investigation — October 12, 2026
 
+Current result: normal internal boot is restored and slot A is marked successful.
+The [repaired checkpoint](#repaired-installed-boot-checkpoint) records the
+verified outcome. Earlier sections below are the chronological investigation;
+their pending checks were resolved where described later in the record.
+
 After the first native internal boot, both ABL slots and raw boot slots were
 changed to native files. That later redundant boot-chain state had not received
 a fresh reboot acceptance test. The microphone test reboot exposed an error.
@@ -91,3 +96,60 @@ ECM device. The next step is the verified RAM bootstrap (header v0, digest
 which starts USB diagnostics without depending on the installed system's
 mounts or desktop services. Read the installed boot logs there before choosing
 a repair. Do not report an inferred mount error as a confirmed diagnosis.
+
+## Confirmed mount failure and 4 KiB ESP repair
+
+The verified header-v0 RAM bootstrap booted successfully and exposed USB ECM
+and SSH. The installed root was first mounted read-only with `noload`. Its saved
+system journal was copied privately to the host for reading. The latest normal
+boot confirms `FAT-fs (sda17): logical sector size too small for device (logical
+sector size = 512)`, followed by `Failed to mount /boot` and a failed Local File
+Systems dependency. This is the confirmed console stop, separate from the
+earlier stock AVB loader rejection.
+
+The host-file recovery image builder had used mkfs.fat's 512-byte sector default.
+The Portal's UFS logical sector size is 4096. This recovery-builder error was
+introduced during the ESP rollback; the original device-formatted boot volume
+used the device geometry. `scripts/build-esp-recovery.py` now specifies
+`-S 4096` and checks the FAT BPB sector-size field before copying files.
+
+The corrected 512 MiB image passed host fsck.fat and mtools file readbacks.
+Observed SHA256: `0da2325bab3c0677030de1f1b0417d659cb4d21f5dccf5b778c99c254720ece4`.
+`native/repair-esp.py` checked the Portal model, expected partition label,
+unmounted target, physical size/sector geometry and image digest before writing
+only sda17 from RAM recovery. It flushed and invalidated the block cache, then
+verified the full physical-device readback against that digest. The corrected
+volume mounts successfully on the Odin. KERNEL, KERNEL.bak and RECOVERY.img
+match their previously verified digests, and the fstab verification passes.
+
+The experimental WCD UCM was preserved as `/root/odin-hifi-wcd-experiment.conf`.
+The pre-WCD probe was restored from `/root/odin-hifi-before-wcd-test.conf`, with
+digest `7f1e20c3ef62b3351c301138da87cbe441ccc19a9b4cb1433057944816f84777`.
+This restores the previous microphone configuration; actual speech capture
+remains unverified. All recovery mounts were cleanly unmounted before restarting
+into the installed system. Record the resulting desktop/USB acceptance below.
+
+## Repaired installed boot checkpoint
+
+The minimal RAM image lacks a reboot applet. After confirming that the ESP and
+all installed-root/bind mounts were unmounted and syncing, its supported SysRq
+restart was used. The following normal internal boot reached the installed
+system: `/boot` mounts sda17 as vfat, `/` is the native root, USB SSH is available,
+Hyprland and Quickshell run, and systemd reports zero failed services. A fresh
+camera frame and a direct Wayland screenshot confirm the landscape desktop.
+Firefox `157.0.1-1` remains installed. This is a normal reboot pass, not a cold
+power-off/on or alternate-slot pass.
+
+The previously prepared, unchanged upstream qbootctl binary was installed and
+its digest verified. Read-only inspection confirmed A active/bootable but not
+successful. Both GPT headers/tables on all six UFS LUNs were CRC-checked and
+backed up under `/root/native-transition/boot-success-gpt-before/` before
+`qbootctl -m a` marked the now-validated installed boot successful. Readback
+reports slot A successful and bootable. The exact source archive and notices
+are installed alongside the tool under `/usr/local/share/odin2-omarchy/`.
+After marking success, both GPT header/table CRCs and matching primary/secondary
+tables passed on all six LUNs. Comparison with the pre-write snapshots confirms
+only slot-A boot-success bits and their GPT checksums changed; partition geometry,
+names, GUIDs and other attributes are unchanged.
+There is no automatic boot-success service yet. B's AVB metadata remains stock
+and still needs a separate tested native recovery plan.
