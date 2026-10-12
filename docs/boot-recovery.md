@@ -69,3 +69,16 @@ internal reboot after the boot metadata fix before trying another candidate.
 Evidence and images remain under ignored `private/` and `build/`. The verified
 base backup and GPT recovery evidence were retained throughout. Boot stability
 and cold-start acceptance remain open until recovery is complete.
+
+## Fresh physical check after the camera returned
+
+At 17:17 UTC, the Razer Kiyo Pro enumerated again as `1532:0e05` with a usable
+V4L2 capture node. A fresh photograph confirmed Linux mode, Auto source and
+AYN Odin 2 Portal selected in ROCKNIX 1.1.8. Fastboot reported active slot A
+and unbootable=no. A normal `fastboot reboot` was issued with the restored ESP
+and slot-A native vbmeta in place. Later camera frames show the Linux penguins
+and a text console, establishing progress beyond the loader. USB ECM has not
+yet appeared. The console's left/bottom edges are outside the camera framing;
+the exact stop message still needs a legible physical capture. Do not infer a
+desktop boot pass from the console alone. Photographs and command logs are
+saved under ignored `private/bootstrap/`.
