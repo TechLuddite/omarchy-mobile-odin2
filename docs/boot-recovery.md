@@ -53,6 +53,19 @@ It is a research checkout, not yet installed or tested on this Portal. This
 layout differs from generic Android `misc` metadata; do not write an assumed
 `misc` boot-control structure as a fix.
 
+`scripts/build-qbootctl.sh` successfully compiled the unchanged pinned source
+against the staged ARM userspace. The output is an AArch64 ELF, SHA256
+`c8781410e4514d3f86c385944e28e3ee72396f85f4e688a46677ef41a3437b27`.
+The exact original sources and notices are packaged beside it. Compilation is
+not a hardware test; neither this binary nor a boot-success service has been
+deployed. Inspect read-only slot information first after Linux access returns.
+
+When access returns, restore the pre-WCD UCM probe from
+`/root/odin-hifi-before-wcd-test.conf` before ordinary capture tests. The ESP
+rollback restored the kernel files, not the root's experimental UCM file.
+Do not claim that all microphone configuration was reverted. Test normal
+internal reboot after the boot metadata fix before trying another candidate.
+
 Evidence and images remain under ignored `private/` and `build/`. The verified
 base backup and GPT recovery evidence were retained throughout. Boot stability
 and cold-start acceptance remain open until recovery is complete.
