@@ -1,0 +1,7 @@
+references/
+tools/
+downloads/
+private/
+build/
+__pycache__/
+edl_config.json

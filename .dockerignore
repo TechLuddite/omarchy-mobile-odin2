@@ -1,0 +1,8 @@
+*
+!native/
+!native/**
+!plugins/
+!plugins/**
+**/.git
+**/.git/**
+**/__pycache__/**

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Gamepad Mapping
+Comment=Record Odin button combinations and assign shortcuts or commands
+Exec=omarchy-gamepad-mapping
+Icon=input-gaming
+Terminal=false
+Categories=Settings;Game;
+StartupNotify=false

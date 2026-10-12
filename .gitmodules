@@ -1,0 +1,3 @@
+[submodule "plugins/controller-control"]
+	path = plugins/controller-control
+	url = https://github.com/TechLuddite/omarchy-gamepad-mapping.git

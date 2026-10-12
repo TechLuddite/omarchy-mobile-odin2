@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+visible=$(busctl --user get-property sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 Visible)
+case "$visible" in
+    'b true') next=false ;;
+    *) next=true ;;
+esac
+exec busctl --user call sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b "$next"

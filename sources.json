@@ -1,0 +1,164 @@
+{
+  "inspected_on": "2026-10-12",
+  "purpose": "research pins, not yet a validated build manifest",
+  "sources": [
+    {
+      "repo": "armbian/build",
+      "url": "https://github.com/armbian/build",
+      "ref": "4053bb3dfa203a4ba4d7b4683f80f621bbc2db31",
+      "branch_at_inspection": "main",
+      "files": [
+        {
+          "path": "config/boards/ayn-odin2.csc",
+          "sha256": "c66bdd0ad08e8b3bc93a843f6a232311db08b454b5132f6a63e7cf89f2df0a5f",
+          "url": "https://github.com/armbian/build/blob/4053bb3dfa203a4ba4d7b4683f80f621bbc2db31/config/boards/ayn-odin2.csc"
+        },
+        {
+          "path": "config/sources/families/sm8550.conf",
+          "sha256": "28be07088f85b86efb78ef01e14981500b403425eb83755eb608ce0cd7e16863",
+          "url": "https://github.com/armbian/build/blob/4053bb3dfa203a4ba4d7b4683f80f621bbc2db31/config/sources/families/sm8550.conf"
+        },
+        {
+          "path": "packages/bsp/ayn-odin2/zz-update-abl-kernel",
+          "sha256": "51434e221aa4f4ce636b655f4e4b6fe7d4537347c2061918fdd5e29f222d3f0a",
+          "url": "https://github.com/armbian/build/blob/4053bb3dfa203a4ba4d7b4683f80f621bbc2db31/packages/bsp/ayn-odin2/zz-update-abl-kernel"
+        },
+        {
+          "path": "packages/bsp/ayn-odin2/LinuxLoader.cfg",
+          "sha256": "f0117b1970fffb2fc052ddaf3e3f306357b587aebb2abaa36ad82cefca4da1a0",
+          "url": "https://github.com/armbian/build/blob/4053bb3dfa203a4ba4d7b4683f80f621bbc2db31/packages/bsp/ayn-odin2/LinuxLoader.cfg"
+        },
+        {
+          "path": "extensions/image-output-abl.sh",
+          "sha256": "3a19672e971b6bc410fb9c4616f0f3ab7f9ca1ad9b22a6fb16d1728494a552c8",
+          "url": "https://github.com/armbian/build/blob/4053bb3dfa203a4ba4d7b4683f80f621bbc2db31/extensions/image-output-abl.sh"
+        }
+      ]
+    },
+    {
+      "repo": "ROCKNIX/distribution",
+      "url": "https://github.com/ROCKNIX/distribution",
+      "ref": "d59bdaa28908f7266e40172e088ec40813fd3f46",
+      "branch_at_inspection": "next",
+      "files": [
+        {
+          "path": "projects/ROCKNIX/devices/SM8550/options",
+          "sha256": "d6dcce1369bb5414a10ad565b53e81d1738d7c6e3583f3c4d94c30df01deec22",
+          "url": "https://github.com/ROCKNIX/distribution/blob/d59bdaa28908f7266e40172e088ec40813fd3f46/projects/ROCKNIX/devices/SM8550/options"
+        },
+        {
+          "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-odin2.dts",
+          "sha256": "f9f1e9449a67127e5842302666b7b16b2828d7ca0acf8950ea641a10214a1667",
+          "url": "https://github.com/ROCKNIX/distribution/blob/d59bdaa28908f7266e40172e088ec40813fd3f46/projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-odin2.dts"
+        },
+        {
+          "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-common.dtsi",
+          "sha256": "3adf018b50f1d5e9b97d02fe5269e423926d330b4eac718c72f83bad4311f9ce",
+          "url": "https://github.com/ROCKNIX/distribution/blob/d59bdaa28908f7266e40172e088ec40813fd3f46/projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-common.dtsi"
+        },
+        {
+          "path": "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf",
+          "sha256": "6ec3c847e0d92f8903a2fd5d5c3041f124bfb7decec1e827a410f0a725159910",
+          "url": "https://github.com/ROCKNIX/distribution/blob/d59bdaa28908f7266e40172e088ec40813fd3f46/projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/installtointernal",
+          "sha256": "ac455f2d7738b291ad3773327c02063510b316e075335fa1156e232b1af516ae",
+          "url": "https://github.com/ROCKNIX/distribution/blob/d59bdaa28908f7266e40172e088ec40813fd3f46/projects/ROCKNIX/packages/rocknix/sources/scripts/installtointernal"
+        }
+      ]
+    },
+    {
+      "repo": "armada-os/armada",
+      "url": "https://github.com/armada-os/armada",
+      "ref": "897807c77616bfb1bbb8393bafdf2c7190f8a15f",
+      "branch_at_inspection": "main",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "caf8917151dd462c7933f0b41abee7f5d9a01243608b1ff631f73266fb70007b",
+          "url": "https://github.com/armada-os/armada/blob/897807c77616bfb1bbb8393bafdf2c7190f8a15f/README.md"
+        }
+      ]
+    },
+    {
+      "name": "omarchy-mobile",
+      "url": "https://github.com/SimonSchubert/omarchy-mobile.git",
+      "ref": "08baab5c38573d0e65f74c362cdfd2a5a25e8399",
+      "local_path": "references/omarchy-mobile"
+    },
+    {
+      "name": "rocknix-abl",
+      "url": "https://github.com/ROCKNIX/abl.git",
+      "ref": "0e755e154874f7e874919ab7e080935c1444df68",
+      "local_path": "references/rocknix-abl"
+    },
+    {
+      "name": "pocknix-os",
+      "url": "https://github.com/shuuri-labs/pocknix-os.git",
+      "ref": "ba1de097fb0e0df07bcb32f05dc8e957d62090bc",
+      "local_path": "references/pocknix-os"
+    },
+    {
+      "name": "SeeFix",
+      "url": "https://github.com/TechLuddite/SeeFix.git",
+      "ref": "ac32400569d51d34c453589de98becabbd0d5c11",
+      "local_path": "/srv/projects/SeeFix",
+      "scope": "method and hardware verification, desktop controls"
+    },
+    {
+      "name": "edl",
+      "url": "https://github.com/bkerler/edl",
+      "ref": "1cda1a616748d608667b2d13b73a28d3197ceb45",
+      "local_path": "references/edl",
+      "scope": "EDL read-only UFS image capture"
+    },
+    {
+      "name": "controller-control",
+      "url": "https://github.com/perminder-klair/omarchy-controller-control",
+      "ref": "d5ac4cb41926fc93d2516a4f54bc5ec300d7838e",
+      "local_path": "references/controller-control"
+    },
+    {
+      "name": "omakade",
+      "url": "https://github.com/btsouth/omakade",
+      "ref": "ae4e243604cb2b2d090080409fb30c1b7054dc1b",
+      "local_path": "references/omakade"
+    },
+    {
+      "name": "voxtype",
+      "url": "https://github.com/peteonrails/voxtype",
+      "ref": "6d2fc6ddbf791ac00d6a54dc002664010c16b100",
+      "local_path": "references/voxtype"
+    },
+    {
+      "name": "ayn-ucm",
+      "url": "https://github.com/AYNTechnologies/alsa-ucm-conf",
+      "ref": "52b6ae98b7cd01e35ab6d193f953394dcefe5c0e",
+      "local_path": "references/ayn-ucm"
+    },
+    {
+      "name": "omarchy-gamepad-mapping",
+      "url": "https://github.com/TechLuddite/omarchy-gamepad-mapping",
+      "ref": "ba34545fd2732b188ff6fcc19dcc1c4d7da2d7d1",
+      "local_path": "plugins/controller-control",
+      "upstream": "perminder-klair/omarchy-controller-control",
+      "scope": "public touch-focused mapper fork; native ARM52 checks"
+    },
+    {
+      "name": "qbootctl",
+      "url": "https://github.com/linux-msm/qbootctl",
+      "ref": "39a6e6daaf029fb0a083777679a15ea2c18f72de",
+      "local_path": "references/qbootctl",
+      "scope": "Qualcomm GPT A/B success handling research; not yet deployed"
+    },
+    {
+      "name": "aosp-avbtool",
+      "url": "https://android.googlesource.com/platform/external/avb/",
+      "ref": "761178607206f4cb2af79ed9eec52d8cbd814adb",
+      "local_path": "tools/avbtool.py",
+      "sha256": "e5a664a38db623da00f080219bc0ee60a640a9dc4a872803616fae4938ac749b",
+      "scope": "upstream avbtool 1.3.0; empty native slot-A verification metadata recovery"
+    }
+  ]
+}

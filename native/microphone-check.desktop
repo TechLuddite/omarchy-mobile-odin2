@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Microphone Check
+Comment=Touch-controlled microphone and dictation test
+Exec=/usr/local/bin/odin-microphone-check
+Icon=audio-input-microphone
+Terminal=false
+Categories=Audio;Utility;

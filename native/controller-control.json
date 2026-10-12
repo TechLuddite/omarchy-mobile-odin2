@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "enabled": true,
+  "device": {"match": ["AYN Odin2 Gamepad"], "exclusive": false, "layout": "auto"},
+  "bindings": []
+}

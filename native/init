@@ -1,0 +1,30 @@
+#!/bin/sh
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+mount -t devtmpfs devtmpfs /dev
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t tmpfs tmpfs /run
+mkdir -p /newroot
+rootdev=
+for attempt in $(seq 1 30); do
+    for entry in /sys/class/block/*/uevent; do
+        if [ "$(sed -n 's/^PARTNAME=//p' "$entry")" = OMARCHY_ROOT ]; then
+            rootdev=/dev/$(sed -n 's/^DEVNAME=//p' "$entry")
+            break
+        fi
+    done
+    [ -n "$rootdev" ] && break
+    sleep 1
+done
+if [ -n "$rootdev" ] && mount -t ext4 -o rw "$rootdev" /newroot; then
+    if [ -x /newroot/sbin/init ] && [ -f /newroot/etc/omarchy-native/model ]; then
+        for directory in dev proc sys run; do
+            mkdir -p "/newroot/$directory"
+            mount --move "/$directory" "/newroot/$directory"
+        done
+        exec switch_root /newroot /sbin/init
+    fi
+    umount /newroot
+fi
+echo 'Omarchy root unavailable; starting RAM recovery access.' >/dev/console
+exec /bootstrap-init

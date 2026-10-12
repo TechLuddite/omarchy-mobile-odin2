@@ -1,0 +1,3 @@
+#!/bin/sh
+export OMARCHY_PATH="${OMARCHY_PATH:-/usr/share/omarchy}"
+exec omarchy-shell controller open

@@ -1,0 +1,59 @@
+#!/bin/sh
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+mount -t devtmpfs devtmpfs /dev
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t tmpfs tmpfs /run
+mkdir -p /run/sshd /run/lock /dev/pts
+mount -t devpts devpts /dev/pts
+exec > /run/bootstrap.log 2>&1
+echo 'Omarchy Odin2 Portal native RAM bootstrap'
+uname -a
+cat /proc/cmdline
+
+# Start the DSP that provides PMIC GLINK and Type-C services. These are the
+# exact modules and firmware supplied with the same kernel release.
+if command -v insmod >/dev/null 2>&1; then
+    for module in qcom_sysmon qcom_q6v5 qcom_common qcom_pil_info qcom_q6v5_pas; do
+        insmod "/lib/modules/7.2.0/kernel/drivers/remoteproc/$module.ko" || true
+    done
+else
+    echo 'Module loader absent in minimal recovery; USB gadget works with built-in drivers.'
+fi
+
+mkdir -p /sys/kernel/config
+mount -t configfs configfs /sys/kernel/config
+g=/sys/kernel/config/usb_gadget/omarchy
+mkdir -p "$g"
+echo 0x1d6b > "$g/idVendor"
+echo 0x0104 > "$g/idProduct"
+echo 0x0200 > "$g/bcdUSB"
+mkdir -p "$g/strings/0x409"
+echo omarchy-odin2portal-bootstrap > "$g/strings/0x409/serialnumber"
+echo Omarchy > "$g/strings/0x409/manufacturer"
+echo 'Odin2 Portal native bootstrap' > "$g/strings/0x409/product"
+mkdir -p "$g/configs/c.1/strings/0x409"
+echo 'USB Ethernet' > "$g/configs/c.1/strings/0x409/configuration"
+echo 250 > "$g/configs/c.1/MaxPower"
+mkdir -p "$g/functions/ecm.usb0"
+echo 02:00:00:77:00:02 > "$g/functions/ecm.usb0/dev_addr"
+echo 02:00:00:77:00:01 > "$g/functions/ecm.usb0/host_addr"
+ln -s "$g/functions/ecm.usb0" "$g/configs/c.1/ecm.usb0"
+
+for attempt in $(seq 1 60); do
+    controller=$(ls /sys/class/udc 2>/dev/null | head -n 1)
+    if [ -n "$controller" ]; then
+        echo "$controller" > "$g/UDC"
+        break
+    fi
+    sleep 1
+done
+ip link set usb0 up
+ip addr add 192.168.77.2/30 dev usb0
+/usr/sbin/sshd -f /etc/ssh/sshd_config -E /run/sshd.log
+
+# Expose a small diagnostic endpoint even if SSH has trouble starting.
+httpd -p 192.168.77.2:8080 -h /www
+echo 'USB bootstrap ready: 192.168.77.2 (SSH and HTTP diagnostics)'
+cat /proc/partitions
+while :; do sleep 60; done
