@@ -23,7 +23,7 @@ in `docs/`. Add entries as more work is incorporated.
 | [Android Open Source Project AVB](https://android.googlesource.com/platform/external/avb/) | The upstream avbtool used to replace stale Android verification descriptors during single-OS boot recovery. |
 | [Armbian](https://github.com/armbian/build), [Armada](https://github.com/armada-os/armada) and [Renegade Project](https://renegade-project.tech/) | Related native Odin installation, boot-image and hardware integration prior art inspected during planning. |
 | [Menci/docker-archlinuxarm](https://github.com/Menci/docker-archlinuxarm), Docker and QEMU contributors | The pinned ARM base container and host-side build tools. The Odin runs the installed native kernel and ARM userspace directly. |
-| Linux/V4L2, Arch Linux ARM, Mesa/Freedreno/Turnip, ALSA, PipeWire/WirePlumber, Hyprland, Quickshell, Qt, GTK/PyGObject, FFmpeg, BusyBox, OpenSSH, dosfstools and mtools contributors | The kernel, ARM distribution, accelerated graphics, audio, desktop/runtime, recovery and physical verification foundations. |
+| Linux/V4L2, Arch Linux ARM, Mesa/Freedreno/Turnip, ALSA, PipeWire/WirePlumber, Hyprland, Quickshell, Qt, GTK/PyGObject, FFmpeg, BusyBox, OpenSSH, NetworkManager, Avahi, dosfstools and mtools contributors | The kernel, ARM distribution, accelerated graphics, audio, desktop/runtime, key-only maintenance access, local network discovery, recovery and physical verification foundations. |
 | [SeeFix](https://github.com/TechLuddite/SeeFix) — TechLuddite | The evidence-driven workflow: reusable code plus physical observations, raw logs and visual verification, with private device evidence excluded from published source. |
 
 TechLuddite's work here is the Portal installation/recovery process, integration,

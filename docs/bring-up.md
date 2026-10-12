@@ -8,6 +8,11 @@ the upstream qbootctl helper after a validated boot. Follow the
 [recovery record](boot-recovery.md) for the actual operations and remaining
 cold-boot, slot-B and microphone acceptance work.
 
+At the user's request, persistent key-only user/root SSH is configured and
+tested over Wi-Fi through `odin2portal.local`. The host aliases are `odin2` and
+`odin2-root`. See [maintenance access](access.md) for the source configuration
+and physical-disconnect/boot-persistence verification status.
+
 Initial inspection found an AYN device with only an MTP interface (`18d1:4ee1`).
 Subsequent camera and USB checks on October 12 confirmed bootloader fastboot
 (`18d1:d00d`), product `kalama`, active slot B, two slots, `unlocked: yes` and

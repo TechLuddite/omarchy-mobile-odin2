@@ -16,7 +16,7 @@ This project builds on the work of the following people and projects:
 - **Armbian and Armada contributors** — [Armbian](https://github.com/armbian/build), [Armada](https://github.com/armada-os/armada): related Odin boot-image, installation and hardware integration prior art.
 - **Caleb Connolly, The Linux Foundation and linux-msm contributors** — [qbootctl](https://github.com/linux-msm/qbootctl); **Linaro and Collabora contributors** — Qualcomm boot-success and loader recovery research; **Android Open Source Project contributors** — [AVB](https://android.googlesource.com/platform/external/avb/): boot verification tooling.
 - **Menci and contributors** — [docker-archlinuxarm](https://github.com/Menci/docker-archlinuxarm): the pinned ARM base image; **Docker and QEMU contributors** — host build tooling.
-- **Linux/V4L2, Arch Linux ARM, Mesa/Freedreno/Turnip, ALSA, PipeWire/WirePlumber, Hyprland, Quickshell, Qt, GTK/PyGObject, FFmpeg, BusyBox, OpenSSH, dosfstools and mtools contributors** — the kernel, distribution, graphics, audio, desktop, recovery and verification foundations.
+- **Linux/V4L2, Arch Linux ARM, Mesa/Freedreno/Turnip, ALSA, PipeWire/WirePlumber, Hyprland, Quickshell, Qt, GTK/PyGObject, FFmpeg, BusyBox, OpenSSH, NetworkManager, Avahi, dosfstools and mtools contributors** — the kernel, distribution, graphics, audio, desktop, network access, recovery and verification foundations.
 - **TechLuddite** — [SeeFix](https://github.com/TechLuddite/SeeFix): the evidence-driven verification workflow; this project supplies the Portal installation/recovery process and integration.
 
 The [full credits ledger](CREDITS.md), [source revisions](sources.json) and
@@ -31,6 +31,10 @@ services. The desktop was checked through both the camera and a native screensho
 Slot A is marked boot-successful. Microphone speech capture, cold power-cycle
 acceptance, slot-B recovery and the wider hardware checklist remain open. See
 the [recovery record](docs/boot-recovery.md).
+
+Key-only user and full root SSH access also pass over Wi-Fi, with local discovery
+at `odin2portal.local`. See [maintenance access](docs/access.md) for configuration,
+host aliases and verification limits.
 
 Target: Omarchy and Hyprland running directly on the Odin 2 Portal, with the operating
 system on internal UFS storage and no Android dual boot. Installation must work
