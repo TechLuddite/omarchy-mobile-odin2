@@ -67,18 +67,77 @@ The user then confirmed that the mouse works. Readback reports
 `Basilisk X HyperSpeed` Paired/Bonded/Trusted/Connected all yes, and the kernel
 exposes the mouse and its associated HID consumer/system/keyboard interfaces.
 This is a physical pointer-input pass, not yet an off/on or cold-boot reconnect
-pass. The keyboard still reports unpaired/unbonded and disconnected.
+pass. The keyboard was still unpaired/unbonded and disconnected at this point.
 
 A subsequent keyboard attempt briefly reported Paired yes/Connected yes but
 Bonded no. Its private state file contains only General and DeviceID sections,
 with no stored LinkKey section, and BlueZ rejects its unbonded HID connection.
-The user saw repeated connect/disconnect screens and no passcode, and suspects
-the keyboard needs charging. Battery state is not confirmed. Keyboard attempts
-are deferred until it is charged; no keyboard typing pass is claimed. This also
+The user saw repeated connect/disconnect screens and no passcode, and suspected
+the keyboard needed charging. Battery state is not confirmed. Attempts were
+deferred until the user returned; no keyboard typing pass is claimed. This also
 exposed that temporary Paired alone is insufficient, so the panel/helper now
 require a saved bond rather than either Paired or Bonded.
 The panel labels that temporary state "Pairing incomplete" and directs the
 user to Forget and fresh pairing instead of starting another doomed connection.
+
+When the user returned with the keyboard powered on and "half connected", a
+fresh snapshot again showed Paired/Bonded/Connected all no and Trusted yes,
+with no keyboard input interfaces. Only that unbonded keyboard record was
+cleared, after checking its Bonded property. Discovery found it again. The next
+pair attempt waited for the keyboard's fresh pairing mode.
+Selected HCI security-event and agent method-name monitors exclude key values,
+pairing arguments and ordinary input reports; their private pre-pair output does
+not establish a completed authentication exchange.
+
+## Keyboard passcode and reconnect checkpoint
+
+A controlled attempt subsequently negotiated local DisplayYesNo and remote
+KeyboardOnly capabilities, with Dedicated Bonding and MITM required locally.
+The controller issued a passkey notification; without timely entry the keyboard
+ended pairing roughly 30 seconds later. This establishes an authentication
+exchange, rather than a requirement to disable bonding or replace a HID driver.
+
+A temporary GTK4 display showed one large six-digit passcode on the handheld.
+The user liked the presentation and requested that it be part of the normal Pair
+flow after testing. The initial observer could receive a later retry's code;
+the subsequent diagnostic stopped after the first code and used a separate GTK
+application instance. Codes, key values and ordinary input reports are not
+saved in the diagnostic logs or this repository.
+
+After the user entered the last displayed code, BlueZ reported Paired and Bonded
+yes, and the root-only device state had a LinkKey section with key type 5. This
+is a saved **local** bond, not a typing pass. The next connection failed with
+`br-connection-key-missing`; another attempt reported
+`br-connection-create-socket` with an authentication disconnect. No ThinkPad or
+TrackPoint input interfaces appeared. After the user attempted off/on, one
+reconnect still failed and a later trace recorded a page timeout. The keyboard's
+power state and whether it retains the same key remain unresolved. The saved
+keyboard bond has been preserved, and the working mouse bond was not removed.
+
+These failures exposed another helper problem: `bluetoothctl` can print a failed
+Connect while returning zero. The deployed helper now uses synchronous BlueZ
+D-Bus calls for trust, Connect, Disconnect and Forget, and verifies Connected
+after Connect. The observed failed keyboard reconnect now returns a nonzero
+status. This corrects error reporting; it does not fix the keyboard itself.
+
+`native/odin-bluetooth-pair` is a **candidate**, not yet wired into the mobile
+panel or installed by `install-bluetooth.sh`. It combines the large GTK4 display
+with an application-owned BlueZ Agent1 on the same bus connection as Pair.
+DisplayPasskey progress updates stay in the same window; confirmation and code
+entry requests also have touch controls. It requires neither root nor HCI
+capture and leaves Blueman as the default agent. Pair completion requires Bonded;
+the subsequent Connect must actually succeed. Source compilation, actual
+AgentManager registration/unregistration on the Odin, and the GTK saved-bond
+guard passed. No fresh Pair or keyboard-input acceptance is claimed for it.
+The diagnostic passcode display is retained privately, rather than installed
+as a permanent controller observer.
+
+The user is away and cannot enter codes. No fresh pairing is started while they
+are away. Resume with a controlled fresh pairing through the candidate wizard,
+then verify local bond, connection, actual typing and TrackPoint input before
+connecting the wizard to the normal Pair button. If reconnect still fails,
+collect a security-event trace with wide btmon columns so command names are not
+truncated; keep keys and input reports excluded.
 
 ## Next acceptance
 

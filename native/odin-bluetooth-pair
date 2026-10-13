@@ -1,0 +1,257 @@
+#!/usr/bin/env python3
+"""Touch pairing wizard using BlueZ Agent1 and GTK4/PyGObject.
+
+Credits: BlueZ's published Agent1/Device1 APIs, GTK/PyGObject, Blueman's
+graphical pairing prior art, Simon Schubert's mobile panel, and Omarchy.
+This application owns only its Pair call's agent; Blueman remains the default.
+Passcodes stay in memory. No HCI capture, pairing key access or root is needed.
+"""
+import re
+import sys
+
+import gi
+
+gi.require_version("Gtk", "4.0")
+from gi.repository import Gio, GLib, Gtk
+
+XML = """<node><interface name="org.bluez.Agent1">
+<method name="Release"/>
+<method name="Cancel"/>
+<method name="RequestPinCode"><arg type="o" direction="in"/><arg type="s" direction="out"/></method>
+<method name="DisplayPinCode"><arg type="o" direction="in"/><arg type="s" direction="in"/></method>
+<method name="RequestPasskey"><arg type="o" direction="in"/><arg type="u" direction="out"/></method>
+<method name="DisplayPasskey"><arg type="o" direction="in"/><arg type="u" direction="in"/><arg type="q" direction="in"/></method>
+<method name="RequestConfirmation"><arg type="o" direction="in"/><arg type="u" direction="in"/></method>
+<method name="RequestAuthorization"><arg type="o" direction="in"/></method>
+<method name="AuthorizeService"><arg type="o" direction="in"/><arg type="s" direction="in"/></method>
+</interface></node>"""
+
+
+class Pairing(Gtk.Application):
+    def __init__(self, address):
+        super().__init__(application_id="org.techluddite.odin.bluetooth-pair",
+                         flags=Gio.ApplicationFlags.NON_UNIQUE)
+        self.device = "/org/bluez/hci0/dev_" + address.upper().replace(":", "_")
+        self.agent = "/org/techluddite/odin/pairing"
+        self.result = 1
+        self.pending = None
+        self.registered = False
+        self.bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+        self.owner = self.sync("/org/freedesktop/DBus", "org.freedesktop.DBus",
+                               "GetNameOwner", GLib.Variant("(s)", ("org.bluez",)),
+                               destination="org.freedesktop.DBus").unpack()[0]
+
+    def sync(self, path, interface, method, args=None, destination="org.bluez"):
+        return self.bus.call_sync(destination, path, interface, method, args,
+                                  None, Gio.DBusCallFlags.NONE, 5000, None)
+
+    def properties(self):
+        return self.sync(self.device, "org.freedesktop.DBus.Properties", "GetAll",
+                         GLib.Variant("(s)", ("org.bluez.Device1",))).unpack()[0]
+
+    def do_activate(self):
+        self.window = Gtk.ApplicationWindow(application=self, title="Bluetooth pairing")
+        self.window.set_default_size(620, 330)
+        self.box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
+        for edge in ("top", "bottom", "start", "end"):
+            getattr(self.box, "set_margin_" + edge)(24)
+        self.heading = Gtk.Label()
+        self.heading.set_wrap(True)
+        self.code = Gtk.Label()
+        self.status = Gtk.Label(label="Starting pairing…")
+        self.status.set_wrap(True)
+        self.entry = Gtk.Entry()
+        self.entry.set_visible(False)
+        self.accept = Gtk.Button(label="Confirm")
+        self.accept.set_visible(False)
+        self.accept.connect("clicked", self.confirm)
+        self.close = Gtk.Button(label="Cancel")
+        self.close.connect("clicked", lambda *_: self.cancel())
+        for widget in (self.heading, self.code, self.status, self.entry, self.accept, self.close):
+            self.box.append(widget)
+        self.window.set_child(self.box)
+        self.window.connect("close-request", lambda *_: self.cancel() or False)
+        self.window.present()
+        GLib.idle_add(self.begin)
+
+    def begin(self):
+        try:
+            props = self.properties()
+            self.heading.set_label(str(props.get("Alias", "Bluetooth device")))
+            if props.get("Bonded"):
+                raise RuntimeError("A saved pairing already exists. Use Connect instead.")
+            if props.get("Paired"):
+                raise RuntimeError("Pairing was not saved. Choose Forget, then pair again.")
+            interface = Gio.DBusNodeInfo.new_for_xml(XML).interfaces[0]
+            self.export_id = self.bus.register_object(self.agent, interface, self.method, None, None)
+            self.sync("/org/bluez", "org.bluez.AgentManager1", "RegisterAgent",
+                      GLib.Variant("(os)", (self.agent, "KeyboardDisplay")))
+            self.registered = True
+            self.call("Pair", self.paired, 90000)
+        except (GLib.Error, RuntimeError) as error:
+            self.fail(error)
+        return False
+
+    def call(self, method, callback, timeout):
+        self.bus.call("org.bluez", self.device, "org.bluez.Device1", method,
+                      None, None, Gio.DBusCallFlags.NONE, timeout, None, callback)
+
+    def method(self, connection, sender, path, interface, name, parameters, invocation):
+        args = parameters.unpack()
+        if sender != self.owner or (args and args[0] != self.device):
+            invocation.return_dbus_error("org.bluez.Error.Rejected", "Not this pairing session")
+            return
+        if name in ("Cancel", "Release"):
+            self.reject_pending()
+            invocation.return_value(None)
+            self.fail("Pairing canceled by Bluetooth")
+        elif name in ("DisplayPasskey", "DisplayPinCode"):
+            code = f"{args[1]:06d}" if name == "DisplayPasskey" else str(args[1])
+            self.display(code)
+            if name == "DisplayPasskey":
+                self.status.set_label(f"{args[2]} of 6 digits entered. Press Enter on the keyboard when done.")
+            invocation.return_value(None)
+        elif name in ("RequestConfirmation", "RequestAuthorization", "AuthorizeService"):
+            self.ask(invocation, name)
+            if name == "RequestConfirmation":
+                self.display(f"{args[1]:06d}", confirmation=True)
+            else:
+                self.status.set_label("Allow this device to pair?" if name == "RequestAuthorization"
+                                      else "Allow this paired device to connect?")
+        elif name in ("RequestPinCode", "RequestPasskey"):
+            self.ask(invocation, name)
+            self.entry.set_text("")
+            self.entry.set_visible(True)
+            self.entry.set_input_purpose(Gtk.InputPurpose.DIGITS if name == "RequestPasskey"
+                                         else Gtk.InputPurpose.FREE_FORM)
+            self.entry.set_max_length(6 if name == "RequestPasskey" else 16)
+            self.status.set_label("Enter the code shown on the other device, then tap Confirm.")
+            self.entry.grab_focus()
+        else:
+            invocation.return_dbus_error("org.bluez.Error.Rejected", "Unsupported authentication request")
+
+    def display(self, code, confirmation=False):
+        self.code.set_markup('<span size="42000" weight="bold">' + GLib.markup_escape_text(code) + '</span>')
+        self.heading.set_label("Check this code on both devices" if confirmation else
+                               "Type this on the Bluetooth keyboard, then press Enter")
+        # BlueZ calls DisplayPasskey again for entered-digit progress. It must
+        # update the same window without replacing the code or restarting Pair.
+        self.window.present()
+
+    def ask(self, invocation, name):
+        self.reject_pending()
+        self.pending = invocation, name
+        self.accept.set_visible(True)
+
+    def confirm(self, *_):
+        if not self.pending:
+            return
+        invocation, name = self.pending
+        value = None
+        if name in ("RequestPinCode", "RequestPasskey"):
+            text = self.entry.get_text()
+            if name == "RequestPasskey":
+                if not re.fullmatch(r"[0-9]{1,6}", text):
+                    self.status.set_label("Enter up to six digits.")
+                    return
+                value = GLib.Variant("(u)", (int(text),))
+            elif not text:
+                return
+            else:
+                value = GLib.Variant("(s)", (text,))
+        self.pending = None
+        invocation.return_value(value)
+        self.accept.set_visible(False)
+        self.entry.set_visible(False)
+        self.status.set_label("Completing authentication…")
+
+    def reject_pending(self):
+        if self.pending:
+            self.pending[0].return_dbus_error("org.bluez.Error.Canceled", "Pairing canceled")
+            self.pending = None
+
+    def paired(self, bus, result):
+        try:
+            bus.call_finish(result)
+            if not self.properties().get("Bonded"):
+                raise RuntimeError("Bluetooth did not save a pairing key.")
+            self.sync(self.device, "org.freedesktop.DBus.Properties", "Set",
+                      GLib.Variant("(ssv)", ("org.bluez.Device1", "Trusted", GLib.Variant("b", True))))
+            self.code.set_text("")
+            self.entry.set_visible(False)
+            self.accept.set_visible(False)
+            self.heading.set_label("Pairing saved")
+            self.status.set_label("Connecting…")
+            self.call("Connect", self.connected, 25000)
+        except (GLib.Error, RuntimeError) as error:
+            self.fail(error)
+
+    def connected(self, bus, result):
+        try:
+            bus.call_finish(result)
+            props = self.properties()
+            if not (props.get("Bonded") and props.get("Connected")):
+                raise RuntimeError("Pairing saved, but the device is disconnected.")
+            self.result = 0
+            self.heading.set_label("Paired and connected")
+            self.status.set_label("Try typing or moving the pointer.")
+            self.close.set_label("Close")
+            print("Bluetooth pairing saved and connection completed", flush=True)
+            GLib.timeout_add_seconds(3, self.finish)
+        except (GLib.Error, RuntimeError) as error:
+            self.fail(error)
+
+    def fail(self, error):
+        # Error text may include device paths or addresses. Never log passcodes.
+        message = re.sub(r"(?:[0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}", "device", str(error))
+        self.code.set_text("")
+        self.accept.set_visible(False)
+        self.entry.set_visible(False)
+        if isinstance(error, GLib.Error):
+            if "key-missing" in message:
+                friendly = "The saved pairing could not authenticate. Forget this device and pair again."
+            elif any(word in message for word in ("AuthenticationCanceled", "AuthenticationTimeout")):
+                friendly = "Pairing expired or was canceled. Try Pair again and enter the displayed code promptly."
+            elif any(word in message for word in ("AuthenticationFailed", "AuthenticationRejected")):
+                friendly = "Authentication failed. Put the device in pairing mode and try again."
+            elif "InProgress" in message:
+                friendly = "Another Bluetooth operation is in progress. Wait for it to finish."
+            elif "AlreadyExists" in message:
+                friendly = "A pairing already exists. Try Connect, or Forget before pairing again."
+            else:
+                friendly = "Bluetooth could not complete the connection. Check the device is powered on and nearby, then try again."
+        else:
+            friendly = message
+        self.status.set_label(friendly)
+        self.close.set_label("Close")
+        print("Bluetooth pairing failed: " + message, file=sys.stderr, flush=True)
+        GLib.timeout_add_seconds(30, self.finish)
+
+    def cancel(self):
+        self.reject_pending()
+        if self.registered and self.result:
+            self.call("CancelPairing", lambda *_: None, 5000)
+        self.finish()
+
+    def finish(self):
+        self.quit()
+        return False
+
+    def do_shutdown(self):
+        self.reject_pending()
+        if self.registered:
+            try:
+                self.sync("/org/bluez", "org.bluez.AgentManager1", "UnregisterAgent",
+                          GLib.Variant("(o)", (self.agent,)))
+            except GLib.Error:
+                pass
+            self.bus.unregister_object(self.export_id)
+        Gtk.Application.do_shutdown(self)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2 or not re.fullmatch(r"(?:[0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}", sys.argv[1]):
+        raise SystemExit("Usage: odin-bluetooth-pair DEVICE_ADDRESS")
+    app = Pairing(sys.argv[1])
+    app.run([])
+    raise SystemExit(app.result)

@@ -9,6 +9,9 @@ device=/org/bluez/hci0/dev_${address//:/_}
 is_bonded() {
     [[ $(busctl --system get-property org.bluez "$device" org.bluez.Device1 Bonded 2>/dev/null) == 'b true' ]]
 }
+is_connected() {
+    [[ $(busctl --system get-property org.bluez "$device" org.bluez.Device1 Connected 2>/dev/null) == 'b true' ]]
+}
 case "$action" in
     pair|connect)
         # The packaged applet owns the default KeyboardDisplay agent and shows
@@ -27,15 +30,22 @@ case "$action" in
             bluetoothctl --timeout 90 pair "$address"
             is_bonded || { echo 'Bluetooth did not save a bond; pairing is incomplete' >&2; exit 1; }
         fi
-        bluetoothctl trust "$address"
-        bluetoothctl --timeout 20 connect "$address"
+        busctl --system set-property org.bluez "$device" org.bluez.Device1 Trusted b true
+        # bluetoothctl may return zero even after printing a connection error.
+        # D-Bus preserves BlueZ's actual error and waits for profile connection.
+        busctl --system --timeout=25 call org.bluez "$device" org.bluez.Device1 Connect
+        is_connected || { echo 'Bluetooth is disconnected after Connect' >&2; exit 1; }
         ;;
     disconnect)
-        bluetoothctl --timeout 10 disconnect "$address"
+        if is_connected; then
+            busctl --system --timeout=10 call org.bluez "$device" org.bluez.Device1 Disconnect
+        fi
         ;;
     forget)
-        bluetoothctl --timeout 10 disconnect "$address" || true
-        bluetoothctl --timeout 10 remove "$address"
+        if is_connected; then
+            busctl --system --timeout=10 call org.bluez "$device" org.bluez.Device1 Disconnect || true
+        fi
+        busctl --system --timeout=10 call org.bluez /org/bluez/hci0 org.bluez.Adapter1 RemoveDevice o "$device"
         ;;
     *) echo 'Usage: odin-bluetooth-device pair|connect|disconnect|forget ADDRESS' >&2; exit 2 ;;
 esac

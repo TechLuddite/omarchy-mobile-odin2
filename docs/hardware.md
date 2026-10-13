@@ -10,8 +10,9 @@ Omarchy with root on sda18 and boot on sda17. Freedreno FD740 EGL and Turnip
 Adreno 740 Vulkan report hardware rendering. The display is upright at transform
 1, and the user confirmed opening/closing gestures after touch transform 1,
 keyboard dismissal and joining Wi-Fi. HTTPS works over Wi-Fi. Bluetooth powers
-on; pairing is pending. Speaker/headphone sinks enumerate; audible output and
-microphone recording remain pending. The controller mapper recognizes the AYN
+on; mouse input is confirmed, while keyboard input remains pending.
+Speaker/headphone sinks enumerate; audible output and microphone recording
+remain pending. The controller mapper recognizes the AYN
 gamepad and passes 44 native tests, including synthetic-pad integration tests;
 physical button and rear-paddle checks await the user. The running Portal DTB
 only advertises volume-up on gpio-keys; independent rear-paddle events are not
@@ -21,9 +22,10 @@ Bluetooth input diagnosis found that the mouse and keyboard were trusted but
 unpaired/unbonded, with repeated missing-agent authentication errors. Blueman's
 visible agent is now running and attached to the desktop session, and the mobile
 panel distinguishes trust from actual pairing. The user confirms mouse pointer
-input after fresh pairing; its bond and HID interfaces are verified. Keyboard
-pairing/typing, sustained connection and peripheral off/on reconnect remain
-pending. See [Bluetooth diagnosis](bluetooth.md).
+input after fresh pairing; its bond and HID interfaces are verified. The latest
+keyboard passcode attempt saved a local bond but failed reconnect and produced
+no keyboard input interfaces. Keyboard typing, sustained connection and
+peripheral off/on reconnect remain pending. See [Bluetooth diagnosis](bluetooth.md).
 
 | Hardware or behavior | Candidate prior art | Acceptance on this device |
 |---|---|---|
