@@ -17,6 +17,14 @@ physical button and rear-paddle checks await the user. The running Portal DTB
 only advertises volume-up on gpio-keys; independent rear-paddle events are not
 yet established. Do not copy the original Odin 2's paddle GPIO assignments.
 
+Bluetooth input diagnosis found that the mouse and keyboard were trusted but
+unpaired/unbonded, with repeated missing-agent authentication errors. Blueman's
+visible agent is now running and attached to the desktop session, and the mobile
+panel distinguishes trust from actual pairing. The user confirms mouse pointer
+input after fresh pairing; its bond and HID interfaces are verified. Keyboard
+pairing/typing, sustained connection and peripheral off/on reconnect remain
+pending. See [Bluetooth diagnosis](bluetooth.md).
+
 | Hardware or behavior | Candidate prior art | Acceptance on this device |
 |---|---|---|
 | Boot and recovery | ROCKNIX ABL, Renegade/Armbian boot images | Cold boot, warm reboot and shutdown; internal boot without removable media; repeatable bootloader/recovery entry |

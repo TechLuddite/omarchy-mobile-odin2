@@ -173,6 +173,20 @@
       "url": "https://github.com/Menci/docker-archlinuxarm",
       "image": "menci/archlinuxarm@sha256:f7c6f64c0f246f41775e01793340c49f8e9abf3991141c25405361d56b100ccb",
       "scope": "Immutable ARM64 container base used by native/Dockerfile to assemble the installed userspace"
+    },
+    {
+      "name": "bluez",
+      "url": "https://github.com/bluez/bluez",
+      "version": "5.87-2",
+      "architecture": "aarch64",
+      "scope": "Installed signed Arch Linux ARM Bluetooth stack; pairing-agent API and input policy inspected"
+    },
+    {
+      "name": "blueman",
+      "url": "https://github.com/blueman-project/blueman",
+      "version": "2.4.6-2",
+      "architecture": "aarch64",
+      "scope": "Installed signed Arch Linux ARM package; default graphical KeyboardDisplay agent attached to desktop session"
     }
   ]
 }

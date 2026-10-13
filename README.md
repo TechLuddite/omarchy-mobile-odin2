@@ -12,6 +12,7 @@ This project builds on the work of the following people and projects:
 - **Parminder Klair** — [Controller Control](https://github.com/perminder-klair/omarchy-controller-control): the evdev/uinput mapper engine and original editor/tests, adapted in [our touch-focused fork](https://github.com/TechLuddite/omarchy-gamepad-mapping).
 - **Peter Jackson and Voxtype contributors** — [Voxtype](https://github.com/peteonrails/voxtype): the native ARM64 dictation engine, model setup and service.
 - **Tyler South and Omakade contributors** — [Omakade](https://github.com/btsouth/omakade): the native game-library application and signed ARM repository.
+- **BlueZ and Blueman contributors** — [BlueZ](https://github.com/bluez/bluez), [Blueman](https://github.com/blueman-project/blueman): Bluetooth device handling and visible authentication dialogs for handheld pairing.
 - **bkerler and EDL contributors** — [edl](https://github.com/bkerler/edl); **Renegade contributors** — [Renegade Project](https://renegade-project.tech/): device recovery and earlier native Odin installation work.
 - **Armbian and Armada contributors** — [Armbian](https://github.com/armbian/build), [Armada](https://github.com/armada-os/armada): related Odin boot-image, installation and hardware integration prior art.
 - **Caleb Connolly, The Linux Foundation and linux-msm contributors** — [qbootctl](https://github.com/linux-msm/qbootctl); **Linaro and Collabora contributors** — Qualcomm boot-success and loader recovery research; **Android Open Source Project contributors** — [AVB](https://android.googlesource.com/platform/external/avb/): boot verification tooling.
@@ -67,6 +68,7 @@ the signed btsouth ARM64 repository and opens in the native Wayland desktop.
 - [Current device access and next steps](docs/bring-up.md)
 - [Verified base image backup](docs/backup.md)
 - [Omarchy dictation bring-up](docs/dictation.md)
+- [Bluetooth input diagnosis and pairing repair](docs/bluetooth.md)
 - [Account setup and USB maintenance access](docs/access.md)
 - [Boot recovery investigation](docs/boot-recovery.md)
 - [Inspected source revisions](sources.json)

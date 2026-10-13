@@ -1,0 +1,41 @@
+#!/bin/bash
+# Portal pairing uses Blueman's visible BlueZ agent; credit both projects.
+# Companion to Simon Schubert's mobile Bluetooth panel and Omarchy controls.
+set -euo pipefail
+action=${1:-}
+address=${2:-}
+[[ $address =~ ^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$ ]] || exit 2
+device=/org/bluez/hci0/dev_${address//:/_}
+is_bonded() {
+    [[ $(busctl --system get-property org.bluez "$device" org.bluez.Device1 Bonded 2>/dev/null) == 'b true' ]]
+}
+case "$action" in
+    pair|connect)
+        # The packaged applet owns the default KeyboardDisplay agent and shows
+        # passcodes/confirmation on the handheld, including for keyboards.
+        systemctl --user start blueman-applet.service
+        omarchy-bluetooth-power on
+        if ! is_bonded; then
+            # BlueZ can report temporary pairing without storing any key. A new
+            # Pair call then says AlreadyExists; the user must forget that
+            # incomplete record and put the peripheral in fresh pairing mode.
+            # Do not remove a device record automatically while it is in use.
+            if [[ $(busctl --system get-property org.bluez "$device" org.bluez.Device1 Paired 2>/dev/null) == 'b true' ]]; then
+                echo 'No saved bond. Choose Forget, put the device in pairing mode, then Pair again.' >&2
+                exit 1
+            fi
+            bluetoothctl --timeout 90 pair "$address"
+            is_bonded || { echo 'Bluetooth did not save a bond; pairing is incomplete' >&2; exit 1; }
+        fi
+        bluetoothctl trust "$address"
+        bluetoothctl --timeout 20 connect "$address"
+        ;;
+    disconnect)
+        bluetoothctl --timeout 10 disconnect "$address"
+        ;;
+    forget)
+        bluetoothctl --timeout 10 disconnect "$address" || true
+        bluetoothctl --timeout 10 remove "$address"
+        ;;
+    *) echo 'Usage: odin-bluetooth-device pair|connect|disconnect|forget ADDRESS' >&2; exit 2 ;;
+esac
