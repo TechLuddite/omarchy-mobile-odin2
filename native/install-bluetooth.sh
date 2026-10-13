@@ -15,13 +15,17 @@ python3 "$assets/fix-bluetooth-pairing.py" \
 systemctl enable --now bluetooth
 # The packaged unit is static/D-Bus activated; tie it to the desktop session.
 runuser -u techluddite -- env XDG_RUNTIME_DIR=/run/user/1000 \
+    DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
     systemctl --user add-wants graphical-session.target blueman-applet.service
 runuser -u techluddite -- env XDG_RUNTIME_DIR=/run/user/1000 \
+    DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
     systemctl --user start blueman-applet.service
 # Keep pairing codes/confirmation in a visible GTK dialog for touch use.
 runuser -u techluddite -- env XDG_RUNTIME_DIR=/run/user/1000 \
+    DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
     gsettings set org.blueman.general notification-daemon false
-runuser -u techluddite -- env XDG_RUNTIME_DIR=/run/user/1000 python3 - <<'PY'
+runuser -u techluddite -- env XDG_RUNTIME_DIR=/run/user/1000 \
+    DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus python3 - <<'PY'
 from gi.repository import Gio
 settings = Gio.Settings.new('org.blueman.general')
 plugins = [item for item in settings.get_strv('plugin-list')
