@@ -25,6 +25,9 @@ The [full credits ledger](CREDITS.md), [source revisions](sources.json) and
 Keep upstream copyright and license notices with reused code. Hardware research
 leads listed here are credited without claiming they all pass on this device.
 
+For a new agent session, open this project root. [AGENTS.md](AGENTS.md) records
+the reference files, working directories, accepted checkpoint and remaining work.
+
 Current checkpoint: the installed native desktop boots again from internal UFS.
 The confirmed AVB and FAT-sector recovery issues are corrected; `/boot` mounts,
 USB SSH works, Hyprland/the mobile shell run, and systemd reports no failed
