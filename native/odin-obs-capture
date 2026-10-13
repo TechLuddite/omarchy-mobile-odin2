@@ -1,0 +1,17 @@
+#!/bin/bash
+# Portal display capture for the user-requested OBS feed. Requires wf-recorder.
+set -euo pipefail
+[[ $(uname -m) == aarch64 && $EUID != 0 ]] || exit 1
+[[ -n ${WAYLAND_DISPLAY:-} && -n ${XDG_RUNTIME_DIR:-} ]] || {
+  echo 'Launch through the live desktop user manager.' >&2; exit 1;
+}
+# Keep all recorder diagnostics on stderr; only MPEG-TS goes to SSH stdout.
+exec 3>&1
+exec 1>&2
+notify-send -a 'Odin OBS' 'Odin screen feed started' '720p / 30 FPS' || true
+exec wf-recorder --overwrite --output DSI-1 --no-damage --no-dmabuf \
+  --muxer mpegts --file /dev/fd/3 --codec libx264 --pixel-format yuv420p \
+  --filter "scale='if(gt(iw,ih),1280,720)':'if(gt(iw,ih),720,1280)':flags=fast_bilinear,setsar=1" --framerate 30 \
+  --codec-param preset=ultrafast --codec-param tune=zerolatency \
+  --codec-param crf=25 --codec-param threads=2 \
+  --codec-param 'x264-params=keyint=30:min-keyint=30:scenecut=0:repeat-headers=1'

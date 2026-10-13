@@ -25,6 +25,10 @@ of the investigation logs are chronological; use their latest accepted result.
 |---|---|
 | [docs/access.md](docs/access.md) | Passwordless Wi-Fi/root SSH, host aliases, account handling and verification limits |
 | [docs/dictation.md](docs/dictation.md) | Voxtype, Microphone Check, microphone routing experiments and rollback state |
+| [docs/apps.md](docs/apps.md), [docs/apps.json](docs/apps.json) | Standard Omarchy apps and included installers, ARM candidates, estimated remaining work and separate installation/acceptance status |
+| [docs/backlog.md](docs/backlog.md) | Open engineering work, including user-requested passwordless theme changes; theme issue is note-only until resumed |
+| [docs/steam.md](docs/steam.md) | Native ARM64 Steam installation, Valve download hashes, Pocknix recipe credits and desktop acceptance |
+| [docs/obs-stream.md](docs/obs-stream.md) | User-requested display feed to this host, OBS scene, local URL, capture lifecycle and verification |
 | [docs/boot-recovery.md](docs/boot-recovery.md) | Proven boot image, AVB/ESP repair, slot state and recovery constraints; read before boot/kernel/DTB writes |
 | [docs/bluetooth.md](docs/bluetooth.md) | Pairing diagnosis, working Blueman flow, keyboard/TrackPoint acceptance and remaining reconnect checks |
 | [docs/backup.md](docs/backup.md) | Base backup scope, verification, omissions and recovery copies |
@@ -51,7 +55,7 @@ On the Odin, `/` is the installed native root, `/boot` is the ESP, and
 desktop account is `techluddite`; deployed shell plugins are under
 `/home/techluddite/.config/omarchy/plugins/`.
 
-## Last accepted hardware checkpoint
+## October 12 hardware baseline
 
 Recorded October 12, 2026, in commit `54a7883` and the linked documentation:
 
@@ -80,9 +84,74 @@ Recorded October 12, 2026, in commit `54a7883` and the linked documentation:
   the proven boot image and pre-WCD UCM probe after rollback. Omakade is installed;
   its optional guide overlay is disabled due to pinned-shell incompatibility.
 
-Internal microphone capture is the main unresolved engineering topic. Read the
-latest dictation and boot-recovery sections before continuing it. EasyEffects is
-a later processing lead; it has not established a working hardware voice route.
+Internal microphone capture was unresolved at that checkpoint. The October 13
+follow-up below supersedes that state. Read the latest dictation and recovery
+sections before device operations; EasyEffects installation alone is not voice
+capture acceptance.
+
+## October 13 integration checkpoint
+
+- The onboard codec **DMIC3/SWR_MIC7** path captured and transcribed controlled
+  speech from an external video in direct ALSA and normal PipeWire tests. The
+  V3 board route also passed after a warm reboot. Credit Luke Johnson's Pocknix
+  Thor route and the SteamOS ARM prior art; pins and findings are recorded here.
+- Current ESP KERNEL is V3, SHA256
+  `3c6b2569a964ec8c04b5bc96950df3921d58b016b77d40fd72fa597c10986763`.
+  KERNEL.bak and recovery retain the proven baseline. Read the newest
+  `docs/boot-recovery.md` section for the paired boot/UCM rollback; the pre-V3
+  UCM backup is a diagnostic probe, not the pre-WCD baseline.
+- The user's own voice/dictation accuracy, sustained use, cold boot and a
+  physical 3.5 mm headset microphone remain pending. The user explicitly asks
+  to test headset detection, speech, playback and unplug source return later.
+  Back's dictation mapping remains pending that live-voice acceptance.
+- EasyEffects 8.3.0 and LSP LV2 1.2.35 are installed. The controlled capture
+  result does not depend on processing. Recent SteamOS control/PWM findings,
+  credits and exact source revisions are in the prior-art and source records.
+- Native ARM64 Steam (`steamdeck_publicbeta`) is installed in the desktop
+  user's home. Its updater completed and the desktop launcher reaches a
+  visually checked sign-in window through XWayland. The user-owned Hyprland
+  sign-in rule avoids clipped controls; the runtime launch service runs.
+  The user subsequently signed in and installed Dead Cells and Road to Vostok.
+  Dead Cells now renders an in-game scene through Steam/FEX after installing
+  the verified x86 guest runtime (`odin-steam-guest.service`, read-only mount)
+  and preserving ARM library paths in its backed-up game launcher. That patch
+  is specific to the inspected game build and may be reset by a game update.
+  Sustained play, frame rate and physical gamepad behavior remain unverified;
+  Road to Vostok is user-confirmed running/working with low FPS. Its log shows
+  Godot 4.6.3, Vulkan Forward+ and Turnip Adreno 740; the installed Proton
+  Experimental Wine is x86-64 under FEX. Numeric FPS and optimization remain
+  pending. Source pins, installation steps and GPL notices are recorded in
+  `docs/steam.md`.
+- Scavland app `3373500`, build `25355838`, is user-confirmed installed,
+  running and working great. Its x86-64 Windows executable uses Steam's FEX
+  tool and Proton Experimental. Numeric FPS and separate audio/controller
+  observations were not supplied; no further game tweaks were needed for this
+  reported run. The acceptance entry is in `docs/steam.md`.
+  Subsequent startup diagnosis identified Unity 6000.3.7f1/Mono and D3D11 via
+  DXVK/Turnip. An ordinary launch took about 82 seconds to MainMenu; saved-map
+  loads logged about 30–35 seconds. No startup improvement is accepted. A native
+  CachyOS Proton ARM64 candidate is extracted but not selected or tested. The
+  original prefix/saves have a private tar backup; do not follow Wine `z:` links
+  or replace the working prefix during comparisons.
+- The user-requested OBS display feed is installed. Host
+  `odin-obs-stream.service` serves `http://127.0.0.1:17855/odin.ts`, starting
+  capture via `ssh odin2` only when a viewer connects. The dedicated OBS scene
+  **Odin 2 Portal** and source **Odin 2 Portal - Live Video** render the verified
+  1280×720 / 30 FPS H.264 video. The host relay is enabled at login; capture
+  stops after the last viewer leaves. Software encode uses about one CPU core
+  on an idle desktop; game FPS impact and latency are unmeasured. Video only;
+  no microphone capture was authorized or added by this screen-feed request.
+  Desktop capture passed; Scavland fullscreen later showed a black feed while
+  native screenshots showed the game. `--no-dmabuf` is currently a deployed
+  diagnostic candidate and did not fix it. Do not describe gameplay capture as
+  accepted. See the latest `docs/obs-stream.md` section and backlog.
+- The standard app inventory has 92 main entries and 144 including appendices,
+  based on live package/command/catalog checks and pinned Omarchy sources.
+  Installed versus working and estimated remaining effort are separate fields.
+  mise, Node/npm, yay, Docker, Chromium and OBS are absent from the Odin.
+- User-reported theme changes requested a password. The requested behavior is
+  passwordless theme switching. This is **backlog only**; no authorization or
+  desktop policy change has been made. Read `docs/backlog.md` before resuming.
 
 ## Project constraints
 
@@ -101,8 +170,15 @@ a later processing lead; it has not established a working hardware voice route.
   passwords, SSH private keys and Bluetooth pairing keys out of public Git.
   Base images are private and are not certified free of original sensitive
   state. Credentials are described by location in `docs/access.md`, never values.
+  Run `python3 scripts/audit-public-tree.py` on the exact staged tree before
+  committing. The local pre-commit guard must pass; never bypass it or force-add
+  private artifacts. Review `--history` at publication/checkpoint audits.
 - Microphone tests need the user present and visible recording feedback. Do not
-  record unattended or capture ordinary user keystrokes for diagnostics.
+  record unattended unless the user explicitly authorizes a controlled audio
+  source. The October 12–13 external-video tests had that explicit authorization
+  and were each bounded to 20 seconds with visible feedback; this does not
+  authorize future ambient recordings. Do not capture ordinary user keystrokes
+  for diagnostics.
 - Record actual physical observations separately from enumeration, source
   support claims, fixtures and synthetic tests. Run checks appropriate to changes;
   maintain the current hardware acceptance and recovery notes at checkpoints.

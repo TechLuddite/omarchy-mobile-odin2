@@ -1,0 +1,3970 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-13",
+  "device": "AYN Odin 2 Portal",
+  "upstream": {
+    "url": "https://github.com/basecamp/omarchy",
+    "ref": "0534987009061cbe2dacdde4ad564092ab698d12",
+    "declared_version": "v4.0.3",
+    "installed_version_file": "4.0.0.alpha"
+  },
+  "scope": "User-facing default apps, named optional app installers, browser launchers and developer setup appendix. Dependencies and OS/hardware packages excluded.",
+  "catalog_evidence": "Read-only snapshot of configured ARM sync databases; catalogs were not refreshed and candidate listings do not prove dependency resolution, download success or functional acceptance.",
+  "source_readback_utc": "2026-10-13T10:19:59.883985+00:00",
+  "levels": {
+    "0": "Already installed or present",
+    "1": "Ordinary ARM package installation",
+    "2": "Native packaging or integration changes",
+    "3": "Substantial runtime or hardware work",
+    "4": "Blocked stock route"
+  },
+  "effort_is_estimate": true,
+  "source_file_hashes": {
+    "/usr/share/omarchy/install/omarchy-base.packages": {
+      "sha256": "99434167d84b242050bbb32485679e92c29934fd5102df01265f7673612167fc"
+    },
+    "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc": {
+      "sha256": "8c791cfc457d6c50b90a6636a6f28c9415a2fa6e4edf84826906457b75649689"
+    },
+    "/usr/share/omarchy/install/user/mise.sh": {
+      "sha256": "742901d9d04252ca7db98484a9578a6e6749e953feb7d3c313d28ccd6b75af4f"
+    },
+    "/usr/share/omarchy/version": {
+      "sha256": "9d1aaeb0c16104d678742c04d6a8700fed365e7eb65a8eaef5fb3845ddf634e3"
+    },
+    "/usr/bin/omarchy-install-service-sunshine": {
+      "sha256": "768a2f5bee46469a491a447300320e020f5ac8ba256432461f4dbb38ccc86ca3"
+    },
+    "/usr/bin/omarchy-install-and-launch": {
+      "sha256": "bf459a4ad6ffebb9d4fcf1f9e9a1c98d64f4e2fcc301eed084b139952e3af161"
+    },
+    "/usr/bin/omarchy-install-gaming-geforce-now": {
+      "sha256": "c039bf511dc66a86af93c52b5445485ee9b592a7f54006e6dcdf637b35f0577c"
+    },
+    "/usr/bin/omarchy-install-chromium-copy-url": {
+      "sha256": "1a15e3a702cab1a3c9c19ccb7b5d8a39672717397c6184d9853b2ddfa305d096"
+    },
+    "/usr/bin/omarchy-install-chromium-google-account": {
+      "sha256": "20a13d310f31fd4724ad9be4695c78a9837bb66604da2f9241ac59d76c922f32"
+    },
+    "/usr/bin/omarchy-install-ai-openclaw": {
+      "sha256": "3f4cb7b2557e3d227f9a370f18aad2185b12abad15ea0419f65e5211f4c5c075"
+    },
+    "/usr/bin/omarchy-install-gaming-retroarch": {
+      "sha256": "aa2602bf6252a3a67428860885ca19f6878d689ef679d60d65637bb8c429cbbb"
+    },
+    "/usr/bin/omarchy-install-gaming-battlenet": {
+      "sha256": "7d687f439d9ea1b5de6cc7b5c8c054e8276fe3357e9792a67a6c5304e06dcfbb"
+    },
+    "/usr/bin/omarchy-install-gaming-heroic": {
+      "sha256": "c1536bde8a3ed65d0c7f434c15c08bd76f5d98981da9516c95cac51a69ef5f62"
+    },
+    "/usr/bin/omarchy-install-service-once": {
+      "sha256": "0d107d11baee0c3719798c563f02d163ef88e91a458d7bbe636e838d08e98663"
+    },
+    "/usr/bin/omarchy-install-service-signal": {
+      "sha256": "9b32534a7ff56b7ed6646c9bfdd4fed50ddec1538bf00b0e3391bb9b849b7db1"
+    },
+    "/usr/bin/omarchy-install-ai-chatgpt": {
+      "sha256": "27a1d71f3b80e1da6fde701afcd7c743a4292fdcdef6f44a12773270286341d3"
+    },
+    "/usr/bin/omarchy-install-editor-vscode": {
+      "sha256": "df25f1bddc920e7992efa6d3d9ccbaeb25943384572aa39b3d651e85fce53512"
+    },
+    "/usr/bin/omarchy-install-openclaw-cli": {
+      "sha256": "cdc3d3937d0924e731c8969ed58128955eba1ca56fc74c381abf950c1554be8e"
+    },
+    "/usr/bin/omarchy-install-service-spotify": {
+      "sha256": "5828b7146be7a5cfe82c16b903b04d360ea28a4398231b1efefd89eec3042c75"
+    },
+    "/usr/bin/omarchy-install-app": {
+      "sha256": "9827b90f4a864fdf788d5b1726e91a8105e5b8515fd8ab3635b4dd3c23db9563"
+    },
+    "/usr/bin/omarchy-install-ai-t3-code": {
+      "sha256": "299962ecf38cf1d5423fe41bdcda0f7078fd7f6f832909af6f09738b4d0fb2b0"
+    },
+    "/usr/bin/omarchy-install-gaming-xbox-cloud": {
+      "sha256": "02c50a1ddd6de2fcd0bdd5267ceb61b243720d745605e46dd72ce9f37394d747"
+    },
+    "/usr/bin/omarchy-install-chromium-ytdlp": {
+      "sha256": "c43978ceea348edfa8f5e124c87dbcb14463d1fb69f700b8ee0ed7ca08a25211"
+    },
+    "/usr/bin/omarchy-install-service-1password": {
+      "sha256": "5d5a5a9b3cf87579b4232067c9f7c78091cecf250111b802ffffa49c607f52d7"
+    },
+    "/usr/bin/omarchy-install-browser": {
+      "sha256": "bd9e97178359eafda0f2a5a47b63322514298e3c8681fe76d0de7044a7e9a1f7"
+    },
+    "/usr/bin/omarchy-install-terminal": {
+      "sha256": "41d1f9bb3d503e895795115236c2fe7146b5fe9184aec06de349137ad4f4069b"
+    },
+    "/usr/bin/omarchy-install-gaming-steam": {
+      "sha256": "1eb9a1cc76d0bb18085afd1a77553bb6dd420bcf2548dcd020cc256f1db14001"
+    },
+    "/usr/bin/omarchy-install-ai-hermes": {
+      "sha256": "200aafc9d3207e43f5f777c4d11d7943b019ab844840e14f2977b5e68761a31c"
+    },
+    "/usr/bin/omarchy-install-gaming-gpu-lib32": {
+      "sha256": "5fffa7e76d3d759fb69b9e69ac59750de620f35dbe5647c495405a360d928f7b"
+    },
+    "/usr/bin/omarchy-install-service-dropbox": {
+      "sha256": "90f36082ab995dc5e124996da15d551d058892eedbc7d290c93ded4f495ba6af"
+    },
+    "/usr/bin/omarchy-install-service-nordvpn": {
+      "sha256": "2767342aef4051cf3bfe62be355b076b49c024dfe2c960ce9733a709bebd53e6"
+    },
+    "/usr/bin/omarchy-install-dev-env": {
+      "sha256": "801a0fbd088dc7c1064ad45128371eb996037b5344c322feb1fc1d88e72b9a2c"
+    },
+    "/usr/bin/omarchy-install-docker-dbs": {
+      "sha256": "62a5a0e2c3b3e471e841b8060ad4f24f943107b0abeeb530914d8886a544851e"
+    },
+    "/usr/bin/omarchy-install-service-tailscale": {
+      "sha256": "a8497fce003a502cd60f174edd0fd6ea917debe93a068226e189c46f0540be3f"
+    },
+    "/usr/bin/omarchy-install-editor-zed": {
+      "sha256": "0f8660b13a25acf6d73034b89bab100178d42a484f28759bb7c112d78318fda1"
+    },
+    "/usr/bin/omarchy-install-gaming-lutris": {
+      "sha256": "b742e54d9bda2da2a8e98e6b236fcd050302919e4e25836bedf3f8dfcf3edbc8"
+    },
+    "/usr/bin/omarchy-install-gaming-xbox-controllers": {
+      "sha256": "c6d14f0d7b2dad0ccb52d135fce8b5a70038561650f8d30c9605bc32422b0bf1"
+    },
+    "/usr/bin/omarchy-install-editor-helix": {
+      "sha256": "b65a103491a5a6a18f724ba49a33bbb1c86e4b47a9f8f542977e701d5a411e10"
+    },
+    "/usr/bin/omarchy-install-editor-emacs": {
+      "sha256": "4817450e59a0f98fa4a4cfc74f7a95905173fdf6ab5936305fb8b5510b1fcf38"
+    },
+    "/usr/share/omarchy/applications/YouTube.desktop": {
+      "sha256": "fd1729e9e4656d61676a48efdab28bdbaf52827cc991a2ac1ec096769c608f49"
+    },
+    "/usr/share/omarchy/applications/Discord.desktop": {
+      "sha256": "be60efa1158755fe459d691decc3b805a9ffa93091a3080ebde1aa1665af247d"
+    },
+    "/usr/share/omarchy/applications/HEY.desktop": {
+      "sha256": "0f49e2b6ac2f3574bf840bcf40fc9c72bff2c1fa25baaedb4b4447d2599fb2b3"
+    },
+    "/usr/share/omarchy/applications/Google Photos.desktop": {
+      "sha256": "e28f27575a386fccfde05b189e90691ecb38bafdc4342de89db02bc5e4c2a3fc"
+    },
+    "/usr/share/omarchy/applications/WhatsApp.desktop": {
+      "sha256": "ef06856ce8a16dad7334914c0031d4bddd40a3b733fcd9df2cdb9e12ce83c3b9"
+    },
+    "/usr/share/omarchy/applications/Google Contacts.desktop": {
+      "sha256": "de038d569a4ba19df4c280d0b742619572f4bd43dd328868cb53e3e50276fe9b"
+    },
+    "/usr/share/omarchy/applications/X.desktop": {
+      "sha256": "364e6a3ca5b0c012a80bfc2f2c149baa286973017152a0e568b81a9f0a75230e"
+    },
+    "/usr/share/omarchy/applications/Google Messages.desktop": {
+      "sha256": "20abee44c63276b5ec2cda17cf89886d8acb8075ddfb0adc5fd51dba23acd885"
+    },
+    "/usr/share/omarchy/applications/Basecamp.desktop": {
+      "sha256": "d9835b032bdc3fa40dca861397adf07f7ad9b0dfba9a7d86840011bae7648f19"
+    },
+    "/usr/share/omarchy/applications/Zoom.desktop": {
+      "sha256": "b010601e19f64a9ad36c2b5c30cf33dd5e0915b42a72ed0622acf5b2970ea0b5"
+    },
+    "/usr/share/omarchy/applications/Google Maps.desktop": {
+      "sha256": "b8d54373ccdaf33299e3dec2ee07933f83b37247f33f4ac5ca7d338d11b75737"
+    }
+  },
+  "menu_coverage": {
+    "covered_named_routes": 67,
+    "missing_named_routes": []
+  },
+  "entries": [
+    {
+      "id": "aether",
+      "name": "Aether",
+      "category": "Mail",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "aether"
+      ],
+      "native_package_candidates": [
+        "aether"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit ARM build/package; test mail setup, keyring and touch layout.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "chromium",
+      "name": "Chromium",
+      "category": "Browser",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "chromium"
+      ],
+      "native_package_candidates": [
+        "chromium"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "chromium": [
+          {
+            "repo": "extra",
+            "version": "153.0.8010.36-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; test Turnip/Wayland, app windows and Omarchy browser helpers.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "cliamp",
+      "name": "Cliamp",
+      "category": "Music",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "cliamp"
+      ],
+      "native_package_candidates": [
+        "cliamp"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Inspect ARM release/build recipe; test music playback and terminal controls.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "foot",
+      "name": "Foot",
+      "category": "Terminal",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": "install.terminal.foot",
+      "upstream_packages": [
+        "foot"
+      ],
+      "native_package_candidates": [
+        "foot"
+      ],
+      "installed_packages": {
+        "foot": "1.28.0-2"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "foot": [
+          {
+            "repo": "extra",
+            "version": "1.28.0-2",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Terminal and physical keyboard accepted",
+      "effort_level": 0,
+      "remaining_work": "Terminal opening and physical keyboard use accepted; check OSK and sizing for longer work.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages",
+        "/usr/bin/omarchy-install-terminal"
+      ],
+      "vendor_sources": [],
+      "also_included_as": "Optional installer"
+    },
+    {
+      "id": "btop",
+      "name": "Btop",
+      "category": "Terminal utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "btop"
+      ],
+      "native_package_candidates": [
+        "btop"
+      ],
+      "installed_packages": {
+        "btop": "1.4.7-1"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "btop": [
+          {
+            "repo": "extra",
+            "version": "1.4.7-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Installed; function unverified",
+      "effort_level": 0,
+      "remaining_work": "Verify interactive display, CPU/GPU fields and readable touch-scale layout.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "fastfetch",
+      "name": "Fastfetch",
+      "category": "Terminal utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "fastfetch"
+      ],
+      "native_package_candidates": [
+        "fastfetch"
+      ],
+      "installed_packages": {
+        "fastfetch": "2.69.0-1"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "fastfetch": [
+          {
+            "repo": "extra",
+            "version": "2.69.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Installed; function unverified",
+      "effort_level": 0,
+      "remaining_work": "Check report on the Portal; package presence alone is not an app test.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "disk-usage",
+      "name": "Disk Usage",
+      "category": "Terminal utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "dua-cli"
+      ],
+      "native_package_candidates": [
+        "dua-cli"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "dua-cli": [
+          {
+            "repo": "extra",
+            "version": "2.45.1-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package and shipped TUI launcher; verify navigation.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "lazygit",
+      "name": "Lazygit",
+      "category": "Developer app",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "lazygit"
+      ],
+      "native_package_candidates": [
+        "lazygit"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "lazygit": [
+          {
+            "repo": "extra",
+            "version": "0.66.1-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; verify Git UI in a disposable test repository.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "docker-and-compose",
+      "name": "Docker and Compose",
+      "category": "Developer app",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "docker",
+        "docker-buildx",
+        "docker-compose"
+      ],
+      "native_package_candidates": [
+        "docker",
+        "docker-buildx",
+        "docker-compose"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "docker": [
+          {
+            "repo": "extra",
+            "version": "1:29.9.0-1",
+            "arch": "aarch64"
+          }
+        ],
+        "docker-buildx": [
+          {
+            "repo": "extra",
+            "version": "0.38.0-1",
+            "arch": "aarch64"
+          }
+        ],
+        "docker-compose": [
+          {
+            "repo": "extra",
+            "version": "5.6.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install ARM packages; check daemon/kernel features and run a disposable ARM container.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "lazydocker",
+      "name": "Lazydocker",
+      "category": "Developer app",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "lazydocker"
+      ],
+      "native_package_candidates": [
+        "lazydocker"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "lazydocker": [
+          {
+            "repo": "extra",
+            "version": "0.25.2-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install native TUI after Docker; verify daemon access and container controls.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "libreoffice",
+      "name": "LibreOffice",
+      "category": "Office",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "libreoffice-fresh"
+      ],
+      "native_package_candidates": [
+        "libreoffice-fresh"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "libreoffice-fresh": [
+          {
+            "repo": "extra",
+            "version": "26.8.1-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; create, save and reopen a document; test OSK and file dialogs.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "evince",
+      "name": "Evince",
+      "category": "PDF",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "evince"
+      ],
+      "native_package_candidates": [
+        "evince"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "evince": [
+          {
+            "repo": "extra",
+            "version": "1:48.4-2",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; open a test PDF and check zoom, scrolling and file associations.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "localsend",
+      "name": "LocalSend",
+      "category": "File sharing",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "localsend"
+      ],
+      "native_package_candidates": [
+        "localsend"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Use official Linux ARM64 archive; package launcher and test a LAN transfer both ways.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": [
+        "https://github.com/localsend/localsend/releases/tag/v1.18.2"
+      ]
+    },
+    {
+      "id": "moonlight",
+      "name": "Moonlight",
+      "category": "Game streaming",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "moonlight-qt"
+      ],
+      "native_package_candidates": [
+        "moonlight-qt"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "moonlight-qt": [
+          {
+            "repo": "extra",
+            "version": "6.2.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install ARM package; test pairing, video decode, audio, touch/gamepad and stream latency.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "image-viewer",
+      "name": "Image Viewer",
+      "category": "Images",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "imv"
+      ],
+      "native_package_candidates": [
+        "imv"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "imv": [
+          {
+            "repo": "extra",
+            "version": "5.0.1-2",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package and shipped launcher; test image open, zoom and touch use.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "media-player",
+      "name": "Media Player",
+      "category": "Video",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "mpv",
+        "mpv-mpris"
+      ],
+      "native_package_candidates": [
+        "mpv",
+        "mpv-mpris"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "mpv": [
+          {
+            "repo": "extra",
+            "version": "1:0.41.0-6",
+            "arch": "aarch64"
+          }
+        ],
+        "mpv-mpris": [
+          {
+            "repo": "extra",
+            "version": "1.3-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install player and MPRIS package; test video/audio, media controls and software versus hardware decode.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "nautilus",
+      "name": "Nautilus",
+      "category": "Files",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "nautilus",
+        "nautilus-python"
+      ],
+      "native_package_candidates": [
+        "nautilus",
+        "nautilus-python"
+      ],
+      "installed_packages": {
+        "nautilus": "51.0.1-2"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "nautilus": [
+          {
+            "repo": "extra",
+            "version": "51.1-1",
+            "arch": "aarch64"
+          }
+        ],
+        "nautilus-python": [
+          {
+            "repo": "extra",
+            "version": "4.2.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Installed; function unverified",
+      "effort_level": 0,
+      "remaining_work": "Verify file browsing, copy, file dialogs and touch layout; package is installed. Upstream nautilus-python companion is absent; assess whether enabled integrations need it.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "nautilus-preview",
+      "name": "Nautilus preview",
+      "category": "Files",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "sushi"
+      ],
+      "native_package_candidates": [
+        "sushi"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "sushi": [
+          {
+            "repo": "extra",
+            "version": "50.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install ARM previewer; check preview on selected files with keyboard and touch access.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "gnome-disks",
+      "name": "GNOME Disks",
+      "category": "Utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "gnome-disk-utility"
+      ],
+      "native_package_candidates": [
+        "gnome-disk-utility"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "gnome-disk-utility": [
+          {
+            "repo": "extra",
+            "version": "46.1-3",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native utility; verify read-only device display. Storage editing is separate work.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "print-settings",
+      "name": "Print Settings",
+      "category": "Utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "system-config-printer"
+      ],
+      "native_package_candidates": [
+        "system-config-printer"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "system-config-printer": [
+          {
+            "repo": "extra",
+            "version": "1.5.18-7",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native UI; printer discovery/printing needs an actual printer.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "obsidian",
+      "name": "Obsidian",
+      "category": "Notes",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "obsidian"
+      ],
+      "native_package_candidates": [
+        "obsidian"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Official ARM64 AppImage exists; integrate launcher/update path and test a disposable vault.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": [
+        "https://obsidian.md/download"
+      ]
+    },
+    {
+      "id": "omacalc",
+      "name": "OmaCalc",
+      "category": "Calculator",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "omacalc"
+      ],
+      "native_package_candidates": [
+        "omacalc"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Inspect architecture-neutral/ARM build recipe and install; verify calculation and touch UI.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "omacut",
+      "name": "OmaCut",
+      "category": "Text utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "omacut"
+      ],
+      "native_package_candidates": [
+        "omacut"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit ARM package and clipboard/shortcut integration; test without replacing personal shortcuts.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "omawrite",
+      "name": "OmaWrite",
+      "category": "Writing",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "omawrite"
+      ],
+      "native_package_candidates": [
+        "omawrite"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit ARM package/build; verify create/save/reopen and touch/OSK behavior.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "obs-studio-on-the-odin",
+      "name": "OBS Studio on the Odin",
+      "category": "Recording",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "obs-studio"
+      ],
+      "native_package_candidates": [
+        "obs-studio"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Not in ARM catalogs checked; evaluate ARM build and Wayland capture/encoding. Host OBS feed is separate.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "kdenlive",
+      "name": "Kdenlive",
+      "category": "Video editing",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "kdenlive"
+      ],
+      "native_package_candidates": [
+        "kdenlive"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "kdenlive": [
+          {
+            "repo": "extra",
+            "version": "26.08.2-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Native package listed; test small clip import/edit/export and resource use.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "pinta",
+      "name": "Pinta",
+      "category": "Images",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "pinta"
+      ],
+      "native_package_candidates": [
+        "pinta"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "No package in checked catalogs; inspect native .NET/Flatpak route and image editing.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": [
+        "https://www.pinta-project.com/howto/installing-pinta/"
+      ]
+    },
+    {
+      "id": "xournal",
+      "name": "Xournal++",
+      "category": "Notes",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "xournalpp"
+      ],
+      "native_package_candidates": [
+        "xournalpp"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "xournalpp": [
+          {
+            "repo": "extra",
+            "version": "1.3.8-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; test annotation/save/reopen and touchscreen use. No stylus pass inferred.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "omarchy-neovim-distribution",
+      "name": "Omarchy Neovim distribution",
+      "category": "Editor",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "nvim",
+        "omarchy-nvim"
+      ],
+      "native_package_candidates": [
+        "nvim",
+        "omarchy-nvim"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Plain neovim is installed; port the Omarchy config package and inspect plugin/tool downloads for ARM.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "herdr",
+      "name": "Herdr",
+      "category": "Agent bridge",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "herdr"
+      ],
+      "native_package_candidates": [
+        "herdr"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit ARM build and service/session integration before claiming agent/remote features work.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "tensaku",
+      "name": "Tensaku",
+      "category": "Text utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "tensaku"
+      ],
+      "native_package_candidates": [
+        "tensaku"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Inspect ARM package/build and clarify user-visible text workflow; test selected operations.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "tobi-try",
+      "name": "Tobi Try",
+      "category": "Developer app",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "tobi-try"
+      ],
+      "native_package_candidates": [
+        "tobi-try"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit ARM package/build and scratch-project workflow.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "tmux",
+      "name": "Tmux",
+      "category": "Terminal utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "tmux"
+      ],
+      "native_package_candidates": [
+        "tmux"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "tmux": [
+          {
+            "repo": "extra",
+            "version": "3.8-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; create/attach a test session and verify key/OSK usability.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "yt-dlp",
+      "name": "yt-dlp",
+      "category": "Media utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "yt-dlp"
+      ],
+      "native_package_candidates": [
+        "yt-dlp"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "yt-dlp": [
+          {
+            "repo": "extra",
+            "version": "2025.12.08-2",
+            "arch": "any"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native/architecture-neutral package; test authorized public media metadata/download.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "tesseract-ocr",
+      "name": "Tesseract OCR",
+      "category": "Utility",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "tesseract",
+        "tesseract-data-eng"
+      ],
+      "native_package_candidates": [
+        "tesseract",
+        "tesseract-data-eng"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "tesseract": [
+          {
+            "repo": "extra",
+            "version": "5.5.3-1",
+            "arch": "aarch64"
+          }
+        ],
+        "tesseract-data-eng": [
+          {
+            "repo": "extra",
+            "version": "2:4.1.0-5",
+            "arch": "any"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install engine and English data; recognize a nonprivate fixture and verify Omarchy OCR helper.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "gpu-screen-recorder",
+      "name": "GPU Screen Recorder",
+      "category": "Recording",
+      "section": "apps",
+      "shipped_as": "Default package",
+      "menu_route": null,
+      "upstream_packages": [
+        "gpu-screen-recorder"
+      ],
+      "native_package_candidates": [
+        "gpu-screen-recorder"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "gpu-screen-recorder": [
+          {
+            "repo": "extra",
+            "version": "6.1.3-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "ARM package exists; hardware encoder and capture support on Adreno remain separate engineering checks.",
+      "source_paths": [
+        "/usr/share/omarchy/install/omarchy-base.packages"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "chrome",
+      "name": "Chrome",
+      "category": "Browser",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.browser.chrome",
+      "upstream_packages": [
+        "google-chrome"
+      ],
+      "native_package_candidates": [
+        "google-chrome"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Stock AUR route absent; verify current Linux ARM artifact before choosing native packaging or a browser alternative.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-browser"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "edge",
+      "name": "Edge",
+      "category": "Browser",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.browser.edge",
+      "upstream_packages": [
+        "microsoft-edge-stable-bin"
+      ],
+      "native_package_candidates": [
+        "microsoft-edge-stable-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Stock package absent; audit Linux ARM availability. Chromium/Firefox are native alternatives.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-browser"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "brave",
+      "name": "Brave",
+      "category": "Browser",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.browser.brave",
+      "upstream_packages": [
+        "brave-bin"
+      ],
+      "native_package_candidates": [
+        "brave-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Vendor confirms Linux ARM64; adapt packaging, policies and Omarchy browser helpers.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-browser"
+      ],
+      "vendor_sources": [
+        "https://brave.com/linux/"
+      ]
+    },
+    {
+      "id": "brave-origin",
+      "name": "Brave Origin",
+      "category": "Browser",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.browser.brave-origin",
+      "upstream_packages": [
+        "brave-origin-bin"
+      ],
+      "native_package_candidates": [
+        "brave-origin-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Audit Origin-specific ARM release/licensing and packaging; ordinary Brave ARM support does not prove this variant.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-browser"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "firefox",
+      "name": "Firefox",
+      "category": "Browser",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.browser.firefox",
+      "upstream_packages": [
+        "firefox"
+      ],
+      "native_package_candidates": [
+        "firefox"
+      ],
+      "installed_packages": {
+        "firefox": "157.0.1-1"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "firefox": [
+          {
+            "repo": "extra",
+            "version": "157.0.1-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Installed; function unverified",
+      "effort_level": 0,
+      "remaining_work": "Installed ARM package; verify browsing, touch/OSK, downloads and any required DRM/video features.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-browser"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "zen",
+      "name": "Zen",
+      "category": "Browser",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.browser.zen",
+      "upstream_packages": [
+        "zen-browser-bin"
+      ],
+      "native_package_candidates": [
+        "zen-browser-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Official aarch64 AppImage/archive exists; adapt installer/policies and verify browser/touch behavior.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-browser"
+      ],
+      "vendor_sources": [
+        "https://github.com/zen-browser/desktop/releases/tag/1.23.2b"
+      ]
+    },
+    {
+      "id": "1password",
+      "name": "1Password",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.1password",
+      "upstream_packages": [
+        "1password",
+        "1password-cli"
+      ],
+      "native_package_candidates": [
+        "1password",
+        "1password-cli"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Vendor ARM64 desktop archive exists; adapt package/CLI and verify keyring/browser integration with user login later.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-service-1password"
+      ],
+      "vendor_sources": [
+        "https://support.1password.com/install-linux/"
+      ]
+    },
+    {
+      "id": "dropbox",
+      "name": "Dropbox",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.dropbox",
+      "upstream_packages": [
+        "dropbox",
+        "dropbox-cli",
+        "nautilus-dropbox"
+      ],
+      "native_package_candidates": [
+        "dropbox",
+        "dropbox-cli",
+        "nautilus-dropbox"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Audit daemon architecture and sync integration; browser access does not establish desktop sync support.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-service-dropbox"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.spotify",
+      "upstream_packages": [
+        "spotify"
+      ],
+      "native_package_candidates": [
+        "spotify"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Stock package absent; verify native desktop availability and DRM. Web player is an alternative to desktop acceptance.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-service-spotify"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "signal",
+      "name": "Signal",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.signal",
+      "upstream_packages": [
+        "signal-desktop"
+      ],
+      "native_package_candidates": [
+        "signal-desktop"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "signal-desktop": [
+          {
+            "repo": "extra",
+            "version": "8.30.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Native ARM package listed; install, launch and later link a user-approved phone/account.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-service-signal"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "tailscale",
+      "name": "Tailscale",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.tailscale",
+      "upstream_packages": [
+        "tailscale"
+      ],
+      "native_package_candidates": [
+        "tailscale"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "tailscale": [
+          {
+            "repo": "extra",
+            "version": "1.104.1-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Native package exists; configure service and verify tunnel/routing after user-owned account setup.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-service-tailscale"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "nordvpn",
+      "name": "NordVPN",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.nordvpn",
+      "upstream_packages": [
+        "nordvpn-bin"
+      ],
+      "native_package_candidates": [
+        "nordvpn-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Audit daemon/CLI ARM artifacts and TUN/service/firewall integration; avoid changing the working SSH route during first checks.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-service-nordvpn"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "once",
+      "name": "ONCE",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.once",
+      "upstream_packages": [
+        "once-bin"
+      ],
+      "native_package_candidates": [
+        "once-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Audit current ARM binary/container support and service dependencies; no supported route accepted yet.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-service-once"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "bitwarden",
+      "name": "Bitwarden",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.bitwarden",
+      "upstream_packages": [
+        "bitwarden",
+        "bitwarden-cli"
+      ],
+      "native_package_candidates": [
+        "bitwarden",
+        "bitwarden-cli"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "bitwarden-cli": [
+          {
+            "repo": "extra",
+            "version": "2026.2.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Official Linux ARM64 desktop archive exists; adapt CLI/launcher and verify vault/browser integration with user login later.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-and-launch"
+      ],
+      "vendor_sources": [
+        "https://github.com/bitwarden/clients/releases/tag/desktop-v2026.9.1"
+      ]
+    },
+    {
+      "id": "chromium-account",
+      "name": "Chromium Account",
+      "category": "Service",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.service.chromium-account",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Browser helper rather than standalone app; requires Chromium and explicit account sign-in acceptance.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-chromium-google-account"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "vscode",
+      "name": "VSCode",
+      "category": "Editor",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.editor.vscode",
+      "upstream_packages": [
+        "visual-studio-code-bin"
+      ],
+      "native_package_candidates": [
+        "visual-studio-code-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Select vendor Linux ARM64 artifact; adapt package/theme/keyring integration and audit ARM extension binaries.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-editor-vscode"
+      ],
+      "vendor_sources": [
+        "https://code.visualstudio.com/download"
+      ]
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "category": "Editor",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.editor.cursor",
+      "upstream_packages": [
+        "cursor-bin"
+      ],
+      "native_package_candidates": [
+        "cursor-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Official Linux ARM64 AppImage exists; adapt launcher/theme and check bundled helpers/extensions.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-and-launch"
+      ],
+      "vendor_sources": [
+        "https://cursor.com/download"
+      ]
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "category": "Editor",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.editor.zed",
+      "upstream_packages": [
+        "zed",
+        "omazed"
+      ],
+      "native_package_candidates": [
+        "zed",
+        "omazed"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Official aarch64 build exists; integrate Omarchy companion/theme and validate Turnip Vulkan on the Portal.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-editor-zed"
+      ],
+      "vendor_sources": [
+        "https://zed.dev/docs/linux"
+      ]
+    },
+    {
+      "id": "sublime-text",
+      "name": "Sublime Text",
+      "category": "Editor",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.editor.sublime",
+      "upstream_packages": [
+        "sublime-text-4"
+      ],
+      "native_package_candidates": [
+        "sublime-text-4"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Official Linux ARM64 archive exists; adapt package/desktop integration and verify editing.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-and-launch"
+      ],
+      "vendor_sources": [
+        "https://www.sublimetext.com/download"
+      ]
+    },
+    {
+      "id": "helix",
+      "name": "Helix",
+      "category": "Editor",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.editor.helix",
+      "upstream_packages": [
+        "helix"
+      ],
+      "native_package_candidates": [
+        "helix"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "helix": [
+          {
+            "repo": "extra",
+            "version": "25.07.1-2",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; verify editing, theme and optional language servers.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-editor-helix"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "vim",
+      "name": "Vim",
+      "category": "Editor",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.editor.vim",
+      "upstream_packages": [
+        "vim"
+      ],
+      "native_package_candidates": [
+        "vim"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "vim": [
+          {
+            "repo": "extra",
+            "version": "9.2.1178-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package and test basic edit/save/quit in the terminal.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-app"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "emacs",
+      "name": "Emacs",
+      "category": "Editor",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.editor.emacs",
+      "upstream_packages": [
+        "omarchy-emacs"
+      ],
+      "native_package_candidates": [
+        "emacs",
+        "omarchy-emacs"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "emacs": [
+          {
+            "repo": "extra",
+            "version": "31.1-2",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Native emacs package exists; adapt Omarchy AUR config/package and check theme/launch/editing.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-editor-emacs"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "alacritty",
+      "name": "Alacritty",
+      "category": "Terminal",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.terminal.alacritty",
+      "upstream_packages": [
+        "alacritty"
+      ],
+      "native_package_candidates": [
+        "alacritty"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "alacritty": [
+          {
+            "repo": "extra",
+            "version": "0.17.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; verify font/theme, scaling and terminal launch integration.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-terminal"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "ghostty",
+      "name": "Ghostty",
+      "category": "Terminal",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.terminal.ghostty",
+      "upstream_packages": [
+        "ghostty"
+      ],
+      "native_package_candidates": [
+        "ghostty"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "No package in checked ARM catalogs; inspect source/native build and integrate terminal selection/theme.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-terminal"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "kitty",
+      "name": "Kitty",
+      "category": "Terminal",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.terminal.kitty",
+      "upstream_packages": [
+        "kitty"
+      ],
+      "native_package_candidates": [
+        "kitty"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "kitty": [
+          {
+            "repo": "extra",
+            "version": "0.49.2-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 1,
+      "remaining_work": "Install native package; verify GPU rendering, fonts, scaling and terminal selection.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-terminal"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "chatgpt-desktop",
+      "name": "ChatGPT Desktop",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.chatgpt",
+      "upstream_packages": [
+        "openai-codex-desktop"
+      ],
+      "native_package_candidates": [
+        "openai-codex-desktop"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Stock desktop package absent; audit Linux ARM artifacts and companion integration. Web app/CLI are separate alternatives.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-ai-chatgpt"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "dictation",
+      "name": "Dictation",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.dictation",
+      "upstream_packages": [
+        "voxtype-bin"
+      ],
+      "native_package_candidates": [
+        "voxtype-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": "/usr/local/bin/voxtype",
+      "native_catalog_candidates": {},
+      "status": "Partial functional acceptance",
+      "effort_level": 3,
+      "remaining_work": "Native Voxtype and controlled speech accepted; own voice, headset, sustained capture and Back mapping remain pending.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "grok-bot",
+      "name": "Grok Bot",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.grok-bot",
+      "upstream_packages": [
+        "grok-bot"
+      ],
+      "native_package_candidates": [
+        "grok-bot"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Audit desktop/helper architecture and ARM packaging; no native route established here.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-and-launch"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "lm-studio",
+      "name": "LM Studio",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.lm-studio",
+      "upstream_packages": [
+        "lmstudio-bin"
+      ],
+      "native_package_candidates": [
+        "lmstudio-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Vendor documents Linux ARM64 AppImage; integrate launcher, then measure a small model. Adreno acceleration is unverified.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-app"
+      ],
+      "vendor_sources": [
+        "https://lmstudio.ai/docs/app/system-requirements"
+      ]
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.ollama",
+      "upstream_packages": [
+        "ollama"
+      ],
+      "native_package_candidates": [
+        "ollama"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Official Linux ARM64 archive exists; package/service setup and small-model CPU verification first. GPU support is separate.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-app"
+      ],
+      "vendor_sources": [
+        "https://github.com/ollama/ollama/releases/tag/v0.40.3"
+      ]
+    },
+    {
+      "id": "t3-code",
+      "name": "T3 Code",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.t3-code",
+      "upstream_packages": [
+        "t3code-bin"
+      ],
+      "native_package_candidates": [
+        "t3code-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Audit desktop ARM assets and bundled native tools; adapt theme/backend integration if supported.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-ai-t3-code"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "hermes-desktop",
+      "name": "Hermes Desktop",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.hermes",
+      "upstream_packages": [
+        "hermes-desktop"
+      ],
+      "native_package_candidates": [
+        "hermes-desktop"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Installer assumes prebuilt desktop payload plus Python runtime; audit both ARM dependencies and updater before installation.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-ai-hermes"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.openclaw",
+      "upstream_packages": [
+        "openclaw"
+      ],
+      "native_package_candidates": [
+        "openclaw"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit npm/native dependencies on ARM; package gateway and browser UI, then user-owned onboarding/service test.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-ai-openclaw"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "category": "Ai",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.ai.perplexity",
+      "upstream_packages": [
+        "perplexity"
+      ],
+      "native_package_candidates": [
+        "perplexity"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Audit desktop ARM artifact/support; web access is a separate fallback.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-and-launch"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "steam",
+      "name": "Steam",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.steam",
+      "upstream_packages": [
+        "steam"
+      ],
+      "native_package_candidates": [
+        "steam"
+      ],
+      "installed_packages": {},
+      "custom_command": "/usr/local/bin/steam",
+      "native_catalog_candidates": {},
+      "status": "Partial functional acceptance",
+      "effort_level": 3,
+      "remaining_work": "Native client and games run through custom ARM/FEX integration; startup, performance and wider game/controller acceptance remain open.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-gaming-steam"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "retroarch",
+      "name": "RetroArch",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.retroarch",
+      "upstream_packages": [
+        "retroarch"
+      ],
+      "native_package_candidates": [
+        "retroarch"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "retroarch": [
+          {
+            "repo": "extra",
+            "version": "1.22.2-5",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Native frontend listed; stock installer requests many unavailable/git cores. Select ARM cores and verify BIOS/ROM, shaders and controls.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-gaming-retroarch"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "minecraft",
+      "name": "Minecraft",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.minecraft",
+      "upstream_packages": [
+        "minecraft-launcher"
+      ],
+      "native_package_candidates": [
+        "minecraft-launcher"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Stock launcher absent; inspect ARM launcher route and Java/native game libraries. Compare native alternative before translation.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-and-launch"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "nvidia-geforce-now",
+      "name": "NVIDIA GeForce NOW",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.geforce-now",
+      "upstream_packages": [
+        "flatpak"
+      ],
+      "native_package_candidates": [
+        "flatpak"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "flatpak": [
+          {
+            "repo": "extra",
+            "version": "1:1.18.4-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Stock installer downloads vendor setup; verify ARM payload or browser route, DRM, decode and physical controls.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-gaming-geforce-now"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "xbox-cloud-gaming",
+      "name": "Xbox Cloud Gaming",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.xbox-cloud",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Browser launcher; test service/account, browser codecs/network and controller mapping separately.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-gaming-xbox-cloud"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "xbox-controllers",
+      "name": "Xbox Controllers",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.xbox-controllers",
+      "upstream_packages": [
+        "xpadneo-dkms",
+        "linux-headers"
+      ],
+      "native_package_candidates": [
+        "xpadneo-dkms",
+        "linux-headers"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Installer targets stock linux-headers; Portal needs matching custom kernel headers/driver and physical controller test.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-gaming-xbox-controllers"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "battle-net",
+      "name": "Battle.net",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.battlenet",
+      "upstream_packages": [
+        "umu-launcher"
+      ],
+      "native_package_candidates": [
+        "umu-launcher"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Stock installer expects Wine/GE-Proton and lib32 GPU setup; requires ARM/FEX runtime adaptation and per-game validation.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-gaming-battlenet"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "lutris",
+      "name": "Lutris",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.lutris",
+      "upstream_packages": [
+        "lutris",
+        "umu-launcher",
+        "wine-staging",
+        "wine-mono",
+        "wine-gecko",
+        "winetricks",
+        "python-protobuf"
+      ],
+      "native_package_candidates": [
+        "lutris",
+        "umu-launcher",
+        "wine-staging",
+        "wine-mono",
+        "wine-gecko",
+        "winetricks",
+        "python-protobuf"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "lutris": [
+          {
+            "repo": "extra",
+            "version": "0.5.22-3",
+            "arch": "any"
+          }
+        ],
+        "winetricks": [
+          {
+            "repo": "extra",
+            "version": "20260125-2",
+            "arch": "any"
+          }
+        ],
+        "python-protobuf": [
+          {
+            "repo": "extra",
+            "version": "36.1-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Native launcher exists, but Wine/umu stack is missing; ARM/FEX runner integration and per-game tests are substantial work.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-gaming-lutris"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "heroic-epic-games",
+      "name": "Heroic (Epic Games)",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.heroic",
+      "upstream_packages": [
+        "heroic-games-launcher-bin"
+      ],
+      "native_package_candidates": [
+        "heroic-games-launcher-bin"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Audit ARM frontend and download helpers, then integrate usable ARM/FEX runners; launcher opening is not game acceptance.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-gaming-heroic"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "retroarch-game-launcher",
+      "name": "RetroArch Game Launcher",
+      "category": "Gaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.gaming.retro-launcher",
+      "upstream_packages": [
+        "retroarch"
+      ],
+      "native_package_candidates": [
+        "retroarch"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "retroarch": [
+          {
+            "repo": "extra",
+            "version": "1.22.2-5",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Included launcher creator requires installed working ARM core and ROM; validate after RetroArch setup.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "sunshine",
+      "name": "Sunshine",
+      "category": "Game streaming",
+      "section": "apps",
+      "shipped_as": "Optional installer",
+      "menu_route": null,
+      "upstream_packages": [
+        "sunshine"
+      ],
+      "native_package_candidates": [
+        "sunshine"
+      ],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Official ARM artifacts exist; package service and validate Wayland capture, encoder, input, pairing and stream performance on the Portal.",
+      "source_paths": [
+        "/usr/bin/omarchy-install-service-sunshine"
+      ],
+      "vendor_sources": [
+        "https://github.com/LizardByte/Sunshine/releases/tag/v2026.914.233613"
+      ]
+    },
+    {
+      "id": "youtube-web-app",
+      "name": "YouTube web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/YouTube.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "discord-web-app",
+      "name": "Discord web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher present; service unverified",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow. Calls/media/device linking require separate acceptance.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/Discord.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "hey-web-app",
+      "name": "HEY web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow. Also verify the shipped URL handler.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/HEY.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "google-photos-web-app",
+      "name": "Google Photos web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/Google Photos.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "whatsapp-web-app",
+      "name": "WhatsApp web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow. Calls/media/device linking require separate acceptance.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/WhatsApp.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "google-contacts-web-app",
+      "name": "Google Contacts web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/Google Contacts.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "x-web-app",
+      "name": "X web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher present; service unverified",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/X.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "google-messages-web-app",
+      "name": "Google Messages web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow. Calls/media/device linking require separate acceptance.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/Google Messages.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "basecamp-web-app",
+      "name": "Basecamp web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/Basecamp.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "zoom-web-app",
+      "name": "Zoom web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow. Calls/media/device linking require separate acceptance. Also verify the shipped URL handler.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/Zoom.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "google-maps-web-app",
+      "name": "Google Maps web app",
+      "category": "Web app",
+      "section": "apps",
+      "shipped_as": "Default web launcher",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Launcher absent",
+      "effort_level": 2,
+      "remaining_work": "Restore/verify browser launcher and test touch/OSK, user login and ordinary service flow.",
+      "source_paths": [
+        "/usr/share/omarchy/applications/Google Maps.desktop",
+        "/usr/local/bin/omarchy-launch-webapp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "epiphany",
+      "name": "Epiphany",
+      "category": "Portal addition",
+      "section": "portal",
+      "shipped_as": "Portal addition",
+      "menu_route": null,
+      "upstream_packages": [
+        "epiphany"
+      ],
+      "native_package_candidates": [
+        "epiphany"
+      ],
+      "installed_packages": {
+        "epiphany": "51.1-2"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "epiphany": [
+          {
+            "repo": "extra",
+            "version": "51.1-2",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Installed; function unverified",
+      "effort_level": 0,
+      "remaining_work": "Portal browser substitute; verify real browsing, app windows, OSK and media.",
+      "source_paths": [
+        "native/build-rootfs.sh"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "gnome-text-editor",
+      "name": "GNOME Text Editor",
+      "category": "Portal addition",
+      "section": "portal",
+      "shipped_as": "Portal addition",
+      "menu_route": null,
+      "upstream_packages": [
+        "gnome-text-editor"
+      ],
+      "native_package_candidates": [
+        "gnome-text-editor"
+      ],
+      "installed_packages": {
+        "gnome-text-editor": "51.0-1"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "gnome-text-editor": [
+          {
+            "repo": "extra",
+            "version": "51.0-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Installed; function unverified",
+      "effort_level": 0,
+      "remaining_work": "Verify edit/save/reopen and touch/OSK; this is a Portal addition.",
+      "source_paths": [
+        "native/build-rootfs.sh"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "plain-neovim",
+      "name": "Plain Neovim",
+      "category": "Portal addition",
+      "section": "portal",
+      "shipped_as": "Portal addition",
+      "menu_route": null,
+      "upstream_packages": [
+        "neovim"
+      ],
+      "native_package_candidates": [
+        "neovim"
+      ],
+      "installed_packages": {
+        "neovim": "0.12.6-1"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "neovim": [
+          {
+            "repo": "extra",
+            "version": "0.12.6-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Installed; function unverified",
+      "effort_level": 0,
+      "remaining_work": "Native editor present; this does not establish the Omarchy Neovim distribution.",
+      "source_paths": [
+        "native/build-rootfs.sh"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "easyeffects",
+      "name": "EasyEffects",
+      "category": "Portal addition",
+      "section": "portal",
+      "shipped_as": "Portal addition",
+      "menu_route": null,
+      "upstream_packages": [
+        "easyeffects",
+        "lsp-plugins-lv2"
+      ],
+      "native_package_candidates": [
+        "easyeffects",
+        "lsp-plugins-lv2"
+      ],
+      "installed_packages": {
+        "easyeffects": "8.3.0-1",
+        "lsp-plugins-lv2": "1.2.35-1"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "easyeffects": [
+          {
+            "repo": "extra",
+            "version": "8.3.0-1",
+            "arch": "aarch64"
+          }
+        ],
+        "lsp-plugins-lv2": [
+          {
+            "repo": "extra",
+            "version": "1.2.35-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Launch accepted; processing unverified",
+      "effort_level": 2,
+      "remaining_work": "Native GUI launched; user voice, preset processing and sustained audio behavior remain pending.",
+      "source_paths": [
+        "docs/dictation.md"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "omakade",
+      "name": "Omakade",
+      "category": "Portal addition",
+      "section": "portal",
+      "shipped_as": "Portal addition",
+      "menu_route": null,
+      "upstream_packages": [
+        "omakade"
+      ],
+      "native_package_candidates": [
+        "omakade"
+      ],
+      "installed_packages": {
+        "omakade": "1.16.1-1"
+      },
+      "custom_command": null,
+      "native_catalog_candidates": {
+        "omakade": [
+          {
+            "repo": "btsouth",
+            "version": "1.16.2-1",
+            "arch": "aarch64"
+          }
+        ]
+      },
+      "status": "Launch accepted; optional overlay disabled",
+      "effort_level": 2,
+      "remaining_work": "Native library GUI opens; pinned-shell guide overlay compatibility and game integration remain open.",
+      "source_paths": [
+        "docs/steam.md"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "ruby-on-rails",
+      "name": "Ruby on Rails",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.rails",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "docker-db",
+      "name": "Docker DB",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.docker-dbs",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Docker first; verify ARM image manifests, kernel/container support and local test connection. SQL Server is separate.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-docker-dbs"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "go",
+      "name": "Go",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.go",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.python",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "zig",
+      "name": "Zig",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.zig",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.rust",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.java",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "net",
+      "name": ".NET",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.dotnet",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "ocaml",
+      "name": "OCaml",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.ocaml",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "clojure",
+      "name": "Clojure",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.clojure",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "scala",
+      "name": "Scala",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.scala",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "node-js",
+      "name": "Node.js",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.javascript.node",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "bun",
+      "name": "Bun",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.javascript.bun",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "deno",
+      "name": "Deno",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.javascript.deno",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.php.php",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "laravel",
+      "name": "Laravel",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.php.laravel",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "symfony",
+      "name": "Symfony",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.php.symfony",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "elixir",
+      "name": "Elixir",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.elixir.elixir",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "category": "Developer setup",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.elixir.phoenix",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install missing mise/bootstrap tools, verify native runtime/downloads, then compile or run a small sample.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-dev-env"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "codex",
+      "name": "codex",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "codex"
+    },
+    {
+      "id": "claude",
+      "name": "claude",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "claude"
+    },
+    {
+      "id": "crush",
+      "name": "crush",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "crush"
+    },
+    {
+      "id": "gemini",
+      "name": "gemini",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "gemini"
+    },
+    {
+      "id": "gh",
+      "name": "gh",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "gh"
+    },
+    {
+      "id": "copilot",
+      "name": "copilot",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "copilot"
+    },
+    {
+      "id": "opencode",
+      "name": "opencode",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "opencode"
+    },
+    {
+      "id": "playwright",
+      "name": "playwright",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "npm:playwright"
+    },
+    {
+      "id": "pi",
+      "name": "pi",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "pi"
+    },
+    {
+      "id": "omp",
+      "name": "omp",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "github:can1357/oh-my-pi"
+    },
+    {
+      "id": "grok",
+      "name": "grok",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "npm:@xai-official/grok"
+    },
+    {
+      "id": "ghui",
+      "name": "ghui",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "npm:@kitlangton/ghui"
+    },
+    {
+      "id": "hunk",
+      "name": "hunk",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Install mise/Node as required, create wrapper, verify native downloads and a small real command; authentication later.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "aqua:modem-dev/hunk"
+    },
+    {
+      "id": "hermes-cli",
+      "name": "Hermes CLI",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit ARM runtime/bootstrap and verify CLI independently of the desktop app.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "hermes-cli"
+    },
+    {
+      "id": "muse-cli",
+      "name": "Muse CLI",
+      "category": "Developer CLI",
+      "section": "developer",
+      "shipped_as": "Lazy CLI wrapper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit ARM runtime/bootstrap and verify CLI independently of the desktop app.",
+      "source_paths": [
+        "/usr/share/omarchy/install/user/mise.sh"
+      ],
+      "vendor_sources": [],
+      "mise_package": "muse"
+    },
+    {
+      "id": "mysql-docker-database",
+      "name": "MySQL Docker database",
+      "category": "Developer service",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.docker-dbs",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Check this exact image tag includes linux/arm64; run a disposable container and verify a local query after Docker works.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-docker-dbs"
+      ],
+      "vendor_sources": [],
+      "container_image": "mysql:8.4"
+    },
+    {
+      "id": "postgresql-docker-database",
+      "name": "PostgreSQL Docker database",
+      "category": "Developer service",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.docker-dbs",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Check this exact image tag includes linux/arm64; run a disposable container and verify a local query after Docker works.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-docker-dbs"
+      ],
+      "vendor_sources": [],
+      "container_image": "postgres:18"
+    },
+    {
+      "id": "redis-docker-database",
+      "name": "Redis Docker database",
+      "category": "Developer service",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.docker-dbs",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Check this exact image tag includes linux/arm64; run a disposable container and verify a local query after Docker works.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-docker-dbs"
+      ],
+      "vendor_sources": [],
+      "container_image": "redis:7"
+    },
+    {
+      "id": "mongodb-docker-database",
+      "name": "MongoDB Docker database",
+      "category": "Developer service",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.docker-dbs",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Check this exact image tag includes linux/arm64; run a disposable container and verify a local query after Docker works.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-docker-dbs"
+      ],
+      "vendor_sources": [],
+      "container_image": "mongo:noble"
+    },
+    {
+      "id": "mariadb-docker-database",
+      "name": "MariaDB Docker database",
+      "category": "Developer service",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.docker-dbs",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Check this exact image tag includes linux/arm64; run a disposable container and verify a local query after Docker works.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-docker-dbs"
+      ],
+      "vendor_sources": [],
+      "container_image": "mariadb:11.8"
+    },
+    {
+      "id": "sql-server-docker-database",
+      "name": "SQL Server Docker database",
+      "category": "Developer service",
+      "section": "developer",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.development.docker-dbs",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 4,
+      "remaining_work": "Microsoft documents x64-only Linux processors; stock image is not a native ARM route. Prefer a remote SQL Server or another database.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc",
+        "/usr/bin/omarchy-install-docker-dbs"
+      ],
+      "vendor_sources": [
+        "https://learn.microsoft.com/en-us/sql/linux/install-upgrade/setup?view=sql-server-ver17"
+      ]
+    },
+    {
+      "id": "windows-vm",
+      "name": "Windows VM",
+      "category": "Compatibility",
+      "section": "integration",
+      "shipped_as": "Optional installer",
+      "menu_route": "install.windows",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 4,
+      "remaining_work": "Stock Windows/Docker recipe needs a separate architecture/KVM investigation and is outside the native-Omarchy objective; do not treat it as a normal ARM app install.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "generic-web-app-installer",
+      "name": "Generic Web App installer",
+      "category": "Integration helper",
+      "section": "integration",
+      "shipped_as": "Included helper",
+      "menu_route": "install.webapp",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Verify browser selection and desktop creation; browser UI/service behavior is per app.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "generic-tui-installer",
+      "name": "Generic TUI installer",
+      "category": "Integration helper",
+      "section": "integration",
+      "shipped_as": "Included helper",
+      "menu_route": "install.tui",
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Verify terminal wrapper, desktop creation and selected native command.",
+      "source_paths": [
+        "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "chromium-copy-url-integration",
+      "name": "Chromium Copy URL integration",
+      "category": "Integration helper",
+      "section": "integration",
+      "shipped_as": "Included helper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Verify native messaging host, extension and browser profile paths after a Chromium-family browser is accepted.",
+      "source_paths": [
+        "/usr/bin/omarchy-install-chromium-copy-url"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "chromium-yt-dlp-integration",
+      "name": "Chromium yt-dlp integration",
+      "category": "Integration helper",
+      "section": "integration",
+      "shipped_as": "Included helper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Verify native messaging host, extension and native yt-dlp path after browser setup.",
+      "source_paths": [
+        "/usr/bin/omarchy-install-chromium-ytdlp"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "openclaw-cli-installer",
+      "name": "OpenClaw CLI installer",
+      "category": "Integration helper",
+      "section": "integration",
+      "shipped_as": "Included helper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 2,
+      "remaining_work": "Audit native npm dependencies and command setup; CLI presence does not establish gateway/UI acceptance.",
+      "source_paths": [
+        "/usr/bin/omarchy-install-openclaw-cli"
+      ],
+      "vendor_sources": []
+    },
+    {
+      "id": "stock-lib32-gpu-helper",
+      "name": "Stock lib32 GPU helper",
+      "category": "Gaming integration",
+      "section": "integration",
+      "shipped_as": "Included helper",
+      "menu_route": null,
+      "upstream_packages": [],
+      "native_package_candidates": [],
+      "installed_packages": {},
+      "custom_command": null,
+      "native_catalog_candidates": {},
+      "status": "Not installed",
+      "effort_level": 3,
+      "remaining_work": "Stock helper selects Intel/AMD/NVIDIA lib32 drivers. Use the Portal ARM/FEX guest-graphics route for translated games instead.",
+      "source_paths": [
+        "/usr/bin/omarchy-install-gaming-gpu-lib32"
+      ],
+      "vendor_sources": []
+    }
+  ]
+}

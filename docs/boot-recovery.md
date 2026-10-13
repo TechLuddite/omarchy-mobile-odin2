@@ -153,3 +153,37 @@ only slot-A boot-success bits and their GPT checksums changed; partition geometr
 names, GUIDs and other attributes are unchanged.
 There is no automatic boot-success service yet. B's AVB metadata remains stock
 and still needs a separate tested native recovery plan.
+
+## Microphone V3 warm-boot checkpoint — October 13
+
+After a further unchanged-baseline warm reboot passed, the microphone
+investigation found actual speech on codec DMIC3/SWR_MIC7. V2 booted but failed
+speech acceptance. A revised **V3** image adds only two audio route pairs to the
+proven DTB; the decompressed kernel, ramdisk, boot fields and command line
+match the proven image. [Dictation notes](dictation.md) record the failed probes,
+working channel, credit and measured controlled-speech acceptance.
+
+V3 `/boot/KERNEL` SHA256:
+`3c6b2569a964ec8c04b5bc96950df3921d58b016b77d40fd72fa597c10986763`.
+The guarded ESP installer checked Portal identity, mounted sda17 vfat,
+4096-byte sectors, slot-A success and exact image/config digests before the
+write. Normal internal reboot returned Wi-Fi SSH, desktop/audio services and
+zero failed units; slot A remains active, bootable and successful. The normal
+PipeWire touch app then captured and transcribed the controlled external video
+source. This is a warm reboot and acoustic speech pass, not cold-boot or
+slot-B acceptance.
+
+KERNEL.bak remains the proven image
+`e8b2e3cb289c7db5ef6a430bcb598c78a0b3ea685566138e6fbc7af641409f07`;
+RECOVERY.img and raw boot slots were not changed. The ESP still uses its repaired
+4096-byte FAT geometry. No AVB/GPT/slot writes were needed for these audio tests.
+Earlier candidate build directories remain separate and private.
+
+The pre-V3 UCM is `/root/odin-hifi-before-wcd-v3-test.conf`; it is the temporary
+slot7 diagnostic probe, **not** the pre-WCD baseline. For a complete baseline
+rollback, verify and restore KERNEL.bak plus
+`/root/odin-hifi-before-wcd-v2-test.conf` (SHA256
+`7f1e20c3ef62b3351c301138da87cbe441ccc19a9b4cb1433057944816f84777`),
+then sync and reboot. Do not use the old recovery-builder image with 512-byte
+FAT sectors. The installed V3 full HiFi digest is
+`501d382a7d91853ff421dc6111792e63d2ed7b78dbb31c3e5238ee424b5125f8`.

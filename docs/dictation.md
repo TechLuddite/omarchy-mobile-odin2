@@ -2,6 +2,12 @@
 
 Working directory: `/srv/projects/odin2-omarchy`.
 
+Current result (October 13): the onboard **DMIC3/SWR_MIC7** path captures and
+transcribes controlled speech, including after a warm reboot. The user's own
+voice/dictation and 3.5 mm headset tests remain pending. The latest evidence
+and paired boot/UCM rollback are recorded at the end of this file and in
+`boot-recovery.md`; earlier sections describe the failed probes chronologically.
+
 The requested feature is Omarchy's standard Voxtype integration. Its pinned
 installer assumes the `voxtype-bin` package, which is absent from the device's
 ARM repositories. A native upstream ARM64 release is installed instead.
@@ -111,6 +117,14 @@ EasyEffects was suggested by the user and is a useful later processing lead.
 Noise processing does not establish that the currently selected hardware input
 captures a voice; resolve capture routing before treating it as a fix.
 
+The earlier source labelled **Internal microphone** is a probe using the
+headphone-jack **ADC2** enable sequence. That name does not establish onboard
+wiring. The user explicitly requests a later independent test with a 3.5 mm
+headset that has a microphone: verify headphone/mic jack detection, automatic
+source selection, recognizable speech, headphone playback, and source return
+after unplugging. No physical headset-microphone test has passed yet. Keep that
+acceptance separate from the current digital onboard-microphone investigation.
+
 ## WCD digital microphone route lead
 
 The saved Android overlay matching SM8550 `0x25b` and board `0x1001f,0` names
@@ -135,3 +149,153 @@ rollback-image sector-size error was diagnosed and corrected. Normal internal
 boot now reaches the desktop again with the proven kernel and pre-WCD UCM probe.
 Actual microphone speech capture remains unverified. See
 [boot recovery](boot-recovery.md) for the operations and accepted checkpoint.
+
+## Resumed WCD route investigation — October 12
+
+Fresh Wi-Fi inspection confirmed the proven ESP image and pre-WCD UCM digest
+from the recovery record. A normal reboot with those unchanged files passed:
+Wi-Fi/root SSH returned, Hyprland and the shell run, no services failed, and
+slot A remains active, successful and bootable. This is another warm reboot,
+not cold-boot acceptance.
+
+The first WCD candidate raised a numbering hypothesis: DAPM widget names and
+SoundWire port switches use different conventions. Linux's [WCD938x SoundWire channel table](https://github.com/torvalds/linux/blob/24a19b953e2a3d0ea5a8c4951a0ab8f32720c907/sound/soc/codecs/wcd938x-sdw.c)
+assigns `DMIC1 Switch` and `DMIC2 Switch` to port 3 bits 1 and 2. The matching
+DAPM ADC widgets are `DMIC2` and `DMIC3`; their event shifts are 1 and 2.
+With this board's unchanged `qcom,tx-port-mapping = <2 2 3 4>`, the corresponding
+TX inputs are 5 and 6. The revised probe routes `DMIC2_OUTPUT` to
+`TX SWR_INPUT5` and `DMIC3_OUTPUT` to `TX SWR_INPUT6`, powers both through
+MIC BIAS3, and selects the matching zero-based port switches. It also clears
+the previous analog port switches and stale direct-DMIC DEC2 enable.
+This was a source-backed routing hypothesis, not proof of physical wiring.
+The later slot7 result below supersedes it: the DAPM widget controls a shared
+clock pair, so its ordinal is not a reliable physical data-channel identity.
+
+The builder now preserves the original candidate under `build/microphone-candidate/`
+and writes the corrected version under `build/microphone-candidate-v2/`.
+V2 image SHA256: `8e91711bbced456c197afaa1a8216279f0a3ac104abc9c24bf51c5b3d9774fc8`.
+Independent boot-image unpacking verified identical decompressed kernel,
+ramdisk, command line and remaining boot fields; only payload size/digest and
+the appended DTB differ. The decompiled DTB diff changes only four route pairs.
+The installer checks the image and UCM digests, Portal identity, mounted sda17
+ESP, 4096-byte geometry and slot-A success before writing. Current UCM is saved
+as `/root/odin-hifi-before-wcd-v2-test.conf`; older backups remain intact.
+
+The V2 candidate was installed on the ESP and booted successfully. Root SSH,
+the ALSA card, PipeWire's WCD candidate source and both playback sinks return;
+systemd reports no failed services. Live DAPM inspection confirms both new
+TX input connections and both MIC BIAS3 supply routes. Microphone Check was
+opened without recording for a user-started visible speech test; acceptance
+is pending the result. Do not treat routing enumeration as voice capture.
+
+Rollback uses the proven `/boot/KERNEL.bak` and
+`/root/odin-hifi-before-wcd-v2-test.conf`, checking their documented digests
+before restoring `/boot/KERNEL` and the deployed HiFi UCM. Raw boot slots,
+KERNEL.bak and RECOVERY.img were not changed. Sync before rebooting; a UCM-only
+rollback requires restarting the desktop user's audio services. Private
+diagnostics are in `private/bootstrap/microphone-resume-inventory.txt` and
+`microphone-v2-visible-test-routes.txt`.
+
+## First controlled onboard speech capture — October 13
+
+The user reported the visible V2 tests did not work. Their recordings contain
+a repeatable startup transient, then exact zeros after two seconds. A full
+20-second trace confirmed DMIC2, DMIC3 and MIC BIAS3 were powered throughout
+capture; the frontend was stereo/48 kHz and the WCD backend selected one
+channel. Source enumeration, widget power and a meter flash were insufficient.
+
+The user explicitly left a video playing on another device and authorized
+measurement while away. Subsequent captures used the visible GTK app, each
+bounded to 20 seconds, rather than ordinary unattended ambient recording.
+The user later identified the source as DougDoug's
+[We built 3 deranged Ai and had them play D&D](https://www.youtube.com/watch?v=TpYVyJBmH0g).
+YouTube's creator metadata confirms DougDoug; its description credits editor
+CyVoltage, assistant editor Tolekk and thumbnail/video artist Wafferscotch.
+Their entertaining AI D&D speech helped establish actual acoustic capture and
+transcription on this Portal. The README, credits ledger and `sources.json`
+record that contribution; the media and test transcripts remain private.
+The app now supports explicit `--record-once` and `--alsa-device hw:0,2`
+diagnostic options; the ordinary app-drawer launch still waits for Start.
+WAVs and recorder logs stay mode 0600 inside the user's private state directory.
+
+Direct ALSA tests of TX slots 5 and 6 remained silent after the startup
+transient. Slot **7**, using **DMIC3 Switch**, captured sustained audio on
+channel 0; channel 1 was zero. With the V2 DTB, DEC1 on the existing input6
+temporarily kept the shared DMIC clock and MIC BIAS3 powered while DEC0 selected
+slot7. The 19.89-second recording's channel-0 RMS after two seconds was 568.55,
+peak 7116. After conversion to 16 kHz mono, native Voxtype produced coherent
+video narration. A repeated normal PipeWire test captured 20.20 seconds and
+also transcribed narration, with RMS 267.62 after two seconds. One immediately
+after an audio restart failed with `no target node available`; this was a source
+discovery race, not a test of a silent microphone. The repeat waited for source
+enumeration first.
+
+This result matches Luke Johnson's
+[Pocknix Thor UCM](https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/devices/sm8550/packages/pocknix-bsp-sm8550/HiFi-Thor.conf)
+and board route, also present in Basit's SteamOS ARM port. Keep their credit:
+it supplied the working **DMIC3/SWR_MIC7** lead. The one-based DAPM ADC controls
+a shared physical clock pair; changing its ordinal to match the zero-based
+SoundWire port switch was an incorrect basis for choosing the voice channel.
+The board-specific observation supersedes the V2 numbering hypothesis.
+
+V3 adds only `DMIC3 ← MIC BIAS3` and
+`TX SWR_INPUT7 ← DMIC3_OUTPUT` to the proven DTB. Its UCM enables the DMIC3
+port/mixer and DEC0/SWR_MIC7, disables DEC1/DEC2 and the earlier analog ADC
+switches, and keeps the required stereo frontend declaration. It no longer
+needs the diagnostic DEC1 keepalive. Existing playback and jack-gated headset
+devices remain in the profile.
+
+- V3 image SHA256: `3c6b2569a964ec8c04b5bc96950df3921d58b016b77d40fd72fa597c10986763`.
+- DTB SHA256: `89582150c9c9e1047e02d15c304b9a3cc3aa890563276064674f5bf47036d61e`.
+- UCM fragment SHA256: `56052faa39b2255c5a4f2e2301efe8f98003cea7ec91bf7e71f2980e2d77aab3`.
+- Full installed HiFi SHA256: `501d382a7d91853ff421dc6111792e63d2ed7b78dbb31c3e5238ee424b5125f8`.
+
+Independent unpacking verified the proven decompressed kernel, ramdisk and
+boot fields/command line; the decompiled DTB diff changes only those two route
+pairs. The guarded installer accepts only the documented proven or V2 state,
+checks the corresponding UCM digest, saves the pre-V3 UCM separately, and
+preserves KERNEL.bak and the raw boot/recovery images.
+
+The V3 normal reboot passed: Wi-Fi SSH returned, slot A remains successful and
+bootable, ALSA/desktop/audio services returned and systemd reports no failed
+services. The normal PipeWire app then recorded **20.24 seconds** of the video,
+RMS **328.31** after two seconds, and displayed coherent transcription. A
+private desktop screenshot verifies the finished app, meter and transcript.
+This establishes **controlled external speech captured acoustically through
+the onboard digital path**, including after a warm reboot. It does not yet
+establish the user's own voice/dictation accuracy, cold boot, long use or
+headset-microphone behavior. Back's requested dictation mapping still awaits
+the user's live-voice acceptance.
+
+Private evidence: `microphone-v2-full-test-registers.txt`,
+`microphone-single-slot6-test.txt`, `microphone-v3-result.png`, and the device's
+private microphone WAV/log/transcript files. No video audio/transcript is
+published here. Earlier failed candidates remain under their separate build
+directories.
+
+### EasyEffects installation
+
+At the user's request, signed ARM packages **easyeffects 8.3.0-1** and
+**lsp-plugins-lv2 1.2.35-1** are installed. Omarchy's package wrapper first hit
+the kernel's missing Landlock support; the documented per-command
+`--disable-sandbox-filesystem` workaround was used. Stale KDE package URLs
+returned 404, so repository catalogs were refreshed and the reviewed
+EasyEffects dependency transaction installed. No general OS/kernel upgrade
+was run. LSP supplies the built-in delay module missing on the first launch.
+
+An SSH-only `easyeffects --version` attempt aborted in Qt platform setup with
+`could not connect to display`; coredump/journal evidence confirms the missing
+graphical environment, not memory exhaustion. Launch through the user's live
+Wayland manager succeeds. EasyEffects was stopped during raw capture tests;
+the microphone result does not rely on its processing. It remains available
+for gain/noise processing after live-voice acceptance.
+
+Two further EasyEffects aborts occurred while its PipeWire connection was
+stopped during diagnostics. Both journals report `Broken pipe` followed by
+`No connection to PipeWire. Aborting!`; the cores point through the PipeWire
+callback to Qt's fatal logger. Stop EasyEffects and wait for it to exit before
+restarting audio services. The final post-reboot launch remains running,
+renders on the desktop and has no missing-LSP warnings. Its input capture is
+idle, and no recording process or active DSP capture link remains at readback.
+Private evidence is `easyeffects-session-check.txt` and
+`easyeffects-installed.png`.

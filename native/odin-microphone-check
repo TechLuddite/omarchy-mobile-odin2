@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Touch-controlled capture check. Records only after Start is tapped.
+"""Touch-controlled capture check. The ordinary launcher waits for Start.
+
+Explicit diagnostic flags support one bounded visible recording of an
+authorized controlled audio source, and a direct ALSA comparison.
 
 Uses PipeWire and Peter Jackson's Voxtype. Test recordings stay in the
 device user's private state directory, outside the project source.
@@ -26,9 +29,13 @@ LIMIT = 20
 
 
 class MicrophoneCheck(Gtk.Application):
-    def __init__(self, fixture=None):
+    def __init__(self, fixture=None, record_once=False, alsa_device=None):
         super().__init__(application_id="org.techluddite.OdinMicrophoneCheck")
         self.fixture = fixture
+        self.record_once = record_once
+        self.alsa_device = alsa_device
+        self.rate = 48000 if alsa_device else RATE
+        self.channels = 2 if alsa_device else 1
         self.recorder = None
         self.transcriber = None
         self.busy = False
@@ -92,6 +99,16 @@ class MicrophoneCheck(Gtk.Application):
             self.status.set_label("Transcribing test file — microphone is off")
             threading.Thread(target=self.transcribe, args=(Path(self.fixture),),
                              daemon=True).start()
+        elif self.record_once:
+            # Explicit diagnostic mode for an authorized controlled audio source.
+            # The normal launcher still waits for the user to tap Start.
+            self.saved.set_label("One automatic 20-second test will start shortly.")
+            GLib.timeout_add(1500, self.start_once)
+
+    def start_once(self):
+        if not self.closing:
+            self.start(None)
+        return False
 
     def start(self, _button):
         if self.busy:
@@ -104,10 +121,14 @@ class MicrophoneCheck(Gtk.Application):
         path = directory / f"microphone-{stamp}.wav"
         try:
             # Raw PCM makes the meter and saved WAV use the same input samples.
-            self.recorder = subprocess.Popen(
-                ["pw-record", "--raw", "--rate", str(RATE), "--channels", "1",
-                 "--format", "s16", "-"], stdout=subprocess.PIPE,
-                stderr=subprocess.DEVNULL)
+            command = (["arecord", "-D", self.alsa_device, "-t", "raw", "-r", str(self.rate),
+                        "-c", str(self.channels), "-f", "S16_LE", "-"] if self.alsa_device else
+                       ["pw-record", "--raw", "--rate", str(self.rate), "--channels", str(self.channels),
+                        "--format", "s16", "-"])
+            log_fd = os.open(path.with_suffix(".capture.log"),
+                             os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+            with os.fdopen(log_fd, "wb") as errors:
+                self.recorder = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=errors)
         except OSError as error:
             self.status.set_label(f"Could not start recording: {error}")
             return
@@ -149,16 +170,16 @@ class MicrophoneCheck(Gtk.Application):
         try:
             fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
             with os.fdopen(fd, "wb") as output, wave.open(output, "wb") as recording:
-                recording.setnchannels(1)
+                recording.setnchannels(self.channels)
                 recording.setsampwidth(2)
-                recording.setframerate(RATE)
+                recording.setframerate(self.rate)
                 pending = b""
                 while True:
                     chunk = process.stdout.read(1600)
                     if not chunk:
                         break
                     data = pending + chunk
-                    even = len(data) & ~1
+                    even = len(data) - len(data) % (2 * self.channels)
                     pending = data[even:]
                     data = data[:even]
                     if not data:
@@ -167,11 +188,13 @@ class MicrophoneCheck(Gtk.Application):
                     samples = array.array("h", data)
                     peak = max(abs(value) for value in samples)
                     rms = math.sqrt(sum(value * value for value in samples) / len(samples))
-                    frames += len(samples)
-                    GLib.idle_add(self.show_level, peak, rms, frames / RATE)
+                    frames += len(samples) // self.channels
+                    GLib.idle_add(self.show_level, peak, rms, frames / self.rate)
             code = process.wait(timeout=5)
-            GLib.idle_add(self.capture_done, frames / RATE, code)
-            if not self.closing and frames >= RATE:
+            GLib.idle_add(self.capture_done, frames / self.rate, code)
+            if not self.closing and self.alsa_device:
+                GLib.idle_add(self.complete, f"Direct ALSA test finished (exit {code}). Audio saved for analysis.", path)
+            elif not self.closing and frames >= self.rate:
                 self.transcribe(path)
             elif not self.closing:
                 GLib.idle_add(self.complete, "No usable audio. Check the capture route.", path)
@@ -196,7 +219,9 @@ class MicrophoneCheck(Gtk.Application):
         self.recorder = None
         self.stop_button.set_sensitive(False)
         self.status.remove_css_class("error")
-        self.status.set_label(f"Microphone off — transcribing {seconds:.1f}s of audio"
+        self.status.set_label("Microphone off — direct ALSA capture finished"
+                              if self.alsa_device else
+                              f"Microphone off — transcribing {seconds:.1f}s of audio"
                               if seconds >= 1 else f"Capture ended (exit {code})")
         return False
 
@@ -235,6 +260,13 @@ class MicrophoneCheck(Gtk.Application):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--transcribe", metavar="WAV", help="Test a saved file without recording")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--transcribe", metavar="WAV", help="Test a saved file without recording")
+    mode.add_argument("--record-once", action="store_true",
+                      help="Run one visible 20-second recording of an authorized test source")
+    parser.add_argument("--alsa-device", metavar="PCM",
+                        help="Diagnostic capture directly from ALSA at 48 kHz stereo")
     args = parser.parse_args()
-    raise SystemExit(MicrophoneCheck(args.transcribe).run([]))
+    if args.transcribe and args.alsa_device:
+        parser.error("--alsa-device cannot be used with --transcribe")
+    raise SystemExit(MicrophoneCheck(args.transcribe, args.record_once, args.alsa_device).run([]))

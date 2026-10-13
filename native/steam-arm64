@@ -1,0 +1,23 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Desktop launcher adapted from Shuuri Labs' pocknix-steam/steam.
+# See licenses/pocknix-GPL-2.0.txt and docs/steam.md for source pins and credit.
+set -euo pipefail
+steam_root="$HOME/.local/share/Steam"
+client_dir="$steam_root/steamrtarm64"
+if [[ ! -x "$client_dir/steam" ]]; then
+    echo 'The native ARM64 Steam client has not been installed.' >&2
+    exit 1
+fi
+if [[ -z ${DISPLAY:-} ]]; then
+    for steam_socket in /tmp/.X11-unix/X*; do
+        [[ -S "$steam_socket" ]] || continue
+        export DISPLAY=":${steam_socket##*/X}"
+        break
+    done
+fi
+export LD_LIBRARY_PATH="$client_dir:$steam_root/lib/aarch64-linux-gnu${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export PATH="$steam_root/steam-runtime-steamrt-arm64/pressure-vessel/bin:$PATH"
+printf '%s\n' steamdeck_publicbeta > "$steam_root/package/beta"
+cd "$client_dir"
+exec ./steam "$@"

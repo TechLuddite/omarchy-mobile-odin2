@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Adapted from Shuuri Labs / Pocknix's pinned pocknix-guestos.service.
+[Unit]
+Description=Odin Steam FEX x86 runtime and graphics provider
+Documentation=https://github.com/TechLuddite/omarchy-mobile-odin2
+ConditionPathExists=/usr/local/share/odin-steam/guest/ArchLinux.sqsh
+Before=graphical.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/libexec/odin-steam-guest-mount start
+ExecStop=/usr/local/libexec/odin-steam-guest-mount stop
+
+[Install]
+WantedBy=multi-user.target

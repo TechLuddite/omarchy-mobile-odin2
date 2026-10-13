@@ -120,3 +120,51 @@ are assigned. InputPlumber remains disabled to avoid two remapping layers.
 its signed btsouth repository. Version 1.16.1 is installed and renders under
 Wayland. Installing a library launcher does not establish compatibility of
 individual games or emulators on ARM.
+
+## Recent SteamOS work and on-screen device management — October 12
+
+The latest user request prompted inspection of two community SteamOS ARM ports.
+These use Valve's ARM userspace, while Pocknix is ALARM and Armada is Fedora
+bootc. None replaces this project's native Omarchy installation. Exact source
+commits, selected file hashes, owners and licenses are in `sources.json` and
+[repository tracking](repositories.md); the new trees remain ignored research
+checkouts. No upstream installation, partitioning or hardware-control scripts
+were executed on the Portal.
+
+| Source | Useful findings | Portal boundary |
+|---|---|---|
+| [MaSi's SteamOS-ARM-SM8550](https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/tree/3548c401e6d2193a8a9ba7ef08add7074ea53f9e), October 8 commit | SM8550-Power/LED panels; CPU/GPU governors and caps, fan curves, thermal/battery telemetry and RGB control. Odin audio setup repairs playback-clock/UCM discovery. | README marks the original Odin 2 tested and Portal untested. Its Odin HiFi lacks an internal microphone device. Power backend hard-codes `hwmon40` and several GPU/UFS paths; do not copy those assumptions. |
+| [Basit's SteamOS ARM Port](https://github.com/hashtagbasit/SteamOS-ARM-Port/tree/4673fa6bfc8b6a598ef799ed0e88f98a9b045285), October 9 commit; [beta 10](https://github.com/hashtagbasit/SteamOS-ARM-Port/releases/tag/v1.3-beta10), October 2 | Release reports Portal/Mini A/B fixes, experimental real sleep, charging/Wi-Fi changes and Decky 3.2.10. Source retains MaSi's SM8550 panels and adds runtime `pwmfan` discovery. Thor/Pocket DS lower-screen panel integrates stats, fan/profile/brightness/volume, lighting, trackpad and keyboard. | Dual-screen UI is a design reference, not a Portal display feature. Current Odin2 HiFi still has no internal Mic; headset capture is commented out. Thor HiFi selects codec DMIC3 through SWR_MIC7. The Portal's controlled source tests found useful speech on that hardware slot; this needs Portal-specific board routing and acceptance. |
+| [Pocknix Control](https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/docs/pocknix-control.md) and `pocknix-fancontrol` | Decky QAM UI for per-game fan/scheduler/audio/FEX settings, calibration and RGB. Fan service changes curves from a mode file with hysteresis and per-game overrides. | Avoid its first-`pwm1` discovery assumption. Do not let two controllers write the fan simultaneously. Its comments about "automatic" PWM mode need checking against this driver. |
+| [Armada Control](https://armadaos.dev/using-armada/) | A device-control plugin in Steam's Quick Access Menu and a useful UI reference; Armada derives its board support from ROCKNIX. | Keep Fedora/session assumptions separate from the Omarchy host. No additional Armada microphone fix was established by this review. |
+
+Two current kernel patches are worth keeping for the later **3.5 mm headset**
+test: `0044-ASoC-wcd93xx-failed-zdet-ramp-is-a-floating-reading.patch` avoids
+classifying a failed impedance measurement as a short, and
+`0046-ASoC-wcd-mbhc-clear-stale-jack-report-on-mechanical-removal.patch` clears
+a stale inserted state on unplug. The latter credits the KONKR Pocket FIT
+Elite port. They are candidates to compare against our kernel, not fixes we
+have deployed or physically accepted on the Portal.
+
+The port also carries Armada-derived AudioReach patches `0026` and `0027`:
+report DSP graph-open rejection correctly and release/rebuild graphs across
+suspend. Pocknix carries related `1058`/`1059` changes. This is relevant to future
+capture/reconnect/sleep diagnosis; it does not establish the source of today's
+silence and is not grounds to replace the proven kernel blindly.
+
+Our **read-only** hardware inventory finds `pwmfan` at
+`/sys/class/hwmon/hwmon43`, with `pwm1=70`, `pwm1_enable=1` and one observed
+tachometer reading of 1964 RPM. This confirms useful control/readback interfaces,
+not a tested fan curve. Discover the hwmon device by its `name`, rather than
+pinning an index. [Linux's pwm-fan documentation](https://docs.kernel.org/hwmon/pwm-fan.html)
+defines `pwm1` as 0–255 and `pwm1_enable` as behavior at zero duty; **2 does not
+mean a temperature-based automatic fan curve** for this driver. An Omarchy
+control panel should use one deliberate controller, driver-aware modes and
+thermal protection, with visible RPM/temperature readback. CPU/GPU profiles,
+lighting, battery/charging, brightness and calibration can follow the same
+separation between a touch UI and a narrowly scoped hardware backend.
+
+Credit follows the source chain: MaSi/SteamOS-Ubuntu and Basit; Hooandee's
+Panel de Control/decky-colores designs; Decky Loader; ROCKNIX/Armbian and device
+authors; Luke Johnson/Shuuri Labs for the Thor DMIC lead; Armada for the graph
+patches. These research notes do not claim ownership of upstream code.

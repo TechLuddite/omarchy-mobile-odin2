@@ -1,0 +1,28 @@
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Adapted from Shuuri Labs / pocknix-os pocknix-guestos-mount at
+# ba1de097fb0e0df07bcb32f05dc8e957d62090bc. See licenses/pocknix-GPL-2.0.txt.
+# Present the verified x86 runtime where Valve's FEX compatibility tool expects it.
+set -euo pipefail
+guest_base=/usr/local/share/odin-steam/guest
+guest_lower=/run/odin-steam/guest-lower
+guest_target=/usr/share/guestos/fex-mesa
+case "${1:-start}" in
+  start)
+    test -f "$guest_base/ArchLinux.sqsh"
+    test -f "$guest_base/overlay/graphics_provider.json"
+    install -d "$guest_lower" "$guest_target"
+    if ! mountpoint -q "$guest_lower"; then
+      mount -t squashfs -o ro,loop "$guest_base/ArchLinux.sqsh" "$guest_lower"
+    fi
+    if ! mountpoint -q "$guest_target"; then
+      mount -t overlay -o "ro,lowerdir=$guest_base/overlay:$guest_lower" overlay "$guest_target"
+    fi
+    test -f "$guest_target/usr/lib/ld-linux-x86-64.so.2"
+    ;;
+  stop)
+    if mountpoint -q "$guest_target"; then umount "$guest_target"; fi
+    if mountpoint -q "$guest_lower"; then umount "$guest_lower"; fi
+    ;;
+  *) echo 'Usage: odin-steam-guest-mount start|stop' >&2; exit 2 ;;
+esac

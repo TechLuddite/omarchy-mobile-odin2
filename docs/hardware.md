@@ -30,6 +30,40 @@ reconnecting after keyboard off/on without another pairing code. Sustained
 connection, mouse off/on and Odin cold-boot reconnect remain pending.
 See [Bluetooth diagnosis](bluetooth.md).
 
+October 13 microphone follow-up: controlled speech from a video playing on
+another device is captured through codec DMIC3/SWR_MIC7 and transcribed by
+native Voxtype. Both direct ALSA and normal PipeWire tests passed; a normal
+reboot with the V3 board route retained capture and visible transcription.
+The proven boot/recovery backups remain intact. The user's own voice/dictation
+accuracy, sustained use and the 3.5 mm headset microphone remain untested.
+EasyEffects 8.3.0 and LSP LV2 are installed; capture did not depend on them.
+See [dictation evidence](dictation.md). The earlier source named Internal
+microphone used the jack's ADC2 probe and was not a proven onboard route.
+
+Native ARM64 Steam is installed, and the user signed in and downloaded games.
+Dead Cells' Linux x86-64 build now launches through Steam/FEX and renders an
+in-game scene after adding the missing guest library filesystem and preserving
+the container's library paths in its launcher. Steam enumerates Turnip Adreno
+740 with Mesa 26.2.4. Frame rate, sustained play and physical gamepad behavior
+remain unverified for Dead Cells. The user confirms Road to Vostok runs and
+works, with low FPS. Its game log reports Vulkan Forward+ on Turnip Adreno 740
+under Godot 4.6.3; numeric FPS, sustained stability and optimization remain open.
+The user also confirms Scavland installed, ran and **worked great**. Steam's
+launch record identifies its Windows x86-64 build through FEX and Proton
+Experimental. This is qualitative gameplay acceptance; no measured FPS or
+separate controller/audio acceptance is inferred.
+Subsequent timed startup reached the main menu in about 82 seconds; saved-map
+loads logged about 30–35 seconds. No startup optimization has been accepted.
+See [Steam installation and credits](steam.md).
+
+The user-requested [OBS display feed](obs-stream.md) is verified as H.264
+1280×720 at 30 FPS over key-only SSH to the host's local media URL. OBS reports
+playing and its source screenshot confirms the landscape Portal desktop. The
+capture starts/stops with viewers; game FPS impact, latency, hardware encoding
+and audio are not established by this screen-stream test.
+Scavland fullscreen subsequently produced a black feed while a native screenshot
+showed its menu. Desktop capture acceptance does not extend to gameplay capture.
+
 | Hardware or behavior | Candidate prior art | Acceptance on this device |
 |---|---|---|
 | Boot and recovery | ROCKNIX ABL, Renegade/Armbian boot images | Cold boot, warm reboot and shutdown; internal boot without removable media; repeatable bootloader/recovery entry |
@@ -47,7 +81,8 @@ See [Bluetooth diagnosis](bluetooth.md).
 | Wi-Fi | ath12k WCN7850 and board firmware | Scan/connect/reconnect, throughput, correct device identity; reconnect after sleep |
 | Bluetooth | QCA firmware and board identity fixes | Pair/reconnect, controller and audio profiles; unique address preserved |
 | Speakers and headphone jack | Qualcomm AudioReach/LPASS, AW amps, UCM | Left/right channels, volume, jack routing, mute and no pops after reboot/resume |
-| Microphone | Codec/audio UCM and DSP firmware | Actual recording and source selection; do not infer success from speaker playback |
+| Internal microphone | Codec/audio UCM and DSP firmware | Actual onboard speech recording and dictation; distinguish codec digital/LPASS candidates from the headphone-jack ADC2 route. Source enumeration and startup noise do not count as acceptance. |
+| 3.5 mm headset microphone | WCD938x ADC2, jack detection and AYN headset UCM | User-requested later check with an actual headset that has a microphone: jack insertion detects headphone and mic, selects the headset capture source, records recognizable speech, preserves headphone playback, and unplugging restores onboard source selection. Untested; onboard results do not establish a headset pass. |
 | USB device/host roles | DWC3/QCOM, gadget networking | PC connection, recovery access, host devices, role changes and disconnect handling |
 | Battery and charging | PMIC GLINK, UCSI/power supply | Accurate charge state, percentage and charging current; USB-C negotiation; powered-off charging |
 | Sleep and wake | Pocknix experimental s2idle stack | Repeated wake cycles with UFS/GPU/Wi-Fi/audio/input intact; measured battery drain; distinguish true sleep from screen-off fake suspend |

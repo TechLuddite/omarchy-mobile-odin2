@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Stage a Portal WCD DMIC2/3 boot candidate without changing proven images.
+"""Stage the Portal DMIC3/SWR_MIC7 candidate without changing proven images.
 
 The saved SM8550/0x1001f Android QRD audio configuration routes handset capture
 through codec DMIC2, with MIC BIAS3 powering codec DMIC2/3. The existing native
 DTB omits these board routes. Luke Johnson's WCD DMIC input patch (Pocknix)
-is already present in the running ROCKNIX kernel. This adds board routes only;
-it does not claim successful microphone acceptance or flash anything.
+is already present in the running ROCKNIX kernel. Luke Johnson's Pocknix Thor
+route supplied the DMIC3/SWR_MIC7 lead confirmed by controlled speech on this
+Portal. This adds two board route pairs only and never flashes the device.
 """
 import gzip
 import hashlib
@@ -16,10 +17,12 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "build/bootstrap"
-OUTPUT = ROOT / "build/microphone-candidate"
+OUTPUT = ROOT / "build/microphone-candidate-v3"
+# Direct capture establishes voice on SoundWire DMIC3 / TX input7. The
+# DMIC3 DAPM widget powers the shared clock pair containing that data channel,
+# as in Luke Johnson's Pocknix Thor route. Keep earlier artifacts intact.
 ROUTES = [
-    "DMIC2", "MIC BIAS3", "DMIC3", "MIC BIAS3",
-    "TX SWR_INPUT6", "DMIC2_OUTPUT", "TX SWR_INPUT7", "DMIC3_OUTPUT",
+    "DMIC3", "MIC BIAS3", "TX SWR_INPUT7", "DMIC3_OUTPUT",
 ]
 
 
@@ -36,6 +39,13 @@ def main():
     baseline_sha = "e8b2e3cb289c7db5ef6a430bcb598c78a0b3ea685566138e6fbc7af641409f07"
     if sha(baseline) != baseline_sha:
         raise SystemExit("The proven native image has changed; review the candidate's base first")
+    for name, expected in {
+        "Image": "286c9d215c2e859886f737ffee49b8d04ce8c324d14df7b3b9cc4d87b1162bf9",
+        "native-initramfs.cpio.gz": "b37bddcafe84e4f06937192ea810b3f9743c25616ea547121af62a29a9c9a3fa",
+        "odin2portal.dtb": "57aedc7331a1dbcb53e44f37eebb518838cbc04c40607e6181c63a9d88054b9b",
+    }.items():
+        if sha(BASE / name) != expected:
+            raise SystemExit(f"Baseline component changed: {name}")
     OUTPUT.mkdir(exist_ok=True)
     dtb = OUTPUT / "odin2portal-wcd-mic.dtb"
     shutil.copyfile(source_dtb, dtb)

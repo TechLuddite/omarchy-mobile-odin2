@@ -56,3 +56,20 @@ Restoring the images has not been tested. Any later recovery procedure must use
 the recorded LUNs/offsets and the same hardware, account for omitted userdata,
 and separately handle security state such as RPMB that ordinary LUN reads do not
 capture. Keep these device-specific images private.
+
+## Source repository boundary
+
+The public repository contains backup tooling and explanatory notes, never the
+backup payloads or capture manifests copied from private state. Private/build/
+download/reference roots and common archive/image/capture/key formats are ignored.
+`scripts/audit-public-tree.py` rejects these paths and binary blobs in the exact
+Git index, including force-staged files, and can inspect reachable history with
+`--history`. The local pre-commit hook invokes it. Keep explicit source-file
+staging and review alongside the guard; a new clone needs its own hook installed.
+
+October 13's checkpoint audit covers the complete staged source tree and
+reachable parent-repository blobs, with checks against the known local desktop
+password and OBS credential without printing them. The mapper submodule remains
+at its already published clean revision and is inspected separately. Local X
+drafts, device images, compatibility prefixes/saves, OBS scene backups, SSH state
+and raw capture evidence remain private. See [backlog](backlog.md).

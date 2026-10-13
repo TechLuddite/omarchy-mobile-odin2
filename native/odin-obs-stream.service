@@ -1,0 +1,11 @@
+[Unit]
+Description=Odin display feed for local OBS media sources
+
+[Service]
+ExecStart=%h/.local/bin/odin-obs-relay
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=8
+
+[Install]
+WantedBy=default.target

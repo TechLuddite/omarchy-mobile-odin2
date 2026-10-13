@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+case "${1:-status}" in
+  start|stop|restart) systemctl --user "$1" odin-obs-stream.service ;;
+  status)
+    systemctl --user --no-pager status odin-obs-stream.service
+    ;;
+  *) echo 'Usage: odin-obs-stream start|stop|restart|status' >&2; exit 2 ;;
+esac

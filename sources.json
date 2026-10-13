@@ -1,5 +1,5 @@
 {
-  "inspected_on": "2026-10-12",
+  "inspected_on": "2026-10-13",
   "purpose": "research pins, not yet a validated build manifest",
   "sources": [
     {
@@ -97,7 +97,81 @@
       "name": "pocknix-os",
       "url": "https://github.com/shuuri-labs/pocknix-os.git",
       "ref": "ba1de097fb0e0df07bcb32f05dc8e957d62090bc",
-      "local_path": "references/pocknix-os"
+      "local_path": "references/pocknix-os",
+      "files": [
+        {
+          "path": "kernel/sm8550/dts/qcom/qcs8550-ayn-thor.dts",
+          "sha256": "ff97024cd4650f917c1e9a28a5dfa3d610fc5559b52ce5c55b04548c65591add",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/kernel/sm8550/dts/qcom/qcs8550-ayn-thor.dts"
+        },
+        {
+          "path": "devices/sm8550/packages/pocknix-bsp-sm8550/HiFi-Thor.conf",
+          "sha256": "198e7bcc6c67e41bf988b76961c33a2167a9912b232b023f27d844545c23ba0f",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/devices/sm8550/packages/pocknix-bsp-sm8550/HiFi-Thor.conf"
+        },
+        {
+          "path": "packages/shared/pocknix-bsp-common/pocknix-fancontrol",
+          "sha256": "ff7334099436e25661b8c7d56233803aa487e4119d6bc195df7ed59d353ea35d",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-bsp-common/pocknix-fancontrol"
+        },
+        {
+          "path": "docs/pocknix-control.md",
+          "sha256": "d07372a3c551defa4ddd287cf375da919d758c44f8063973cdf8b4021c8f45d8",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/docs/pocknix-control.md"
+        },
+        {
+          "path": "packages/shared/pocknix-steam/PKGBUILD",
+          "sha256": "07224a7c95c11e7dae05a30367af24ca27a61976c148a5a067061ba4a3ddf15f",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-steam/PKGBUILD"
+        },
+        {
+          "path": "packages/shared/pocknix-steam/pocknix-steam-install",
+          "sha256": "2c882d6b263bacafba40552838f71f643d380cdab7c10ff1dab80722374e4fca",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-steam/pocknix-steam-install"
+        },
+        {
+          "path": "packages/shared/pocknix-steam/steam",
+          "sha256": "04aa5a7a108c7abb54f484e1bb55c71a09091b1cb1accf32e07b7d127c4c85e5",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-steam/steam"
+        },
+        {
+          "path": "packages/shared/pocknix-steam/steam.desktop",
+          "sha256": "542392ff7424b85dd863b13bdb47d8dc996ec11e5fc5edf8e43c293ca7b811ff",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-steam/steam.desktop"
+        },
+        {
+          "path": "packages/shared/pocknix-steam/steam-256.png",
+          "sha256": "4b2bce7864d7c90b8e13e7c33083a294593c4c8cf9add0f03cc20db571072f63",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-steam/steam-256.png"
+        },
+        {
+          "path": "LICENSE.md",
+          "sha256": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/LICENSE.md"
+        },
+        {
+          "path": "packages/shared/fex-rootfs/PKGBUILD",
+          "sha256": "65b954377efc73ff27e8a55b63f3f2aae06fced400bed79ccd632e6c81113b90",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/fex-rootfs/PKGBUILD"
+        },
+        {
+          "path": "packages/shared/pocknix-steam/pocknix-guestos-mount",
+          "sha256": "11f154b7cb073608f3bc3e92f109959e385b3dc1fc6f0f745d0056c94c4b83ad",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-steam/pocknix-guestos-mount"
+        },
+        {
+          "path": "packages/shared/pocknix-steam/pocknix-guestos.service",
+          "sha256": "49edaea47c8ab40545fa2fb8c6360875ef90c9e3de86bdf49e0dd89fdf71fa46",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-steam/pocknix-guestos.service"
+        },
+        {
+          "path": "packages/shared/pocknix-steam/graphics_provider.json",
+          "sha256": "f4edc5ee943377e00983fe145019022d0a64b561cde5a62c5442947d1a0f4d19",
+          "url": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/pocknix-steam/graphics_provider.json"
+        }
+      ],
+      "purpose": "Existing board/build research plus Luke Johnson's Thor DMIC3/SWR_MIC7 route used as a Portal microphone lead; fan/UI sources remain research-only; native ARM64 Steam layout/bootstrap and desktop wrapper adapted, with upstream icon installed; read-only FEX guest rootfs and Turnip overlay integration adapted for game launch",
+      "license": "GPL-2.0-or-later for adapted Steam glue; retained LICENSE.md"
     },
     {
       "name": "SeeFix",
@@ -187,6 +261,549 @@
       "version": "2.4.6-2",
       "architecture": "aarch64",
       "scope": "Installed signed Arch Linux ARM package; default graphical KeyboardDisplay agent attached to desktop session"
+    },
+    {
+      "repo": "MaSieS4Fun/SteamOS-ARM-SM8550",
+      "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550",
+      "ref": "3548c401e6d2193a8a9ba7ef08add7074ea53f9e",
+      "local_path": "references/steamos-arm-sm8550",
+      "purpose": "Research only: current handheld audio, kernel fixes and on-screen power/fan/RGB controls; no code deployed from this tree",
+      "license": "Original glue GPL-2.0; vendor components retain their notices; Decky plugins GPL-3.0-or-later",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "9f9d92346ad4373d45209824e90d7a982223ce78172a255dcf23b149d2370e27",
+          "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/blob/3548c401e6d2193a8a9ba7ef08add7074ea53f9e/README.md"
+        },
+        {
+          "path": "CREDITS.md",
+          "sha256": "f55150533ce20913ef1b615cc368a4774ae539e3e2db2c713b649df109b76601",
+          "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/blob/3548c401e6d2193a8a9ba7ef08add7074ea53f9e/CREDITS.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "d47972ba283fe325f5c2647f95bf8393a6fc9cb54ff87033dda6aee78fc7c1b9",
+          "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/blob/3548c401e6d2193a8a9ba7ef08add7074ea53f9e/LICENSE"
+        },
+        {
+          "path": "odin-overlay/usr/share/alsa/ucm2/AYN/Odin2/HiFi.conf",
+          "sha256": "590ca4477947cada1ec192efc636e017aeebcb118facf6df7582d7d6c67c4a2e",
+          "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/blob/3548c401e6d2193a8a9ba7ef08add7074ea53f9e/odin-overlay/usr/share/alsa/ucm2/AYN/Odin2/HiFi.conf"
+        },
+        {
+          "path": "odin-overlay/usr/lib/steamos/sm8550-audio-setup",
+          "sha256": "ee20a4d600cdd61e9f1a1830b13414f2f7766f1a47d5350b7d0fbb6dd7ad9349",
+          "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/blob/3548c401e6d2193a8a9ba7ef08add7074ea53f9e/odin-overlay/usr/lib/steamos/sm8550-audio-setup"
+        },
+        {
+          "path": "external-and-mods/Decky/sm8550/power-managment/py_modules/sm8550_power/hardware.py",
+          "sha256": "07253a63e850d3987ca8649e5f76db7f874b40cd67854ad7fc0901d798f80db2",
+          "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/blob/3548c401e6d2193a8a9ba7ef08add7074ea53f9e/external-and-mods/Decky/sm8550/power-managment/py_modules/sm8550_power/hardware.py"
+        },
+        {
+          "path": "external-and-mods/Decky/sm8550/power-managment/py_modules/sm8550_power/fans.py",
+          "sha256": "5de2b46eb894e6430eac85ff59d82e453ef82c273043ffefd3c6da2e85dc4ec1",
+          "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/blob/3548c401e6d2193a8a9ba7ef08add7074ea53f9e/external-and-mods/Decky/sm8550/power-managment/py_modules/sm8550_power/fans.py"
+        },
+        {
+          "path": "external-and-mods/Decky/sm8550/color-leds/py_modules/sm8550_led/controller.py",
+          "sha256": "2af1cfa4981ade0d66a4cee340944fff89167223092655ad42b9e4fa53a4e274",
+          "url": "https://github.com/MaSieS4Fun/SteamOS-ARM-SM8550/blob/3548c401e6d2193a8a9ba7ef08add7074ea53f9e/external-and-mods/Decky/sm8550/color-leds/py_modules/sm8550_led/controller.py"
+        }
+      ]
+    },
+    {
+      "repo": "hashtagbasit/SteamOS-ARM-Port",
+      "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port",
+      "ref": "4673fa6bfc8b6a598ef799ed0e88f98a9b045285",
+      "local_path": "references/steamos-arm-port",
+      "purpose": "Research only: current handheld audio, kernel fixes and on-screen power/fan/RGB controls; no code deployed from this tree",
+      "license": "Original glue GPL-2.0; vendor components retain their notices; Decky plugins GPL-3.0-or-later",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "2994c6bbc2c2f0ffbf9d2ffac2aef840f12f83f5388fbe59a5875b1175655d18",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/README.md"
+        },
+        {
+          "path": "CREDITS.md",
+          "sha256": "1447a4f37350b9b841299f954ffa5ffc5ac51a63bdf76f67351ef7861bbcd01b",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/CREDITS.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "da95ed6186770a6e61d0f7efc8752f50113d859ae6615e9f8eb05d5a62dcb910",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/LICENSE"
+        },
+        {
+          "path": "sm8550-overlay/usr/share/alsa/ucm2/AYN/Odin2/HiFi.conf",
+          "sha256": "471055329672367711047eccff15f114a1bd212761a129d8e5a60d77ee0c1a53",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/sm8550-overlay/usr/share/alsa/ucm2/AYN/Odin2/HiFi.conf"
+        },
+        {
+          "path": "external-and-mods/Decky/sm8550/power-managment/py_modules/sm8550_power/hardware.py",
+          "sha256": "3f127b177d6e5d25b386c5eb17f05575b2ce0566aedd23dac242c4f855f30fde",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/external-and-mods/Decky/sm8550/power-managment/py_modules/sm8550_power/hardware.py"
+        },
+        {
+          "path": "external-and-mods/Decky/dualscreen/lower-deck/main.py",
+          "sha256": "b50a0406392abbdf29d36d7c89a5b46ba45d6ac18d2600c40331bda15cf8d822",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/external-and-mods/Decky/dualscreen/lower-deck/main.py"
+        },
+        {
+          "path": "external-and-mods/kernel-sm8550/patches/0026-ASoC-qdsp6-q6apm-fail-the-graph-open-when-the-DSP-rejects-it.patch",
+          "sha256": "f981b50ca24eb92dc1caa6807d8e9ddceadd2aed5c156757759a55b6d059a854",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/external-and-mods/kernel-sm8550/patches/0026-ASoC-qdsp6-q6apm-fail-the-graph-open-when-the-DSP-rejects-it.patch"
+        },
+        {
+          "path": "external-and-mods/kernel-sm8550/patches/0027-ASoC-qdsp6-release-AudioReach-graphs-across-system-suspend.patch",
+          "sha256": "5dabe7f70a80830e70a3a9778884146f2e258fd5d1b4cfec2a2faa69fdbe7ad4",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/external-and-mods/kernel-sm8550/patches/0027-ASoC-qdsp6-release-AudioReach-graphs-across-system-suspend.patch"
+        },
+        {
+          "path": "sm8550-overlay/usr/share/alsa/ucm2/AYN/Thor/HiFi.conf",
+          "sha256": "272c7c08f634a2e0868e901840724288597431b7f322308369ddbcde7b2c5b1d",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/sm8550-overlay/usr/share/alsa/ucm2/AYN/Thor/HiFi.conf"
+        },
+        {
+          "path": "external-and-mods/kernel-sm8550/patches/0044-ASoC-wcd93xx-failed-zdet-ramp-is-a-floating-reading.patch",
+          "sha256": "e71953d894817fcd4260ccacd6e26bdac3e8d7cad4925b357a5d5d1576c031c1",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/external-and-mods/kernel-sm8550/patches/0044-ASoC-wcd93xx-failed-zdet-ramp-is-a-floating-reading.patch"
+        },
+        {
+          "path": "external-and-mods/kernel-sm8550/patches/0046-ASoC-wcd-mbhc-clear-stale-jack-report-on-mechanical-removal.patch",
+          "sha256": "14d34fe40a3ee3649b95fb83a5aacc8ce585439d078c2c3abe6c496d62f3db45",
+          "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/blob/4673fa6bfc8b6a598ef799ed0e88f98a9b045285/external-and-mods/kernel-sm8550/patches/0046-ASoC-wcd-mbhc-clear-stale-jack-report-on-mechanical-removal.patch"
+        }
+      ],
+      "release_inspected": {
+        "tag": "v1.3-beta10",
+        "published_at": "2026-10-02T06:34:56Z",
+        "url": "https://github.com/hashtagbasit/SteamOS-ARM-Port/releases/tag/v1.3-beta10",
+        "scope": "release claims, separate from October 9 source pin"
+      }
+    },
+    {
+      "repo": "torvalds/linux",
+      "url": "https://github.com/torvalds/linux",
+      "ref": "24a19b953e2a3d0ea5a8c4951a0ab8f32720c907",
+      "purpose": "Read-only WCD938x channel numbering and diagnostic register research; does not replace the running ROCKNIX kernel",
+      "license": "GPL-2.0; see file SPDX notices",
+      "files": [
+        {
+          "path": "sound/soc/codecs/wcd938x.h",
+          "sha256": "e11e4aec14484f00d2733d57addec6b45164b7c0e00f31d50675f8bf6dd53594",
+          "url": "https://github.com/torvalds/linux/blob/24a19b953e2a3d0ea5a8c4951a0ab8f32720c907/sound/soc/codecs/wcd938x.h"
+        },
+        {
+          "path": "sound/soc/codecs/wcd938x-sdw.c",
+          "sha256": "0c3b35a67fe57f7e1536919bee79fcd58ad5129b74b568179cc878a917aaf548",
+          "url": "https://github.com/torvalds/linux/blob/24a19b953e2a3d0ea5a8c4951a0ab8f32720c907/sound/soc/codecs/wcd938x-sdw.c"
+        }
+      ]
+    },
+    {
+      "repo": "wwmm/easyeffects",
+      "url": "https://github.com/wwmm/easyeffects",
+      "ref": "8.3.0",
+      "purpose": "Installed signed Arch Linux ARM package easyeffects 8.3.0-1; audio processing, not microphone acceptance",
+      "license": "GPL-3.0-only"
+    },
+    {
+      "repo": "lsp-plugins/lsp-plugins",
+      "url": "https://github.com/lsp-plugins/lsp-plugins",
+      "ref": "1.2.35",
+      "purpose": "Installed signed Arch Linux ARM package lsp-plugins-lv2 1.2.35-1 for EasyEffects modules",
+      "license": "LGPL-3.0-or-later"
+    },
+    {
+      "type": "controlled-speech-test-media",
+      "name": "We built 3 deranged Ai and had them play D&D",
+      "creator": "DougDoug",
+      "creator_url": "https://www.youtube.com/@DougDoug",
+      "url": "https://www.youtube.com/watch?v=TpYVyJBmH0g",
+      "ref": "TpYVyJBmH0g",
+      "identified_on": "2026-10-13",
+      "metadata_source": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTpYVyJBmH0g&format=json",
+      "production_credits": {
+        "editing": "CyVoltage",
+        "assistant_editing": "Tolekk",
+        "thumbnail_and_video_art": "Wafferscotch",
+        "source": "Video description"
+      },
+      "purpose": "User-authorized playback on another device supplied controlled acoustic speech for successful Portal onboard microphone capture and Voxtype transcription, including after warm reboot",
+      "rights": "Attribution only; no video, captured audio or transcript redistributed in this repository"
+    },
+    {
+      "name": "Valve native ARM64 Steam client",
+      "url": "https://client-update.steamstatic.com/steam_client_steamdeck_publicbeta_linuxarm64",
+      "ref": "1791856936",
+      "channel": "steamdeck_publicbeta",
+      "inspected_on": "2026-10-13",
+      "architecture": "AArch64 ELF client and steamui.so",
+      "license": "Valve proprietary Steam client; distributed separately by Valve, not in this repository",
+      "files": [
+        {
+          "name": "bins_linuxarm64_linuxarm64.zip",
+          "url": "https://client-update.steamstatic.com/bins_linuxarm64_linuxarm64.zip.1aa8d441995b889cdf503b9162d4d459c3c4f553",
+          "sha256": "9a83661b1d254596d680d64bb36f777d523cb59495c224307b5313276b586129",
+          "size": 110391868
+        }
+      ],
+      "purpose": "Hash-verified native ARM64 seed installed in the desktop user home; Valve updater downloads the remaining client payload"
+    },
+    {
+      "name": "Valve ARM64 Steam Runtime steamrt3c",
+      "url": "https://repo.steampowered.com/steamrt3c/images/3c.0.20260824.257593/",
+      "ref": "3c.0.20260824.257593",
+      "inspected_on": "2026-10-13",
+      "license": "Mixed component licenses; preserve Valve runtime notices in the extracted tree",
+      "files": [
+        {
+          "name": "steam-runtime-steamrt-arm64.tar.xz",
+          "url": "https://repo.steampowered.com/steamrt3c/images/3c.0.20260824.257593/steam-runtime-steamrt-arm64.tar.xz",
+          "sha256": "2f2be461b6a4360828e200e1644e18cd957eedc36a38e5a1e13a39276320b6e2",
+          "hash_source": "https://repo.steampowered.com/steamrt3c/images/3c.0.20260824.257593/SHA256SUMS"
+        }
+      ],
+      "purpose": "Hash-verified native ARM64 Steam runtime installed beside the client; libibus link follows Pocknix, legacy GTK2/GDK2 links resolve missing ALARM libraries, pressure-vessel launcher service supplies native runtime tools"
+    },
+    {
+      "name": "FEX-Emu RootFS",
+      "url": "https://github.com/FEX-Emu/RootFS",
+      "ref": "ArchLinux/2026-01-08",
+      "license": "Mixed Arch Linux x86 userspace licenses retained inside the image",
+      "purpose": "Required x86 userspace for the Valve-downloaded FEX compatibility tool; read-only guest library filesystem, not a VM or alternate host OS",
+      "files": [
+        {
+          "url": "https://rootfs.fex-emu.gg/ArchLinux/2026-01-08/ArchLinux.sqsh",
+          "sha256": "cb059973b7953ad9165845529655189b96f9a174b14a6a149c87ec884b0c5e90"
+        }
+      ]
+    },
+    {
+      "name": "Valve Steam FEX compatibility tool",
+      "url": "https://github.com/FEX-Emu/FEX",
+      "ref": "37265b109a4bba9e10241972dfcb3d1fdb8f3f9a",
+      "version": "FEX-2607-76-g37265b1",
+      "steam_app_id": 3127680,
+      "buildid": "24136555",
+      "license": "FEX MIT; preserve installed component notices",
+      "purpose": "Downloaded automatically by Steam; native AArch64 translation engine and graphics thunks used for the Linux x86 Dead Cells launch"
+    },
+    {
+      "name": "FEX guest Turnip overlay",
+      "url": "https://archive.archlinux.org/",
+      "ref": "vulkan-freedreno 26.2.4-1",
+      "purpose": "Only x86 guest Turnip library and two missing dependency libraries overlaid following pinned Pocknix recipe; original package licenses extracted beside the libraries",
+      "license": "Original package licenses retained; Mesa, libdisplay-info and xcb-util-keysyms authors retain copyright",
+      "files": [
+        {
+          "name": "vulkan-freedreno-26.2.4-1-x86_64.pkg.tar.zst",
+          "url": "https://archive.archlinux.org/packages/v/vulkan-freedreno/vulkan-freedreno-1%3A26.2.4-1-x86_64.pkg.tar.zst",
+          "sha256": "da30385afabfee1fba0456ff03e1a4f9d8168dc12679323f90bd496e5259e435"
+        },
+        {
+          "name": "libdisplay-info-0.3.0-1-x86_64.pkg.tar.zst",
+          "url": "https://archive.archlinux.org/packages/l/libdisplay-info/libdisplay-info-0.3.0-1-x86_64.pkg.tar.zst",
+          "sha256": "07ab1479ec5e70aea174e2d0e340bd9364b507ed74f2df3bfd51b3c6f40e5787"
+        },
+        {
+          "name": "xcb-util-keysyms-0.4.1-5-x86_64.pkg.tar.zst",
+          "url": "https://archive.archlinux.org/packages/x/xcb-util-keysyms/xcb-util-keysyms-0.4.1-5-x86_64.pkg.tar.zst",
+          "sha256": "312213911881c0742e2a825432feac761e863945b74bb3a6daca97a99778d35e"
+        }
+      ]
+    },
+    {
+      "name": "Installed Proton Experimental for Road to Vostok",
+      "url": "https://github.com/ValveSoftware/Proton",
+      "ref": "experimental-11.0-20261008-x86_64",
+      "version": "1791480010",
+      "inspected_on": "2026-10-13",
+      "architecture": "x86-64 Wine and wineserver, translated via Valve Steam FEX",
+      "license": "Proton BSD-3-Clause; Wine and bundled components retain their own notices",
+      "purpose": "Read-only identification of the working but low-FPS Road to Vostok route; Scavland launch logs also select Proton Experimental with FEX and the user reports it worked great. ARM64 Proton remains a future comparison, not installed by these observations.",
+      "documentation": "https://github.com/ValveSoftware/Proton#arm64-builds",
+      "installed_files": [
+        {
+          "path": "version",
+          "sha256": "e2dc436a90648081b0934399c0070b9a87afa5022f74ccf1f2c56d2c3a618409"
+        },
+        {
+          "path": "toolmanifest.vdf",
+          "sha256": "bb81d44a687cc6f4ea7ae05fa9f0502f35c48e462051809dce3b2a58492e3498"
+        },
+        {
+          "path": "files/bin/wine",
+          "sha256": "7a6de49c00d8ed2ba55c6967d3643c5ef729f5e562fb51e47e4f41c6cdb5c92a"
+        },
+        {
+          "path": "files/bin/wineserver",
+          "sha256": "d63136a1588b79250597ee9efbc4c1e1b45742485a66d4bc5ffbe5dc24d69a1d"
+        }
+      ]
+    },
+    {
+      "name": "Godot rendering documentation and RTV runtime observation",
+      "url": "https://docs.godotengine.org/en/4.6/tutorials/rendering/renderers.html",
+      "ref": "4.6 documentation; game reports 4.6.3.stable.official.7d41c59c4",
+      "inspected_on": "2026-10-13",
+      "purpose": "Official renderer and resolution scaling guidance for possible RTV performance comparisons; no game setting changes or performance gains claimed",
+      "related_url": "https://docs.godotengine.org/en/4.6/tutorials/rendering/multiple_resolutions.html",
+      "reuse": "Documentation research only; no engine or documentation code copied"
+    },
+    {
+      "repo": "ammen99/wf-recorder",
+      "url": "https://github.com/ammen99/wf-recorder",
+      "ref": "ca103be2473db0983baf74e17b291385c3c79d79",
+      "tag": "v0.6.0",
+      "installed_package": "wf-recorder 0.6.0-2 aarch64",
+      "license": "MIT",
+      "purpose": "Signed ARM display-capture package for the user-authorized Odin OBS video feed; no recorder source copied",
+      "references": [
+        {
+          "path": "manpage/wf-recorder.1",
+          "ref": "c5de47440e8e81c92befb696cb69819cdb3bfe8a",
+          "sha256": "6f79205cc30d86176e26aa6d6d4a78e71f867fb38d3cf4a1e52b41932f84c52e",
+          "url": "https://github.com/ammen99/wf-recorder/blob/c5de47440e8e81c92befb696cb69819cdb3bfe8a/manpage/wf-recorder.1"
+        }
+      ]
+    },
+    {
+      "repo": "obsproject/obs-studio",
+      "url": "https://github.com/obsproject/obs-studio",
+      "ref": "32.2.2",
+      "installed_package": "obs-studio 32.2.2-1 x86_64",
+      "license": "GPL-2.0-or-later; bundled components retain their licenses",
+      "purpose": "Existing host OBS media playback and dedicated Odin 2 Portal scene; no broadcast/recording started",
+      "documentation": "https://obsproject.com/kb/media-sources"
+    },
+    {
+      "repo": "obsproject/obs-websocket",
+      "url": "https://github.com/obsproject/obs-websocket",
+      "ref": "1ef34bf48110c2a18184e50e41cd0b1a855e2147",
+      "tag": "5.7.4",
+      "installed_version": "5.7.4",
+      "license": "GPL-2.0-or-later",
+      "purpose": "Existing authenticated local OBS RPC API for source setup and private source-frame verification; credentials never copied into project",
+      "references": [
+        {
+          "path": "docs/generated/protocol.md",
+          "ref": "e28f84975984340e84fc4879cfc05741cc0afde1",
+          "sha256": "05be4e286bbce53cb2643703480e0d4cc9f210e7418e5bfc94e6c6451339d60d",
+          "url": "https://github.com/obsproject/obs-websocket/blob/e28f84975984340e84fc4879cfc05741cc0afde1/docs/generated/protocol.md"
+        }
+      ]
+    },
+    {
+      "repo": "websocket-client/websocket-client",
+      "url": "https://github.com/websocket-client/websocket-client",
+      "ref": "1.9.2",
+      "license": "Apache-2.0",
+      "purpose": "OBS setup helper WebSocket transport installed in ignored isolated tools/obs-stream-venv; no dependency source copied"
+    },
+    {
+      "name": "Odin OBS encoder dependencies",
+      "url": "https://ffmpeg.org/",
+      "ref": "ffmpeg 9.0.2-2 ARM; ffmpeg 9.0.1-4 host; x264 0.165.r3222.b35605a-2 ARM",
+      "related_url": "https://www.videolan.org/developers/x264.html",
+      "license": "Original distribution/component licenses retained in installed packages",
+      "purpose": "Existing libav and libx264 for H.264/MPEG-TS; host ffprobe and FFmpeg decode validation. Video only, software encoder, no raw screen stream published in Git"
+    },
+    {
+      "repo": "CachyOS/proton-cachyos",
+      "url": "https://github.com/CachyOS/proton-cachyos",
+      "ref": "cachyos-11.0-20261005-slr",
+      "version": "1791145021",
+      "artifact": "proton-cachyos-11.0-20261005-slr-arm64.tar.xz",
+      "download_url": "https://github.com/CachyOS/proton-cachyos/releases/download/cachyos-11.0-20261005-slr/proton-cachyos-11.0-20261005-slr-arm64.tar.xz",
+      "sha256": "e59b646e73de4af21ff2f6c795b28e7b6c889214b3c6daf8e65a56634cd06c37",
+      "sha512": "81ca1b66e841d8f33acee1b1425d4854e3a3245860a6273e12dee1342bddca9ba7cdea41362aca14e33e6da93e4f01d69d281f1c7c59e3f720f97d6299b1c0fa",
+      "packaging_reference": "https://github.com/shuuri-labs/pocknix-os/blob/ba1de097fb0e0df07bcb32f05dc8e957d62090bc/packages/shared/proton-cachyos/PKGBUILD",
+      "license": "Original Proton/Wine/bundled component notices remain in extracted on-device tool; no runtime binary/source copied into public Git",
+      "purpose": "Verified ARM64 candidate extracted for Scavland startup comparison; not selected or tested; no speedup accepted",
+      "packaging_recipe_sha256": "dd705c096ce7775a4d0e49b46025bec153104e5c70871e3351209328059030eb"
     }
-  ]
+  ],
+  "application_inventory": {
+    "checked_on": "2026-10-13",
+    "document": "docs/apps.md",
+    "structured_record": "docs/apps.json",
+    "scope": "User-facing default apps, named optional app installers, browser launchers and developer setup appendix. Dependencies and OS/hardware packages excluded.",
+    "upstream_ref": "0534987009061cbe2dacdde4ad564092ab698d12",
+    "source_readback_utc": "2026-10-13T10:19:59.883985+00:00",
+    "standard_entries": 92,
+    "entries_including_appendices": 144,
+    "source_file_hashes": {
+      "/usr/share/omarchy/install/omarchy-base.packages": {
+        "sha256": "99434167d84b242050bbb32485679e92c29934fd5102df01265f7673612167fc"
+      },
+      "/usr/share/omarchy/default/omarchy/omarchy-menu.jsonc": {
+        "sha256": "8c791cfc457d6c50b90a6636a6f28c9415a2fa6e4edf84826906457b75649689"
+      },
+      "/usr/share/omarchy/install/user/mise.sh": {
+        "sha256": "742901d9d04252ca7db98484a9578a6e6749e953feb7d3c313d28ccd6b75af4f"
+      },
+      "/usr/share/omarchy/version": {
+        "sha256": "9d1aaeb0c16104d678742c04d6a8700fed365e7eb65a8eaef5fb3845ddf634e3"
+      },
+      "/usr/bin/omarchy-install-service-sunshine": {
+        "sha256": "768a2f5bee46469a491a447300320e020f5ac8ba256432461f4dbb38ccc86ca3"
+      },
+      "/usr/bin/omarchy-install-and-launch": {
+        "sha256": "bf459a4ad6ffebb9d4fcf1f9e9a1c98d64f4e2fcc301eed084b139952e3af161"
+      },
+      "/usr/bin/omarchy-install-gaming-geforce-now": {
+        "sha256": "c039bf511dc66a86af93c52b5445485ee9b592a7f54006e6dcdf637b35f0577c"
+      },
+      "/usr/bin/omarchy-install-chromium-copy-url": {
+        "sha256": "1a15e3a702cab1a3c9c19ccb7b5d8a39672717397c6184d9853b2ddfa305d096"
+      },
+      "/usr/bin/omarchy-install-chromium-google-account": {
+        "sha256": "20a13d310f31fd4724ad9be4695c78a9837bb66604da2f9241ac59d76c922f32"
+      },
+      "/usr/bin/omarchy-install-ai-openclaw": {
+        "sha256": "3f4cb7b2557e3d227f9a370f18aad2185b12abad15ea0419f65e5211f4c5c075"
+      },
+      "/usr/bin/omarchy-install-gaming-retroarch": {
+        "sha256": "aa2602bf6252a3a67428860885ca19f6878d689ef679d60d65637bb8c429cbbb"
+      },
+      "/usr/bin/omarchy-install-gaming-battlenet": {
+        "sha256": "7d687f439d9ea1b5de6cc7b5c8c054e8276fe3357e9792a67a6c5304e06dcfbb"
+      },
+      "/usr/bin/omarchy-install-gaming-heroic": {
+        "sha256": "c1536bde8a3ed65d0c7f434c15c08bd76f5d98981da9516c95cac51a69ef5f62"
+      },
+      "/usr/bin/omarchy-install-service-once": {
+        "sha256": "0d107d11baee0c3719798c563f02d163ef88e91a458d7bbe636e838d08e98663"
+      },
+      "/usr/bin/omarchy-install-service-signal": {
+        "sha256": "9b32534a7ff56b7ed6646c9bfdd4fed50ddec1538bf00b0e3391bb9b849b7db1"
+      },
+      "/usr/bin/omarchy-install-ai-chatgpt": {
+        "sha256": "27a1d71f3b80e1da6fde701afcd7c743a4292fdcdef6f44a12773270286341d3"
+      },
+      "/usr/bin/omarchy-install-editor-vscode": {
+        "sha256": "df25f1bddc920e7992efa6d3d9ccbaeb25943384572aa39b3d651e85fce53512"
+      },
+      "/usr/bin/omarchy-install-openclaw-cli": {
+        "sha256": "cdc3d3937d0924e731c8969ed58128955eba1ca56fc74c381abf950c1554be8e"
+      },
+      "/usr/bin/omarchy-install-service-spotify": {
+        "sha256": "5828b7146be7a5cfe82c16b903b04d360ea28a4398231b1efefd89eec3042c75"
+      },
+      "/usr/bin/omarchy-install-app": {
+        "sha256": "9827b90f4a864fdf788d5b1726e91a8105e5b8515fd8ab3635b4dd3c23db9563"
+      },
+      "/usr/bin/omarchy-install-ai-t3-code": {
+        "sha256": "299962ecf38cf1d5423fe41bdcda0f7078fd7f6f832909af6f09738b4d0fb2b0"
+      },
+      "/usr/bin/omarchy-install-gaming-xbox-cloud": {
+        "sha256": "02c50a1ddd6de2fcd0bdd5267ceb61b243720d745605e46dd72ce9f37394d747"
+      },
+      "/usr/bin/omarchy-install-chromium-ytdlp": {
+        "sha256": "c43978ceea348edfa8f5e124c87dbcb14463d1fb69f700b8ee0ed7ca08a25211"
+      },
+      "/usr/bin/omarchy-install-service-1password": {
+        "sha256": "5d5a5a9b3cf87579b4232067c9f7c78091cecf250111b802ffffa49c607f52d7"
+      },
+      "/usr/bin/omarchy-install-browser": {
+        "sha256": "bd9e97178359eafda0f2a5a47b63322514298e3c8681fe76d0de7044a7e9a1f7"
+      },
+      "/usr/bin/omarchy-install-terminal": {
+        "sha256": "41d1f9bb3d503e895795115236c2fe7146b5fe9184aec06de349137ad4f4069b"
+      },
+      "/usr/bin/omarchy-install-gaming-steam": {
+        "sha256": "1eb9a1cc76d0bb18085afd1a77553bb6dd420bcf2548dcd020cc256f1db14001"
+      },
+      "/usr/bin/omarchy-install-ai-hermes": {
+        "sha256": "200aafc9d3207e43f5f777c4d11d7943b019ab844840e14f2977b5e68761a31c"
+      },
+      "/usr/bin/omarchy-install-gaming-gpu-lib32": {
+        "sha256": "5fffa7e76d3d759fb69b9e69ac59750de620f35dbe5647c495405a360d928f7b"
+      },
+      "/usr/bin/omarchy-install-service-dropbox": {
+        "sha256": "90f36082ab995dc5e124996da15d551d058892eedbc7d290c93ded4f495ba6af"
+      },
+      "/usr/bin/omarchy-install-service-nordvpn": {
+        "sha256": "2767342aef4051cf3bfe62be355b076b49c024dfe2c960ce9733a709bebd53e6"
+      },
+      "/usr/bin/omarchy-install-dev-env": {
+        "sha256": "801a0fbd088dc7c1064ad45128371eb996037b5344c322feb1fc1d88e72b9a2c"
+      },
+      "/usr/bin/omarchy-install-docker-dbs": {
+        "sha256": "62a5a0e2c3b3e471e841b8060ad4f24f943107b0abeeb530914d8886a544851e"
+      },
+      "/usr/bin/omarchy-install-service-tailscale": {
+        "sha256": "a8497fce003a502cd60f174edd0fd6ea917debe93a068226e189c46f0540be3f"
+      },
+      "/usr/bin/omarchy-install-editor-zed": {
+        "sha256": "0f8660b13a25acf6d73034b89bab100178d42a484f28759bb7c112d78318fda1"
+      },
+      "/usr/bin/omarchy-install-gaming-lutris": {
+        "sha256": "b742e54d9bda2da2a8e98e6b236fcd050302919e4e25836bedf3f8dfcf3edbc8"
+      },
+      "/usr/bin/omarchy-install-gaming-xbox-controllers": {
+        "sha256": "c6d14f0d7b2dad0ccb52d135fce8b5a70038561650f8d30c9605bc32422b0bf1"
+      },
+      "/usr/bin/omarchy-install-editor-helix": {
+        "sha256": "b65a103491a5a6a18f724ba49a33bbb1c86e4b47a9f8f542977e701d5a411e10"
+      },
+      "/usr/bin/omarchy-install-editor-emacs": {
+        "sha256": "4817450e59a0f98fa4a4cfc74f7a95905173fdf6ab5936305fb8b5510b1fcf38"
+      },
+      "/usr/share/omarchy/applications/YouTube.desktop": {
+        "sha256": "fd1729e9e4656d61676a48efdab28bdbaf52827cc991a2ac1ec096769c608f49"
+      },
+      "/usr/share/omarchy/applications/Discord.desktop": {
+        "sha256": "be60efa1158755fe459d691decc3b805a9ffa93091a3080ebde1aa1665af247d"
+      },
+      "/usr/share/omarchy/applications/HEY.desktop": {
+        "sha256": "0f49e2b6ac2f3574bf840bcf40fc9c72bff2c1fa25baaedb4b4447d2599fb2b3"
+      },
+      "/usr/share/omarchy/applications/Google Photos.desktop": {
+        "sha256": "e28f27575a386fccfde05b189e90691ecb38bafdc4342de89db02bc5e4c2a3fc"
+      },
+      "/usr/share/omarchy/applications/WhatsApp.desktop": {
+        "sha256": "ef06856ce8a16dad7334914c0031d4bddd40a3b733fcd9df2cdb9e12ce83c3b9"
+      },
+      "/usr/share/omarchy/applications/Google Contacts.desktop": {
+        "sha256": "de038d569a4ba19df4c280d0b742619572f4bd43dd328868cb53e3e50276fe9b"
+      },
+      "/usr/share/omarchy/applications/X.desktop": {
+        "sha256": "364e6a3ca5b0c012a80bfc2f2c149baa286973017152a0e568b81a9f0a75230e"
+      },
+      "/usr/share/omarchy/applications/Google Messages.desktop": {
+        "sha256": "20abee44c63276b5ec2cda17cf89886d8acb8075ddfb0adc5fd51dba23acd885"
+      },
+      "/usr/share/omarchy/applications/Basecamp.desktop": {
+        "sha256": "d9835b032bdc3fa40dca861397adf07f7ad9b0dfba9a7d86840011bae7648f19"
+      },
+      "/usr/share/omarchy/applications/Zoom.desktop": {
+        "sha256": "b010601e19f64a9ad36c2b5c30cf33dd5e0915b42a72ed0622acf5b2970ea0b5"
+      },
+      "/usr/share/omarchy/applications/Google Maps.desktop": {
+        "sha256": "b8d54373ccdaf33299e3dec2ee07933f83b37247f33f4ac5ca7d338d11b75737"
+      }
+    },
+    "vendor_sources": [
+      "https://brave.com/linux/",
+      "https://code.visualstudio.com/download",
+      "https://cursor.com/download",
+      "https://github.com/LizardByte/Sunshine/releases/tag/v2026.914.233613",
+      "https://github.com/bitwarden/clients/releases/tag/desktop-v2026.9.1",
+      "https://github.com/localsend/localsend/releases/tag/v1.18.2",
+      "https://github.com/ollama/ollama/releases/tag/v0.40.3",
+      "https://github.com/zen-browser/desktop/releases/tag/1.23.2b",
+      "https://learn.microsoft.com/en-us/sql/linux/install-upgrade/setup?view=sql-server-ver17",
+      "https://lmstudio.ai/docs/app/system-requirements",
+      "https://obsidian.md/download",
+      "https://support.1password.com/install-linux/",
+      "https://www.pinta-project.com/howto/installing-pinta/",
+      "https://www.sublimetext.com/download",
+      "https://zed.dev/docs/linux"
+    ],
+    "verification": "Read-only package/command/launcher checks and cached ARM catalog inspection; source and metadata observations are separate from installation and functional acceptance. No app installations or device configuration changes in this inventory pass."
+  }
 }
