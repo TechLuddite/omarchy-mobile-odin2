@@ -10,7 +10,7 @@ Omarchy with root on sda18 and boot on sda17. Freedreno FD740 EGL and Turnip
 Adreno 740 Vulkan report hardware rendering. The display is upright at transform
 1, and the user confirmed opening/closing gestures after touch transform 1,
 keyboard dismissal and joining Wi-Fi. HTTPS works over Wi-Fi. Bluetooth powers
-on; mouse input is confirmed, while keyboard input remains pending.
+on; mouse pointer input, ThinkPad typing and TrackPoint movement are confirmed.
 Speaker/headphone sinks enumerate; audible output and microphone recording
 remain pending. The controller mapper recognizes the AYN
 gamepad and passes 44 native tests, including synthetic-pad integration tests;
@@ -22,10 +22,13 @@ Bluetooth input diagnosis found that the mouse and keyboard were trusted but
 unpaired/unbonded, with repeated missing-agent authentication errors. Blueman's
 visible agent is now running and attached to the desktop session, and the mobile
 panel distinguishes trust from actual pairing. The user confirms mouse pointer
-input after fresh pairing; its bond and HID interfaces are verified. The latest
-keyboard passcode attempt saved a local bond but failed reconnect and produced
-no keyboard input interfaces. Keyboard typing, sustained connection and
-peripheral off/on reconnect remain pending. See [Bluetooth diagnosis](bluetooth.md).
+input after fresh pairing; its bond and HID interfaces are verified. After
+clearing the failed keyboard pairing and entering the new code in Blueman's
+normal dialog, the ThinkPad also has a saved bond, a connection and keyboard/mouse
+interfaces. The user confirms typing, TrackPoint movement and both functions
+reconnecting after keyboard off/on without another pairing code. Sustained
+connection, mouse off/on and Odin cold-boot reconnect remain pending.
+See [Bluetooth diagnosis](bluetooth.md).
 
 | Hardware or behavior | Candidate prior art | Acceptance on this device |
 |---|---|---|

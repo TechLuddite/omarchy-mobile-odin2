@@ -37,6 +37,12 @@ Key-only user and full root SSH access also pass over Wi-Fi, with local discover
 at `odin2portal.local`. See [maintenance access](docs/access.md) for configuration,
 host aliases and verification limits.
 
+Bluetooth mouse input, ThinkPad keyboard typing and TrackPoint movement now
+pass after pairing through Blueman's visible authentication dialog. Saved bonds
+and input interfaces are verified, and keyboard off/on reconnect passes without
+another code. Mouse off/on, sustained use and Odin cold-boot checks remain open.
+See [Bluetooth acceptance](docs/bluetooth.md).
+
 Target: Omarchy and Hyprland running directly on the Odin 2 Portal, with the operating
 system on internal UFS storage and no Android dual boot. Installation must work
 without a microSD card. The saved Android vendor image identifies the device as

@@ -4,6 +4,15 @@ The user reported that a Razer Basilisk X and a ThinkPad Compact Bluetooth
 Keyboard with TrackPoint appeared to pair but repeatedly failed to stay usable.
 Diagnosis and configuration work used the verified Wi-Fi SSH connection.
 
+Current acceptance: the user confirms ThinkPad keyboard typing and TrackPoint
+pointer movement after a fresh six-digit passcode pairing through the normal
+Pair flow. Both the ThinkPad and Basilisk X report Paired, Bonded, Trusted and
+Connected, with their corresponding input interfaces. The user also confirms
+keyboard typing and TrackPoint reconnect after off/on without another code.
+Mouse off/on and Odin cold-boot acceptance remain separate checks. BlueZ, Blueman, the upstream
+kernel's generic HID driver, Simon Schubert's panel and Omarchy supplied the
+working components; no new keyboard driver was needed for this input pass.
+
 ## Confirmed before repair
 
 - The WCN7850 Bluetooth firmware loads; hci0 is powered and not rfkill-blocked.
@@ -132,21 +141,50 @@ guard passed. No fresh Pair or keyboard-input acceptance is claimed for it.
 The diagnostic passcode display is retained privately, rather than installed
 as a permanent controller observer.
 
-The user is away and cannot enter codes. No fresh pairing is started while they
-are away. Resume with a controlled fresh pairing through the candidate wizard,
-then verify local bond, connection, actual typing and TrackPoint input before
-connecting the wizard to the normal Pair button. If reconnect still fails,
+The user went away and could not enter codes, so no fresh pairing was started
+while they were away. The planned next test was a controlled pairing through
+the candidate wizard. If reconnect still fails,
 collect a security-event trace with wide btmon columns so command names are not
 truncated; keep keys and input reports excluded.
 
+## Successful normal pairing and physical input
+
+When the user returned, the keyboard still had a saved local bond but was
+disconnected and had no input interfaces. The mouse was connected. The failed
+keyboard state was backed up privately in a root-only directory on the Odin,
+then only that keyboard record was removed for fresh pairing. Discovery found
+the keyboard again. The candidate wizard was staged at
+`/usr/local/bin/odin-bluetooth-pair`, but no candidate Pair call was started.
+
+The user paired again through the normal dialog, saw its six-digit code, typed
+it on the ThinkPad keyboard and pressed Enter. The installed mobile helper
+still uses Blueman's default agent; this success does not validate the candidate
+wizard. Readback verified Paired/Bonded/Trusted/Connected all yes for both
+peripherals. The kernel exposed ThinkPad Keyboard, Mouse, Wireless Radio Control
+and additional HID interfaces through UHID and `hid-generic` (17EF:6048).
+The user explicitly confirmed both terminal typing (`echo bluetooth-ok`) and
+TrackPoint pointer movement. Ordinary keystrokes were not captured.
+
+The user then powered the ThinkPad keyboard off for three seconds and back on
+for one second, without Fn+Delete. They confirmed that typing and TrackPoint
+both reconnected without a code. Follow-up readback again reports all four
+pairing/connection flags yes for both peripherals and exposes the ThinkPad
+input interfaces. This accepts one keyboard power-cycle reconnect, not a
+Bluetooth-service restart, mouse power cycle, sustained-use or Odin cold-boot test.
+
+Keep the working normal Pair flow. The experimental wizard remains separate
+until its own real pairing test is accepted; replacing a working default agent
+is not required to make pairing part of the normal connection process.
+
 ## Next acceptance
 
-1. Pair the keyboard with its displayed passcode entered on the keyboard,
-   then verify actual typing and TrackPoint input.
+1. Keyboard passcode entry, actual typing and TrackPoint input passed through
+   the normal Pair flow.
    [Lenovo's guide](https://download.lenovo.com/pccbbs/options/0b40361.pdf) describes
    Fn+Delete for switching a previously connected keyboard into pairing mode
    and entering the displayed passcode followed by Enter on the keyboard.
-2. Test reconnect after peripheral off/on, then sustained connection. Restart
+2. Keyboard off/on reconnect without Fn+Delete or re-pairing passed. Test
+   mouse off/on and sustained connection. Restart
    the Bluetooth service or controller only after the working bond is saved
    and a concrete reconnection test is ready. A later cold boot remains separate.
 
