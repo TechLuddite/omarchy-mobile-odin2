@@ -1,0 +1,5 @@
+# AYN Odin 2 Portal RSInput gamepad (2020:3001).
+# The dedicated BTN_BACK is in the mouse-button range, so input_id can choose
+# mouse classification despite the gamepad axes/buttons. SDL/Steam need the
+# joystick tag. Match only this physical input device; leave paddles untouched.
+SUBSYSTEM=="input", KERNEL=="event*|js*", ATTRS{name}=="AYN Odin2 Gamepad", ATTRS{id/bustype}=="0003", ATTRS{id/vendor}=="2020", ATTRS{id/product}=="3001", ENV{ID_INPUT_JOYSTICK}="1", ENV{ID_INPUT_MOUSE}=""
