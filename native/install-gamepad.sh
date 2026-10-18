@@ -6,6 +6,7 @@ plugin=$2
 install -Dm755 "$assets/omarchy-gamepad-mapping" /usr/local/bin/omarchy-gamepad-mapping
 install -Dm755 "$assets/omarchy-mobile-toggle-keyboard" /usr/local/bin/omarchy-mobile-toggle-keyboard
 install -Dm644 "$assets/90-omarchy-uinput.rules" /etc/udev/rules.d/90-omarchy-uinput.rules
+install -Dm644 "$assets/60-odin2-gamepad-joystick.rules" /etc/udev/rules.d/60-odin2-gamepad-joystick.rules
 install -Dm644 "$assets/gamepad-mapping.desktop" /usr/local/share/applications/gamepad-mapping.desktop
 echo uinput > /etc/modules-load.d/omarchy-gamepad.conf
 for user_home in /etc/skel /home/techluddite; do
